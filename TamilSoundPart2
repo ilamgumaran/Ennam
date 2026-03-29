@@ -1,0 +1,965 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tamil Characters — From Natural Sound to Structured Expression</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=JetBrains+Mono:wght@300;400&family=Noto+Serif+Tamil:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink: #1a1410;
+  --parchment: #f5f0e8;
+  --gold: #c4943a;
+  --gold-dim: #a07830;
+  --rust: #8b3a2a;
+  --teal: #2a6b5e;
+  --clay: #6b4a3a;
+  --sand: #d4c4a8;
+  --cream: #faf6ee;
+  --deep: #1a1410;
+  --rose: #9b4a4a;
+  --violet: #5a3a6a;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  background: var(--parchment);
+  color: var(--ink);
+  line-height: 1.7;
+  font-size: 17px;
+}
+
+/* ===== HERO ===== */
+.hero {
+  min-height: 70vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background: linear-gradient(170deg, #1a1410 0%, #2a1e16 40%, #3a2a1e 100%);
+  color: var(--parchment);
+  padding: 3rem 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: radial-gradient(ellipse at 30% 50%, rgba(196,148,58,0.06) 0%, transparent 60%),
+              radial-gradient(ellipse at 70% 30%, rgba(139,58,42,0.04) 0%, transparent 50%);
+}
+
+.hero > * { position: relative; z-index: 1; }
+
+.hero-label {
+  font-size: 0.7rem;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 1.5rem;
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.hero h1 {
+  font-size: clamp(2rem, 5vw, 4rem);
+  font-weight: 300;
+  line-height: 1.2;
+  max-width: 16ch;
+  margin-bottom: 1rem;
+}
+
+.hero h1 em { color: var(--gold); font-style: italic; }
+
+.hero-sub {
+  font-size: 1.1rem;
+  max-width: 45ch;
+  opacity: 0.7;
+  line-height: 1.8;
+  font-weight: 300;
+}
+
+/* ===== NAV ===== */
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(245,240,232,0.95);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--sand);
+  padding: 0.6rem 2rem;
+  display: flex;
+  gap: 1.5rem;
+  overflow-x: auto;
+  font-size: 0.65rem;
+  font-family: 'JetBrains Mono', monospace;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.nav a {
+  color: var(--clay);
+  text-decoration: none;
+  white-space: nowrap;
+  transition: color 0.3s;
+}
+
+.nav a:hover { color: var(--rust); }
+
+/* ===== SECTIONS ===== */
+.section {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 4rem 2rem;
+}
+
+.section-number {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.6rem;
+  letter-spacing: 0.3em;
+  color: var(--gold);
+  text-transform: uppercase;
+  margin-bottom: 0.75rem;
+}
+
+.section h2 {
+  font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+  font-weight: 300;
+  line-height: 1.2;
+  margin-bottom: 1.5rem;
+}
+
+.section h2 em { color: var(--rust); font-style: italic; }
+
+.section h3 {
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin: 2.5rem 0 0.75rem;
+  color: var(--teal);
+}
+
+.section p { margin-bottom: 1.1rem; font-size: 1rem; }
+
+/* ===== DIVIDERS ===== */
+.divider {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.divider::before, .divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--sand);
+}
+
+.divider span {
+  font-family: 'Noto Serif Tamil', serif;
+  color: var(--gold);
+  font-size: 1.2rem;
+}
+
+/* ===== HIGHLIGHT ===== */
+.hl {
+  background: var(--cream);
+  border-left: 3px solid var(--gold);
+  padding: 1.25rem 1.5rem;
+  margin: 1.5rem 0;
+  border-radius: 0 4px 4px 0;
+  font-size: 0.95rem;
+}
+
+.hl.teal { border-left-color: var(--teal); }
+.hl.rust { border-left-color: var(--rust); }
+.hl.violet { border-left-color: var(--violet); }
+
+/* ===== VOWEL GRID ===== */
+.vowel-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 1rem;
+  margin: 1.5rem 0;
+}
+
+.vowel-card {
+  background: var(--cream);
+  border-radius: 6px;
+  padding: 1rem;
+  text-align: center;
+  transition: transform 0.3s, box-shadow 0.3s;
+  border-top: 3px solid var(--gold);
+}
+
+.vowel-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(26,20,16,0.08);
+}
+
+.vowel-card .tamil {
+  font-family: 'Noto Serif Tamil', serif;
+  font-size: 2.5rem;
+  color: var(--rust);
+  line-height: 1.2;
+}
+
+.vowel-card .trans {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.75rem;
+  color: var(--clay);
+  margin: 0.25rem 0;
+}
+
+.vowel-card .ipa {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.65rem;
+  color: var(--teal);
+  margin-bottom: 0.3rem;
+}
+
+.vowel-card .desc {
+  font-size: 0.78rem;
+  color: var(--ink);
+  line-height: 1.4;
+}
+
+.vowel-card .natural {
+  font-size: 0.72rem;
+  color: var(--gold-dim);
+  margin-top: 0.5rem;
+  font-style: italic;
+}
+
+/* ===== CONSONANT TABLE ===== */
+.cons-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5rem 0;
+  font-size: 0.88rem;
+}
+
+.cons-table th {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.6rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--clay);
+  padding: 0.75rem 0.5rem;
+  text-align: left;
+  border-bottom: 2px solid var(--sand);
+}
+
+.cons-table td {
+  padding: 0.75rem 0.5rem;
+  border-bottom: 1px solid rgba(212,196,168,0.5);
+  vertical-align: top;
+}
+
+.cons-table .tamil-cell {
+  font-family: 'Noto Serif Tamil', serif;
+  font-size: 1.6rem;
+  color: var(--rust);
+  text-align: center;
+  width: 60px;
+}
+
+.cons-table .type-tag {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.55rem;
+  padding: 2px 6px;
+  border-radius: 3px;
+  display: inline-block;
+  margin-bottom: 0.25rem;
+}
+
+.hard { background: rgba(139,58,42,0.12); color: var(--rust); }
+.soft { background: rgba(42,107,94,0.12); color: var(--teal); }
+.med { background: rgba(160,120,48,0.12); color: var(--gold-dim); }
+
+/* ===== UYIRMEI GRID ===== */
+.uyirmei-container {
+  overflow-x: auto;
+  margin: 1.5rem 0;
+}
+
+.uyirmei-table {
+  border-collapse: collapse;
+  font-size: 0.7rem;
+  min-width: 800px;
+}
+
+.uyirmei-table th {
+  font-family: 'Noto Serif Tamil', serif;
+  font-size: 0.9rem;
+  color: var(--gold-dim);
+  padding: 0.4rem;
+  text-align: center;
+  border-bottom: 2px solid var(--sand);
+  position: sticky;
+  top: 0;
+  background: var(--parchment);
+}
+
+.uyirmei-table td {
+  font-family: 'Noto Serif Tamil', serif;
+  font-size: 0.85rem;
+  text-align: center;
+  padding: 0.3rem;
+  border: 1px solid rgba(212,196,168,0.3);
+  color: var(--ink);
+  transition: background 0.2s;
+}
+
+.uyirmei-table td:hover {
+  background: rgba(196,148,58,0.1);
+}
+
+.uyirmei-table .row-header {
+  font-size: 1rem;
+  color: var(--rust);
+  font-weight: 600;
+  position: sticky;
+  left: 0;
+  background: var(--parchment);
+  border-right: 2px solid var(--sand);
+  width: 40px;
+}
+
+/* ===== JOURNEY BLOCKS ===== */
+.journey {
+  display: grid;
+  grid-template-columns: 50px 1fr;
+  gap: 0 1.5rem;
+  margin: 2rem 0;
+}
+
+.journey-line {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.journey-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--gold);
+  flex-shrink: 0;
+}
+
+.journey-stem {
+  width: 2px;
+  flex: 1;
+  background: linear-gradient(to bottom, var(--gold), var(--sand));
+}
+
+.journey-content {
+  padding-bottom: 2rem;
+}
+
+.journey-content h4 {
+  font-size: 1.1rem;
+  color: var(--teal);
+  margin-bottom: 0.5rem;
+}
+
+.journey-content p {
+  font-size: 0.92rem;
+  margin-bottom: 0.5rem;
+}
+
+.journey-content .example {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.75rem;
+  background: var(--cream);
+  padding: 0.5rem 0.75rem;
+  border-radius: 4px;
+  margin: 0.5rem 0;
+  color: var(--clay);
+}
+
+/* ===== DARK BLOCKS ===== */
+.dark-block {
+  background: linear-gradient(135deg, #1a1410, #2a2018);
+  color: var(--parchment);
+  padding: 2rem;
+  border-radius: 6px;
+  margin: 1.5rem 0;
+}
+
+.dark-block h4 {
+  color: var(--gold);
+  font-size: 1.1rem;
+  margin-bottom: 0.75rem;
+}
+
+.dark-block p { opacity: 0.85; font-size: 0.92rem; }
+
+/* ===== TEAL BLOCK ===== */
+.teal-block {
+  background: linear-gradient(135deg, var(--teal), #3a8b7a);
+  color: white;
+  padding: 2rem;
+  border-radius: 6px;
+  margin: 1.5rem 0;
+}
+
+.teal-block h4 { font-size: 1.2rem; margin-bottom: 0.75rem; }
+.teal-block p { opacity: 0.9; font-size: 0.95rem; }
+
+/* ===== FOOTER ===== */
+.footer {
+  text-align: center;
+  padding: 3rem 2rem;
+  background: var(--ink);
+  color: var(--parchment);
+}
+
+.footer .tamil-close {
+  font-family: 'Noto Serif Tamil', serif;
+  font-size: 1.5rem;
+  color: var(--gold);
+  opacity: 0.6;
+  margin-bottom: 0.5rem;
+}
+
+.footer p { opacity: 0.4; font-size: 0.8rem; }
+
+@media (max-width: 600px) {
+  .vowel-grid { grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); }
+  .section { padding: 3rem 1.25rem; }
+  .cons-table { font-size: 0.78rem; }
+  .journey { grid-template-columns: 30px 1fr; gap: 0 1rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-label">Part II — From Sound to Structure</div>
+  <h1>Every Sound a <em>Living Thing</em></h1>
+  <p class="hero-sub">All 247 Tamil characters mapped to their origins in breath, body, nature, and the primal sounds that all creatures make before language teaches them to forget.</p>
+</section>
+
+<!-- NAV -->
+<nav class="nav">
+  <a href="#primal">Primal Sound</a>
+  <a href="#vowels">12 Vowels</a>
+  <a href="#consonants">18 Consonants</a>
+  <a href="#uyirmei">216 Living Letters</a>
+  <a href="#aayutham">The Null Character</a>
+  <a href="#journey">Sound → Expression</a>
+  <a href="#structure">Logical Structure</a>
+</nav>
+
+<!-- 01: PRIMAL SOUND -->
+<section class="section" id="primal">
+  <div class="section-number">01 — The Origin Layer</div>
+  <h2>Before Language: <em>Primal Sound</em></h2>
+
+  <p>Before any grammar, before any alphabet, there is <strong>sound</strong>. Every creature that breathes produces it. A newborn's first cry. A cat's purr. Thunder. Running water. The wind through leaves. These are not language, but they are the <em>raw material</em> from which all language is quarried.</p>
+
+  <p>What Tamil understood — and encoded directly into its script's naming — is that this raw material is not random. It has a structure. It has two fundamental components:</p>
+
+  <div class="hl teal">
+    <strong>Breath</strong> — the open, unobstructed flow of air through the vocal tract. This is what babies produce first: open vowel sounds. "Ahhh," "ohhh," "eee." These sounds require no tongue placement, no lip closure, no learned coordination. They are the pure expression of being alive. Tamil calls these <strong>uyir</strong> — soul.<br><br>
+    <strong>Contact</strong> — the moment when some part of the mouth (lips, tongue, palate) interrupts the airflow. This creates consonants: the "p" of lips meeting, the "k" of tongue hitting soft palate, the "t" of tongue on the ridge behind the teeth. These require physical structure — body shaping breath. Tamil calls these <strong>mei</strong> — body.
+  </div>
+
+  <h3>What Babies Teach Us About Sound</h3>
+
+  <p>Developmental linguistics confirms what Tamil's naming system claims. Here is the sequence of human vocal development — and it maps almost perfectly onto Tamil's letter classification:</p>
+
+  <div class="dark-block">
+    <h4>Stage 1: Pure Vowels (Birth – 3 months)</h4>
+    <p>Newborns produce <strong>vowel-like sounds</strong> first. Cooing: "aah," "ooh," "eee." These are the sounds of unobstructed breath. They are produced in the back of the mouth as air flows freely. No learned coordination. Pure uyir — pure soul.</p>
+  </div>
+
+  <div class="dark-block">
+    <h4>Stage 2: Back-of-Mouth Contact (2 – 4 months)</h4>
+    <p>The tongue begins meeting the soft palate. "Ggg," "kkk" — velar sounds. In Tamil, these are the first pair: <strong>க் (ka)</strong> and <strong>ங் (nga)</strong>. The baby is learning that body (mei) can shape breath (uyir).</p>
+  </div>
+
+  <div class="dark-block">
+    <h4>Stage 3: Lip Sounds (4 – 6 months)</h4>
+    <p>Lips come together: "mmm," "bbb," "ppp" — bilabials. In Tamil: <strong>ப் (pa)</strong> and <strong>ம் (ma)</strong>. These are the sounds of feeding — the nasal murmur during breastfeeding becomes "mmm," released as "ma." This is why "amma" (mother) and "appa" (father) are among the first words in Tamil, and "mama," "papa," "baba" appear in virtually every language on Earth.</p>
+  </div>
+
+  <div class="dark-block">
+    <h4>Stage 4: Tongue-Ridge Contact (5 – 7 months)</h4>
+    <p>The tongue tip finds the alveolar ridge: "ttt," "ddd," "nnn." In Tamil: <strong>த் (tha)</strong>, <strong>ந் (na)</strong>, and later the retroflexes <strong>ட் (ta)</strong>, <strong>ண் (na)</strong> when the tongue curls back. The body is now sculpting breath with increasing precision.</p>
+  </div>
+
+  <div class="dark-block">
+    <h4>Stage 5: Babbling = Uyirmei (6 – 10 months)</h4>
+    <p>Consonant + vowel combinations: "ba-ba-ba," "ma-ma-ma," "da-da-da." This is <strong>uyirmei</strong> — soul merging with body. The baby has discovered that meaning lives in the <em>combination</em>. Reduplication (repeating syllables) is the baby's first grammar — and it is also how Tamil creates onomatopoeia (irattai kilavi: doubled words).</p>
+  </div>
+
+  <div class="hl">
+    <strong>The insight:</strong> Tamil's script taxonomy — uyir (soul), mei (body), uyirmei (living letters) — is not metaphor. It is a precise description of how all humans naturally produce sound, in the same order, across every culture. Babies are Tamil grammarians before they are anything else.
+  </div>
+
+</section>
+
+<div class="divider"><span>☉</span></div>
+
+<!-- 02: VOWELS -->
+<section class="section" id="vowels">
+  <div class="section-number">02 — The 12 Soul Letters</div>
+  <h2>உயிர் எழுத்து — <em>Vowels</em> as Breath-States</h2>
+
+  <p>Each vowel is a specific shape of open breath. No obstruction. The mouth, jaw, and tongue adopt a position, but air flows freely. Tamil classifies these into <strong>kuril</strong> (short — 1 maattirai duration) and <strong>nedil</strong> (long — 2 maattirai), plus two diphthongs. Duration is meaning. The same mouth-shape, held longer, becomes a different letter.</p>
+
+  <div class="vowel-grid">
+    <div class="vowel-card">
+      <div class="tamil">அ</div>
+      <div class="trans">a (short)</div>
+      <div class="ipa">/a/ · 1 maattirai</div>
+      <div class="desc">Mouth open, jaw dropped, tongue low. The most natural vowel — the sound of the open throat.</div>
+      <div class="natural">Baby's first cry. The gasp. A sigh of relief. Animals in distress.</div>
+    </div>
+
+    <div class="vowel-card">
+      <div class="tamil">ஆ</div>
+      <div class="trans">aa (long)</div>
+      <div class="ipa">/aː/ · 2 maattirai</div>
+      <div class="desc">Same open position, held. Duration doubles — from flash to sustained note.</div>
+      <div class="natural">A sustained call. "Aaa!" of wonder. A howl. A mother calling from far.</div>
+    </div>
+
+    <div class="vowel-card">
+      <div class="tamil">இ</div>
+      <div class="trans">i (short)</div>
+      <div class="ipa">/i/ · 1 maattirai</div>
+      <div class="desc">Tongue high and forward. Lips slightly spread. The tightest, brightest vowel.</div>
+      <div class="natural">A squeak. A baby's squeal. A bird's chirp. Quick, high energy.</div>
+    </div>
+
+    <div class="vowel-card">
+      <div class="tamil">ஈ</div>
+      <div class="trans">ii (long)</div>
+      <div class="ipa">/iː/ · 2 maattirai</div>
+      <div class="desc">Same high-front position, sustained. A focused beam of sound.</div>
+      <div class="natural">An insect's buzz-pitch. A sustained whistle. A whine of need.</div>
+    </div>
+
+    <div class="vowel-card">
+      <div class="tamil">உ</div>
+      <div class="trans">u (short)</div>
+      <div class="ipa">/u/ · 1 maattirai</div>
+      <div class="desc">Tongue high and back. Lips rounded. Dark, contained sound.</div>
+      <div class="natural">An owl's hoot. A short grunt. A startled "uh!"</div>
+    </div>
+
+    <div class="vowel-card">
+      <div class="tamil">ஊ</div>
+      <div class="trans">uu (long)</div>
+      <div class="ipa">/uː/ · 2 maattirai</div>
+      <div class="desc">Sustained lip rounding. The deepest, most resonant vowel.</div>
+      <div class="natural">Wind through a tube. A cow's moo. The "oooo" of awe or mourning.</div>
+    </div>
+
+    <div class="vowel-card">
+      <div class="tamil">எ</div>
+      <div class="trans">e (short)</div>
+      <div class="ipa">/e/ · 1 maattirai</div>
+      <div class="desc">Tongue mid-front. Between open /a/ and tight /i/. The questioning vowel.</div>
+      <div class="natural">A bleat. "Eh?" — the sound of noticing. A baby's vocal exploration.</div>
+    </div>
+
+    <div class="vowel-card">
+      <div class="tamil">ஏ</div>
+      <div class="trans">ee (long)</div>
+      <div class="ipa">/eː/ · 2 maattirai</div>
+      <div class="desc">Sustained mid-front. Deliberate, calling, directional.</div>
+      <div class="natural">"Hey!" — a calling sound. A goat's sustained cry. Beckoning.</div>
+    </div>
+
+    <div class="vowel-card">
+      <div class="tamil">ஐ</div>
+      <div class="trans">ai (diphthong)</div>
+      <div class="ipa">/aɪ/ · 1.5 maattirai</div>
+      <div class="desc">Starts open /a/, glides to high /i/. A vowel in motion — sound traveling through the mouth.</div>
+      <div class="natural">A cry of surprise. A hawk's call. Rising emotion made audible.</div>
+    </div>
+
+    <div class="vowel-card">
+      <div class="tamil">ஒ</div>
+      <div class="trans">o (short)</div>
+      <div class="ipa">/o/ · 1 maattirai</div>
+      <div class="desc">Tongue mid-back, lips rounded. Balanced between brightness and depth.</div>
+      <div class="natural">"Oh" — recognition. A dove's coo. A moment of understanding.</div>
+    </div>
+
+    <div class="vowel-card">
+      <div class="tamil">ஓ</div>
+      <div class="trans">oo (long)</div>
+      <div class="ipa">/oː/ · 2 maattirai</div>
+      <div class="desc">Sustained mid-back rounding. Full, resonant, ceremonial.</div>
+      <div class="natural">A chant. "Om" without the closing. A sustained horn. Reverence.</div>
+    </div>
+
+    <div class="vowel-card">
+      <div class="tamil">ஔ</div>
+      <div class="trans">au (diphthong)</div>
+      <div class="ipa">/aʊ/ · 1.5 maattirai</div>
+      <div class="desc">Opens at /a/, rounds to /u/. A vowel that folds inward — sound retreating into the body.</div>
+      <div class="natural">"Ow!" — pain. A dog's howl. The sound of recoiling. Descent.</div>
+    </div>
+  </div>
+
+  <div class="teal-block">
+    <h4>The Vowel-Space as an Emotional Map</h4>
+    <p>The 12 vowels form a map of the mouth — and a map of primal emotional expression. Open /a/ = vulnerability, exposure, maximum resonance. High-front /i/ = alertness, sharpness, pointing outward. High-back /u/ = depth, containment, turning inward. The diphthongs /ai/ and /au/ are <em>emotional trajectories</em> — sound moving through the mouth-space, enacting the experience of surprise (rising) or recoiling (falling). Duration (short vs long) adds the dimension of intensity: a flash of feeling vs. a sustained state.</p>
+  </div>
+
+</section>
+
+<div class="divider"><span>☉</span></div>
+
+<!-- 03: CONSONANTS -->
+<section class="section" id="consonants">
+  <div class="section-number">03 — The 18 Body Letters</div>
+  <h2>மெய் எழுத்து — <em>Consonants</em> as Physical Events</h2>
+
+  <p>Each consonant is a specific physical event in the mouth — a moment where the body interrupts, shapes, or channels breath. Tamil classifies them into three force-types (hard, soft, medium) and pairs them by place of articulation. Each hard consonant has a nasal partner — a shadow-self that shares the same mouth-shape but routes the air through the nose instead.</p>
+
+  <table class="cons-table">
+    <thead>
+      <tr>
+        <th>Letter</th>
+        <th>Sound</th>
+        <th>Type</th>
+        <th>Place of Articulation</th>
+        <th>Natural Sound Analogue</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- VELAR PAIR -->
+      <tr>
+        <td class="tamil-cell">க்</td>
+        <td><strong>ka</strong> /k/</td>
+        <td><span class="type-tag hard">HARD</span></td>
+        <td>Velar — back of tongue meets soft palate. A gate slamming shut in the throat.</td>
+        <td>A crow's caw. A cracking twig. A baby's first back-of-mouth sound. The "click" of contact.</td>
+      </tr>
+      <tr>
+        <td class="tamil-cell">ங்</td>
+        <td><strong>nga</strong> /ŋ/</td>
+        <td><span class="type-tag soft">SOFT</span></td>
+        <td>Velar nasal — same position as க், but air diverted through nose.</td>
+        <td>The "ng" at the end of a gong. A hum resonating in the skull. The vibration you feel in "song."</td>
+      </tr>
+      <!-- PALATAL PAIR -->
+      <tr>
+        <td class="tamil-cell">ச்</td>
+        <td><strong>cha</strong> /t͡ʃ/</td>
+        <td><span class="type-tag hard">HARD</span></td>
+        <td>Palatal — tongue meets hard palate. A shushing, sibilant cut.</td>
+        <td>A snake's hiss given shape. Shearing. A cat's "tch." Water hitting a hot surface.</td>
+      </tr>
+      <tr>
+        <td class="tamil-cell">ஞ்</td>
+        <td><strong>nya</strong> /ɲ/</td>
+        <td><span class="type-tag soft">SOFT</span></td>
+        <td>Palatal nasal — same position, air through nose.</td>
+        <td>The "ny" in "canyon." A kitten's mewl. A soft nasal whimper.</td>
+      </tr>
+      <!-- RETROFLEX PAIR -->
+      <tr>
+        <td class="tamil-cell">ட்</td>
+        <td><strong>ta</strong> /ʈ/</td>
+        <td><span class="type-tag hard">HARD</span></td>
+        <td>Retroflex — tongue curled back, tip strikes the palate. Tamil's most distinctive articulation.</td>
+        <td>A stone dropped on wood. A hard tap. A woodpecker's strike. Percussive, definitive.</td>
+      </tr>
+      <tr>
+        <td class="tamil-cell">ண்</td>
+        <td><strong>na</strong> /ɳ/</td>
+        <td><span class="type-tag soft">SOFT</span></td>
+        <td>Retroflex nasal — tongue curled back, air through nose.</td>
+        <td>A deep, rolling nasal — like humming with the tongue curled. Resonance from inside the skull.</td>
+      </tr>
+      <!-- DENTAL PAIR -->
+      <tr>
+        <td class="tamil-cell">த்</td>
+        <td><strong>tha</strong> /t̪/</td>
+        <td><span class="type-tag hard">HARD</span></td>
+        <td>Dental — tongue touches upper teeth. Lighter, sharper than retroflex.</td>
+        <td>Teeth chattering. A light tap. Raindrops on leaves. Quick, surface-level contact.</td>
+      </tr>
+      <tr>
+        <td class="tamil-cell">ந்</td>
+        <td><strong>na</strong> /n̪/</td>
+        <td><span class="type-tag soft">SOFT</span></td>
+        <td>Dental nasal — tongue at teeth, air through nose.</td>
+        <td>The "n" in "no." A baby's first nasal protest. Soft denial. A door closing gently.</td>
+      </tr>
+      <!-- BILABIAL PAIR -->
+      <tr>
+        <td class="tamil-cell">ப்</td>
+        <td><strong>pa</strong> /p/</td>
+        <td><span class="type-tag hard">HARD</span></td>
+        <td>Bilabial — both lips meet and release. The simplest physical closure.</td>
+        <td>A bubble popping. A baby releasing the nipple. "Pa" = father in dozens of languages. The sound of beginnings.</td>
+      </tr>
+      <tr>
+        <td class="tamil-cell">ம்</td>
+        <td><strong>ma</strong> /m/</td>
+        <td><span class="type-tag soft">SOFT</span></td>
+        <td>Bilabial nasal — lips together, air through nose. The humming closure.</td>
+        <td>The nasal murmur of nursing. "Mmm" — contentment. "Ma" = mother universally. The sound of return.</td>
+      </tr>
+      <!-- MEDIUM CONSONANTS -->
+      <tr>
+        <td class="tamil-cell">ய்</td>
+        <td><strong>ya</strong> /j/</td>
+        <td><span class="type-tag med">MEDIUM</span></td>
+        <td>Palatal approximant — tongue approaches palate but doesn't touch. A near-miss.</td>
+        <td>A baby's "yah!" — excitement without collision. A yawn's opening. Flowing into something.</td>
+      </tr>
+      <tr>
+        <td class="tamil-cell">ர்</td>
+        <td><strong>ra</strong> /ɾ/</td>
+        <td><span class="type-tag med">MEDIUM</span></td>
+        <td>Alveolar tap — tongue flicks the ridge once. Fastest possible contact.</td>
+        <td>A bird's wing-flick. Water over a single stone. A purr's individual pulse.</td>
+      </tr>
+      <tr>
+        <td class="tamil-cell">ல்</td>
+        <td><strong>la</strong> /l/</td>
+        <td><span class="type-tag med">MEDIUM</span></td>
+        <td>Lateral — tongue center touches ridge, air flows around the sides.</td>
+        <td>Water flowing around a rock. A lullaby's liquid quality. "La la la" — the sound of play.</td>
+      </tr>
+      <tr>
+        <td class="tamil-cell">வ்</td>
+        <td><strong>va</strong> /ʋ/</td>
+        <td><span class="type-tag med">MEDIUM</span></td>
+        <td>Labio-dental approximant — lower lip approaches upper teeth. Barely touching.</td>
+        <td>Wind through a narrow gap. A whisper's edge. The "w/v" of wanting, of reaching toward.</td>
+      </tr>
+      <tr>
+        <td class="tamil-cell">ழ்</td>
+        <td><strong>zha</strong> /ɻ/</td>
+        <td><span class="type-tag med">MEDIUM</span></td>
+        <td>Retroflex approximant — tongue curled back, not touching. Tamil's most unique sound, found in almost no other language.</td>
+        <td>No direct natural analogue — this is a sound Tamil invented beyond nature. A tongue curled in space, producing a sound that is entirely cultural.</td>
+      </tr>
+      <tr>
+        <td class="tamil-cell">ள்</td>
+        <td><strong>la</strong> /ɭ/</td>
+        <td><span class="type-tag med">MEDIUM</span></td>
+        <td>Retroflex lateral — like /l/ but with tongue curled back. Deeper, richer lateral.</td>
+        <td>Water in a deep channel. A deeper version of lullaby — the same flow but from further inside.</td>
+      </tr>
+      <tr>
+        <td class="tamil-cell">ற்</td>
+        <td><strong>ra</strong> /r/</td>
+        <td><span class="type-tag med">MEDIUM</span></td>
+        <td>Alveolar trill — tongue vibrates rapidly against the ridge. Multiple rapid contacts.</td>
+        <td>A cat's purr. A rolling drum. Running water over rough stone. Thunder's rumble. Sustained vibration.</td>
+      </tr>
+      <tr>
+        <td class="tamil-cell">ன்</td>
+        <td><strong>na</strong> /n/</td>
+        <td><span class="type-tag med">MEDIUM</span></td>
+        <td>Alveolar nasal — tongue at the ridge, air through nose.</td>
+        <td>The "nn" of gentle negation. A hum with direction. The settling sound at the end of a phrase.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="hl rust">
+    <strong>The Force Taxonomy:</strong> Tamil's three consonant groups aren't arbitrary. They encode a physics of vocal production. <strong>Vallinam (Hard)</strong> = impact, stop, percussion — the body fully blocking breath. <strong>Mellinam (Soft)</strong> = resonance, nasal continuity — the body redirecting breath through the skull. <strong>Idaiyinam (Medium)</strong> = flow, approximation, partial contact — the body shaping breath without fully stopping it. This is a gradient from <em>maximum force</em> to <em>maximum flow</em>, and every consonant sits somewhere on this spectrum.
+  </div>
+
+  <h3>The Pairing Principle: Every Impact Has an Echo</h3>
+
+  <p>Tamil pairs each hard consonant with a nasal partner at the same articulation point: <strong>க்-ங்</strong>, <strong>ச்-ஞ்</strong>, <strong>ட்-ண்</strong>, <strong>த்-ந்</strong>, <strong>ப்-ம்</strong>. Same mouth position, different air routing. The hard version is a strike; the soft version is the resonance that follows. This is acoustic physics encoded in alphabet structure — every percussion has a sustain, every impact has a hum.</p>
+
+</section>
+
+<div class="divider"><span>☉</span></div>
+
+<!-- 04: UYIRMEI -->
+<section class="section" id="uyirmei">
+  <div class="section-number">04 — The 216 Living Letters</div>
+  <h2>உயிர்மெய் — When <em>Soul Enters Body</em></h2>
+
+  <p>Each of the 18 consonants combines with each of the 12 vowels, producing 216 compound characters. These are the <strong>uyirmei</strong> — "soul-body" or "living letters." The consonant provides physical form; the vowel provides animating breath. Below is the complete matrix:</p>
+
+  <div class="uyirmei-container">
+    <table class="uyirmei-table">
+      <thead>
+        <tr>
+          <th></th>
+          <th>அ</th><th>ஆ</th><th>இ</th><th>ஈ</th><th>உ</th><th>ஊ</th>
+          <th>எ</th><th>ஏ</th><th>ஐ</th><th>ஒ</th><th>ஓ</th><th>ஔ</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td class="row-header">க்</td><td>க</td><td>கா</td><td>கி</td><td>கீ</td><td>கு</td><td>கூ</td><td>கெ</td><td>கே</td><td>கை</td><td>கொ</td><td>கோ</td><td>கௌ</td></tr>
+        <tr><td class="row-header">ங்</td><td>ங</td><td>ஙா</td><td>ஙி</td><td>ஙீ</td><td>ஙு</td><td>ஙூ</td><td>ஙெ</td><td>ஙே</td><td>ஙை</td><td>ஙொ</td><td>ஙோ</td><td>ஙௌ</td></tr>
+        <tr><td class="row-header">ச்</td><td>ச</td><td>சா</td><td>சி</td><td>சீ</td><td>சு</td><td>சூ</td><td>செ</td><td>சே</td><td>சை</td><td>சொ</td><td>சோ</td><td>சௌ</td></tr>
+        <tr><td class="row-header">ஞ்</td><td>ஞ</td><td>ஞா</td><td>ஞி</td><td>ஞீ</td><td>ஞு</td><td>ஞூ</td><td>ஞெ</td><td>ஞே</td><td>ஞை</td><td>ஞொ</td><td>ஞோ</td><td>ஞௌ</td></tr>
+        <tr><td class="row-header">ட்</td><td>ட</td><td>டா</td><td>டி</td><td>டீ</td><td>டு</td><td>டூ</td><td>டெ</td><td>டே</td><td>டை</td><td>டொ</td><td>டோ</td><td>டௌ</td></tr>
+        <tr><td class="row-header">ண்</td><td>ண</td><td>ணா</td><td>ணி</td><td>ணீ</td><td>ணு</td><td>ணூ</td><td>ணெ</td><td>ணே</td><td>ணை</td><td>ணொ</td><td>ணோ</td><td>ணௌ</td></tr>
+        <tr><td class="row-header">த்</td><td>த</td><td>தா</td><td>தி</td><td>தீ</td><td>து</td><td>தூ</td><td>தெ</td><td>தே</td><td>தை</td><td>தொ</td><td>தோ</td><td>தௌ</td></tr>
+        <tr><td class="row-header">ந்</td><td>ந</td><td>நா</td><td>நி</td><td>நீ</td><td>நு</td><td>நூ</td><td>நெ</td><td>நே</td><td>நை</td><td>நொ</td><td>நோ</td><td>நௌ</td></tr>
+        <tr><td class="row-header">ப்</td><td>ப</td><td>பா</td><td>பி</td><td>பீ</td><td>பு</td><td>பூ</td><td>பெ</td><td>பே</td><td>பை</td><td>பொ</td><td>போ</td><td>பௌ</td></tr>
+        <tr><td class="row-header">ம்</td><td>ம</td><td>மா</td><td>மி</td><td>மீ</td><td>மு</td><td>மூ</td><td>மெ</td><td>மே</td><td>மை</td><td>மொ</td><td>மோ</td><td>மௌ</td></tr>
+        <tr><td class="row-header">ய்</td><td>ய</td><td>யா</td><td>யி</td><td>யீ</td><td>யு</td><td>யூ</td><td>யெ</td><td>யே</td><td>யை</td><td>யொ</td><td>யோ</td><td>யௌ</td></tr>
+        <tr><td class="row-header">ர்</td><td>ர</td><td>ரா</td><td>ரி</td><td>ரீ</td><td>ரு</td><td>ரூ</td><td>ரெ</td><td>ரே</td><td>ரை</td><td>ரொ</td><td>ரோ</td><td>ரௌ</td></tr>
+        <tr><td class="row-header">ல்</td><td>ல</td><td>லா</td><td>லி</td><td>லீ</td><td>லு</td><td>லூ</td><td>லெ</td><td>லே</td><td>லை</td><td>லொ</td><td>லோ</td><td>லௌ</td></tr>
+        <tr><td class="row-header">வ்</td><td>வ</td><td>வா</td><td>வி</td><td>வீ</td><td>வு</td><td>வூ</td><td>வெ</td><td>வே</td><td>வை</td><td>வொ</td><td>வோ</td><td>வௌ</td></tr>
+        <tr><td class="row-header">ழ்</td><td>ழ</td><td>ழா</td><td>ழி</td><td>ழீ</td><td>ழு</td><td>ழூ</td><td>ழெ</td><td>ழே</td><td>ழை</td><td>ழொ</td><td>ழோ</td><td>ழௌ</td></tr>
+        <tr><td class="row-header">ள்</td><td>ள</td><td>ளா</td><td>ளி</td><td>ளீ</td><td>ளு</td><td>ளூ</td><td>ளெ</td><td>ளே</td><td>ளை</td><td>ளொ</td><td>ளோ</td><td>ளௌ</td></tr>
+        <tr><td class="row-header">ற்</td><td>ற</td><td>றா</td><td>றி</td><td>றீ</td><td>று</td><td>றூ</td><td>றெ</td><td>றே</td><td>றை</td><td>றொ</td><td>றோ</td><td>றௌ</td></tr>
+        <tr><td class="row-header">ன்</td><td>ன</td><td>னா</td><td>னி</td><td>னீ</td><td>னு</td><td>னூ</td><td>னெ</td><td>னே</td><td>னை</td><td>னொ</td><td>னோ</td><td>னௌ</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p>This is the complete 18×12 matrix. Every cell is a unique character — a specific body-shape animated by a specific breath-state. The visual consistency is the system's power: the consonant's base form stays recognizable while vowel-markers modify it in predictable positions (left, right, above, below). Once you learn the pattern, you can read all 216 without memorizing each one individually.</p>
+
+</section>
+
+<div class="divider"><span>☉</span></div>
+
+<!-- 05: AAYUTHAM -->
+<section class="section" id="aayutham">
+  <div class="section-number">05 — The 247th Character</div>
+  <h2>ஃ — The <em>Null</em> Character</h2>
+
+  <p>The final character is <strong>Aayutha Ezhuthu</strong> (ஃ) — three dots. It is classified as neither vowel nor consonant. Neither soul nor body. It represents an ancient sound: a voiceless glottal or pharyngeal, a breath-catch, a half-duration pause (half a maattirai). In classical Tamil it appeared between a short vowel and a hard consonant, functioning as a separator, a boundary-marker, a moment of held breath.</p>
+
+  <div class="dark-block">
+    <h4>The Philosophical Position of ஃ</h4>
+    <p>In a system where vowels are "soul" and consonants are "body," the Aayutham is <strong>neither and both</strong>. It is the pause between — the silence that makes sound possible. It is the space between breaths. In your resonant cognition framework, this is the null state: the zero-point from which both soul and body emerge, and to which they return. Tamil encoded the null into its alphabet 2,000 years ago.</p>
+  </div>
+
+</section>
+
+<div class="divider"><span>☉</span></div>
+
+<!-- 06: JOURNEY -->
+<section class="section" id="journey">
+  <div class="section-number">06 — The Complete Pathway</div>
+  <h2>From <em>Cry</em> to Expression to <em>Logic</em></h2>
+
+  <p>Here is the complete journey — how raw sound becomes structured expression, traced through Tamil's own architecture:</p>
+
+  <div class="journey">
+    <div class="journey-line"><div class="journey-dot"></div><div class="journey-stem"></div></div>
+    <div class="journey-content">
+      <h4>Layer 0: Silence (ஃ)</h4>
+      <p>Before sound, there is the null state. The held breath. The Aayutham. Potential energy before release.</p>
+      <div class="example">ஃ → The pause before the cry. The space between heartbeats.</div>
+    </div>
+
+    <div class="journey-line"><div class="journey-dot"></div><div class="journey-stem"></div></div>
+    <div class="journey-content">
+      <h4>Layer 1: Pure Breath — Vowels (உயிர்)</h4>
+      <p>The first release. Open airflow. No learned coordination. A baby cries: /a/. A bird sings: /i/. Wind moves: /u/. These are not words — they are <strong>states of being expressed as sound</strong>. Each vowel is a different aperture of the body, a different emotional position.</p>
+      <div class="example">அ → the open gasp (surprise, birth, openness)<br>இ → the sharp squeal (alert, pointing, bright)<br>உ → the deep hum (inward, contained, dark)</div>
+    </div>
+
+    <div class="journey-line"><div class="journey-dot"></div><div class="journey-stem"></div></div>
+    <div class="journey-content">
+      <h4>Layer 2: Physical Shaping — Consonants (மெய்)</h4>
+      <p>The body learns to shape breath. Lips close: /p/. Tongue strikes: /t/. Throat catches: /k/. These are <strong>events</strong> — moments of contact. Animals make them too: the percussive "k" in a crow's call, the nasal "m" of a cow. But consonants alone are half-sounds — they cannot sustain. They need vowels to live.</p>
+      <div class="example">க் → the crack (impact, beginning, gate-opening)<br>ம் → the hum (closure, comfort, mother)<br>ற் → the roll (sustained vibration, thunder, purring)</div>
+    </div>
+
+    <div class="journey-line"><div class="journey-dot"></div><div class="journey-stem"></div></div>
+    <div class="journey-content">
+      <h4>Layer 3: Living Syllables — Uyirmei (உயிர்மெய்)</h4>
+      <p>Soul enters body. Consonant + vowel = pronounceable syllable. "Ka," "ma," "pa," "ta." This is where <strong>babbling</strong> lives — "ma-ma-ma," "ba-ba-ba." The baby has discovered composition: two elements combine to produce something neither could be alone. This is the birth of <em>meaning-potential</em>.</p>
+      <div class="example">ம + அ = ம (ma) → first syllable of "amma" (mother)<br>ப + அ = ப (pa) → first syllable of "appa" (father)<br>Baby's discovery: combination creates new things.</div>
+    </div>
+
+    <div class="journey-line"><div class="journey-dot"></div><div class="journey-stem"></div></div>
+    <div class="journey-content">
+      <h4>Layer 4: Sound-Mimicry — Onomatopoeia (ஒலிக்குறிப்பு)</h4>
+      <p>The first bridge from sound to meaning. Tamil's <strong>irattai kilavi</strong> (doubled words) are sounds that mimic reality: <em>sala sala</em> (flowing water), <em>gada gada</em> (rushing/rattling), <em>kala kala</em> (hearty laughter), <em>gudu gudu</em> (bubbling). These are not arbitrary symbols — they are <strong>vocal imitations of the world</strong>. The sound IS the meaning. Reduplication (doubling) intensifies and sustains the imitation, just as a baby repeats syllables to practice control.</p>
+      <div class="example">சல சல (sala sala) → water flowing over stones<br>கல கல (kala kala) → cascading laughter<br>குடு குடு (gudu gudu) → bubbling, gurgling<br>பர பர (para para) → rustling, scattered movement</div>
+    </div>
+
+    <div class="journey-line"><div class="journey-dot"></div><div class="journey-stem"></div></div>
+    <div class="journey-content">
+      <h4>Layer 5: Root Words — Named Things</h4>
+      <p>Syllables attach to objects and actions. <em>Amma</em> (mother) — the /m/ of nursing given a name. <em>Neer</em> (water) — the nasal-liquid flow of the sounds mirrors the substance. <em>Kaal</em> (leg/wind) — the velar stop + long open vowel = something that strikes and moves. Not all roots are onomatopoeic, but many carry <strong>phonesthetic echoes</strong> — the texture of the sound hints at the texture of the thing.</p>
+      <div class="example">அம்மா (amma) → mother (from nursing murmur /m/)<br>நீர் (neer) → water (nasal + flowing vowel)<br>காற்று (kaatru) → wind (velar + open + trill = rushing air)</div>
+    </div>
+
+    <div class="journey-line"><div class="journey-dot"></div><div class="journey-stem"></div></div>
+    <div class="journey-content">
+      <h4>Layer 6: Agglutination — Composed Meaning</h4>
+      <p>Root words receive suffixes that add grammatical meaning: case, number, tense, person. Each suffix is a morpheme — a minimal unit of meaning. They chain together with no theoretical limit. <strong>This is where sound becomes logic.</strong> The physical act of stacking sounds becomes the intellectual act of stacking concepts.</p>
+      <div class="example">போ (po) → go<br>போக (poka) → to go (infinitive)<br>போகமுடியாத (pokamuṭiyāta) → unable to go<br>போகமுடியாதவர்கள் (pokamuṭiyātavarkaḷ) → those who cannot go<br>போகமுடியாதவர்களுக்காக (pokamuṭiyātavarkaḷukkāka) → for the sake of those who cannot go</div>
+    </div>
+
+    <div class="journey-line"><div class="journey-dot"></div><div class="journey-stem"></div></div>
+    <div class="journey-content">
+      <h4>Layer 7: Sentence — Context Before Resolution</h4>
+      <p>SOV structure. Subject and object are established first — the scene is set, the actors positioned — and only then does the verb resolve the action. This is <strong>delayed resolution</strong>: the listener holds uncertainty until the final element. The sentence itself is a journey from context to conclusion.</p>
+      <div class="example">நான் புத்தகம் வாங்கினேன்<br>(nān pustakam vaṅkinēṉ)<br>I + book + bought = "I bought a book"<br>The verb is the final key that unlocks everything before it.</div>
+    </div>
+
+    <div class="journey-line"><div class="journey-dot" style="background:var(--teal)"></div><div class="journey-stem" style="background:var(--teal)"></div></div>
+    <div class="journey-content">
+      <h4>Layer 8: Poetry — Sound Returns to Feeling</h4>
+      <p>At the highest level, the structured language circles back to its origins. Sangam poets use natural imagery (landscape, flora, fauna) to convey emotion <em>without naming it</em>. The reader must reverse the journey — from structured words back to felt experience. The sounds themselves carry the feeling: liquid /l/ for flowing, percussive /ṭ/ for impact, nasal /m/ for intimacy. Poetry is the moment where logical structure dissolves back into the primal sound-feeling it emerged from.</p>
+      <div class="example">The circle completes:<br>Silence → Breath → Body → Syllable → Mimicry → Name → Logic → Feeling → Silence</div>
+    </div>
+  </div>
+
+</section>
+
+<div class="divider"><span>☉</span></div>
+
+<!-- 07: STRUCTURE -->
+<section class="section" id="structure">
+  <div class="section-number">07 — The Logic Embedded in Sound</div>
+  <h2>How Tamil Makes <em>Sound Logical</em></h2>
+
+  <h3>Principle 1: Phonetic Consistency</h3>
+  <p>Every Tamil character maps to exactly one sound. No exceptions, no silent letters, no ambiguity. If you can see the character, you know how to pronounce it. The script is a <strong>perfect function</strong>: one input, one output. This is the first logical property — determinism.</p>
+
+  <h3>Principle 2: Combinatorial Completeness</h3>
+  <p>The uyirmei matrix is a Cartesian product: 18 consonants × 12 vowels = 216 combinations. Every possible pairing exists. There are no gaps, no arbitrary exclusions. This is the second logical property — completeness. The system generates all possibilities from its axioms.</p>
+
+  <h3>Principle 3: Classification by Production, Not Convention</h3>
+  <p>Tamil classifies sounds by <em>how the body makes them</em> — place of articulation (where in the mouth), manner (stop, nasal, approximant), and force (hard, soft, medium). This is not arbitrary naming — it is <strong>empirical taxonomy</strong>. The categories reflect physical reality, not cultural convention. The same system a modern phonetician would use, formalized two millennia earlier.</p>
+
+  <h3>Principle 4: Paired Opposites</h3>
+  <p>Every hard consonant has a nasal partner. Every short vowel has a long counterpart. The system is built on <strong>complementary pairs</strong> — not random sets. This encodes a dialectical logic: for every strike, there is a resonance. For every flash, there is a sustained state. Opposition is built into the atoms of the language.</p>
+
+  <h3>Principle 5: Duration as Dimension</h3>
+  <p>The maattirai system gives time a structural role in meaning. A short vowel (1 unit) and a long vowel (2 units) are <em>different letters</em> — different identities — despite having the same mouth position. This treats <strong>time as a first-class axis of meaning</strong>, not an afterthought. The same form, extended, becomes a different thing. A principle that resonates with your framework: oscillation and duration change the identity of a state.</p>
+
+  <div class="teal-block">
+    <h4>The Design Principle for Your New Language</h4>
+    <p>Tamil proves that a phonetic system can be simultaneously: <strong>natural</strong> (rooted in the sounds all creatures make), <strong>systematic</strong> (combinatorially complete, deterministic, classified by physical production), and <strong>philosophical</strong> (encoding soul/body dualism, the null state, paired opposites, and time-as-meaning directly into the script). Your new language should preserve all three — and add the dimensions Tamil is missing: a gradient of awareness (not binary), a grammar for silence, and sound-shapes for states of becoming that no natural language has yet named.</p>
+  </div>
+
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="tamil-close">ஒலி → வடிவம் → பொருள் → மீள்தல்</div>
+  <p>Sound → Form → Meaning → Return</p>
+</footer>
+
+</body>
+</html>
