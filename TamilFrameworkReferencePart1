@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Resonance & Dissonance — Tamil × Thinking Without Boundaries</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=JetBrains+Mono:wght@300;400&family=Noto+Serif+Tamil:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink: #1a1410;
+  --parchment: #f5f0e8;
+  --gold: #c4943a;
+  --rust: #8b3a2a;
+  --teal: #2a6b5e;
+  --clay: #6b4a3a;
+  --sand: #d4c4a8;
+  --cream: #faf6ee;
+  --violet: #5a3a6a;
+  --blue: #2a4a6a;
+  --rose: #7a3a4a;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  background: var(--parchment);
+  color: var(--ink);
+  line-height: 1.7;
+  font-size: 17px;
+}
+
+.hero {
+  min-height: 65vh;
+  display: flex; flex-direction: column; justify-content: center; align-items: center;
+  text-align: center;
+  background: linear-gradient(170deg, #1a1410 0%, #2a1e16 35%, #1a2a2a 70%, #1a1a2a 100%);
+  color: var(--parchment);
+  padding: 3rem 2rem;
+  position: relative;
+}
+
+.hero-label {
+  font-size: 0.7rem; letter-spacing: 0.4em; text-transform: uppercase;
+  color: var(--gold); margin-bottom: 1.5rem;
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.hero h1 { font-size: clamp(2rem, 5vw, 3.8rem); font-weight: 300; line-height: 1.2; max-width: 18ch; margin-bottom: 1rem; }
+.hero h1 em { font-style: italic; }
+.hero h1 .res { color: var(--teal); }
+.hero h1 .dis { color: var(--rust); }
+
+.hero-sub { font-size: 1rem; max-width: 50ch; opacity: 0.65; line-height: 1.8; font-weight: 300; }
+
+.nav {
+  position: sticky; top: 0; z-index: 100;
+  background: rgba(245,240,232,0.95); backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--sand);
+  padding: 0.6rem 2rem; display: flex; gap: 1.5rem; overflow-x: auto;
+  font-size: 0.6rem; font-family: 'JetBrains Mono', monospace;
+  letter-spacing: 0.12em; text-transform: uppercase;
+}
+.nav a { color: var(--clay); text-decoration: none; white-space: nowrap; }
+.nav a:hover { color: var(--rust); }
+
+.section { max-width: 820px; margin: 0 auto; padding: 4rem 2rem; }
+.section-number { font-family: 'JetBrains Mono', monospace; font-size: 0.6rem; letter-spacing: 0.3em; color: var(--gold); text-transform: uppercase; margin-bottom: 0.75rem; }
+.section h2 { font-size: clamp(1.7rem, 3.5vw, 2.6rem); font-weight: 300; line-height: 1.2; margin-bottom: 1.5rem; }
+.section h2 em { font-style: italic; }
+.section h3 { font-size: 1.25rem; font-weight: 600; margin: 2.5rem 0 0.75rem; color: var(--teal); }
+.section p { margin-bottom: 1.1rem; font-size: 1rem; }
+
+.divider { max-width: 820px; margin: 0 auto; padding: 0 2rem; display: flex; align-items: center; gap: 1rem; }
+.divider::before, .divider::after { content: ''; flex: 1; height: 1px; background: var(--sand); }
+.divider span { font-family: 'Noto Serif Tamil', serif; color: var(--gold); font-size: 1.2rem; }
+
+/* RESONANCE CARD */
+.res-card {
+  border-radius: 6px; padding: 2rem; margin: 1.5rem 0;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;
+}
+.res-card.resonance {
+  background: linear-gradient(135deg, rgba(42,107,94,0.08), rgba(42,107,94,0.03));
+  border: 1px solid rgba(42,107,94,0.2);
+}
+.res-card.dissonance {
+  background: linear-gradient(135deg, rgba(139,58,42,0.08), rgba(139,58,42,0.03));
+  border: 1px solid rgba(139,58,42,0.2);
+}
+.res-card.partial {
+  background: linear-gradient(135deg, rgba(160,120,48,0.08), rgba(160,120,48,0.03));
+  border: 1px solid rgba(160,120,48,0.2);
+}
+
+.res-card .tag {
+  grid-column: 1 / -1;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase;
+}
+.res-card.resonance .tag { color: var(--teal); }
+.res-card.dissonance .tag { color: var(--rust); }
+.res-card.partial .tag { color: var(--gold); }
+
+.res-card h4 {
+  grid-column: 1 / -1;
+  font-size: 1.15rem; font-weight: 600; margin-bottom: 0.25rem;
+}
+.res-card.resonance h4 { color: var(--teal); }
+.res-card.dissonance h4 { color: var(--rust); }
+.res-card.partial h4 { color: var(--gold); }
+
+.res-card .col { font-size: 0.9rem; line-height: 1.6; }
+.res-card .col-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.55rem; letter-spacing: 0.15em; text-transform: uppercase;
+  color: var(--clay); margin-bottom: 0.5rem;
+}
+
+.res-card .synthesis {
+  grid-column: 1 / -1;
+  font-size: 0.88rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(0,0,0,0.06);
+  color: var(--ink);
+  font-style: italic;
+}
+
+/* DARK / TEAL BLOCKS */
+.dark-block {
+  background: linear-gradient(135deg, #1a1410, #2a2018);
+  color: var(--parchment); padding: 2rem; border-radius: 6px; margin: 1.5rem 0;
+}
+.dark-block h4 { color: var(--gold); font-size: 1.1rem; margin-bottom: 0.75rem; }
+.dark-block p { opacity: 0.85; font-size: 0.92rem; }
+
+.teal-block {
+  background: linear-gradient(135deg, var(--teal), #3a8b7a);
+  color: white; padding: 2rem; border-radius: 6px; margin: 1.5rem 0;
+}
+.teal-block h4 { font-size: 1.2rem; margin-bottom: 0.75rem; }
+.teal-block p { opacity: 0.9; font-size: 0.95rem; margin-bottom: 0.5rem; }
+
+.hl {
+  background: var(--cream); border-left: 3px solid var(--gold);
+  padding: 1.25rem 1.5rem; margin: 1.5rem 0; border-radius: 0 4px 4px 0; font-size: 0.92rem;
+}
+
+.footer {
+  text-align: center; padding: 3rem 2rem; background: var(--ink); color: var(--parchment);
+}
+.footer p { opacity: 0.4; font-size: 0.8rem; }
+.footer .tamil-close { font-family: 'Noto Serif Tamil', serif; font-size: 1.5rem; color: var(--gold); opacity: 0.5; margin-bottom: 0.5rem; }
+
+@media (max-width: 650px) {
+  .res-card { grid-template-columns: 1fr; }
+  .section { padding: 3rem 1.25rem; }
+}
+</style>
+</head>
+<body>
+
+<section class="hero">
+  <div class="hero-label">Part III — Framework Collision</div>
+  <h1><span class="res">Resonance</span> & <span class="dis">Dissonance</span></h1>
+  <p class="hero-sub">Mapping "Thinking Without Boundaries: Resonant Cognition and the Return to Null" against the deep architecture of Tamil — where the two systems vibrate together, and where they break apart.</p>
+</section>
+
+<nav class="nav">
+  <a href="#method">Method</a>
+  <a href="#null">Null State</a>
+  <a href="#oscillation">Oscillation</a>
+  <a href="#contrast">Contrast</a>
+  <a href="#sensation">Sensation</a>
+  <a href="#boundaries">Boundaries</a>
+  <a href="#resonant-cog">Resonant Cognition</a>
+  <a href="#synthesis">Synthesis</a>
+</nav>
+
+<!-- METHOD -->
+<section class="section" id="method">
+  <div class="section-number">00 — Method</div>
+  <h2>How This <em>Collision</em> Works</h2>
+
+  <p>Your framework proposes five interlocking ideas: the <strong>null state</strong> as origin and return, <strong>oscillation</strong> as the fundamental pattern of cognition, <strong>contrast</strong> as the engine of perception, <strong>sensation-seeking</strong> as a cognitive driver, and the <strong>removal of boundaries</strong> as the condition for authentic thought. Below, each is tested against Tamil's 2,000-year-old architecture — its script, grammar, poetics, and literature — to find where they resonate (vibrate at the same frequency), where they partially align but diverge, and where genuine dissonance exists (the systems contradict each other in ways that are generative, not destructive).</p>
+
+</section>
+
+<div class="divider"><span>☉</span></div>
+
+<!-- 01: NULL STATE -->
+<section class="section" id="null">
+  <div class="section-number">01 — The Null State</div>
+  <h2>The Return to <em>Zero</em></h2>
+
+  <p>Your framework positions the null state as foundational: cognition emerges from emptiness, operates through pattern, and must return to zero to reset, regenerate, and perceive freshly. The null is not death — it is the fertile void.</p>
+
+  <div class="res-card resonance">
+    <div class="tag">Deep Resonance</div>
+    <h4>Aayutha Ezhuthu (ஃ) — Tamil's Null Character</h4>
+    <div class="col">
+      <div class="col-label">Your Framework</div>
+      The null state is the ground condition from which all cognition arises and to which it returns. It is not nothing — it is potential before differentiation. Every cycle of thought must pass through zero.
+    </div>
+    <div class="col">
+      <div class="col-label">Tamil's Architecture</div>
+      Tamil has a 247th character — ஃ — classified as neither vowel (soul) nor consonant (body). It is the only letter outside the soul/body binary. Historically a glottal catch, a held breath, a half-duration pause. It exists between categories.
+    </div>
+    <div class="synthesis">→ The Aayutha Ezhuthu IS the null state encoded in script. Tamil placed a zero-point in its alphabet 2,000 years ago. The resonance here is structural, not metaphorical. Both systems recognize that the space between expression and silence is not empty — it is a distinct state with its own identity.</div>
+  </div>
+
+  <div class="res-card resonance">
+    <div class="tag">Resonance</div>
+    <h4>Illai (இல்லை) — Absence as the Marked State</h4>
+    <div class="col">
+      <div class="col-label">Your Framework</div>
+      The null state is not secondary or derivative. It is the primary condition. Presence is what emerges from null, not the other way around.
+    </div>
+    <div class="col">
+      <div class="col-label">Tamil's Architecture</div>
+      Tamil has no verb for "to be" — existence is simply assumed, unmarked. But it HAS a specific word for non-existence: illai (இல்லை). Absence is linguistically marked; presence is the unmarked default.
+    </div>
+    <div class="synthesis">→ Here Tamil and your framework agree on the primacy of the null, but approach it from opposite directions. Tamil treats presence as default and marks absence. Your framework treats the null as foundational and marks emergence. The convergence: both refuse to treat nothing as mere negation. Both give absence its own positive identity.</div>
+  </div>
+
+  <div class="res-card dissonance">
+    <div class="tag">Dissonance</div>
+    <h4>Tamil's Missing Grammar of Return</h4>
+    <div class="col">
+      <div class="col-label">Your Framework</div>
+      The return to null is a deliberate cognitive act — a practice, a discipline. Thought must cycle back to zero. The framework makes this return structurally necessary.
+    </div>
+    <div class="col">
+      <div class="col-label">Tamil's Architecture</div>
+      Despite encoding the null in its alphabet, Tamil has no grammatical mechanism for expressing "return to zero." There is no tense for dissolution, no verb form for cognitive reset, no sentence structure for "here, thought deliberately ceases." The Aayutha Ezhuthu exists but is underutilized — nearly absent from modern Tamil.
+    </div>
+    <div class="synthesis">→ Tamil recognized the null but did not build a grammar around it. It placed the zero-point in the alphabet but left it structurally orphaned. Your framework demands that the new language fix this — give the null a grammar, not just a symbol.</div>
+  </div>
+
+</section>
+
+<div class="divider"><span>☉</span></div>
+
+<!-- 02: OSCILLATION -->
+<section class="section" id="oscillation">
+  <div class="section-number">02 — Oscillation</div>
+  <h2>The <em>Pulse</em> of Thought</h2>
+
+  <p>Your framework treats oscillation as the fundamental pattern of cognition — thought is not linear but wave-like, cycling between states, between engagement and withdrawal, between expression and silence.</p>
+
+  <div class="res-card resonance">
+    <div class="tag">Deep Resonance</div>
+    <h4>Kuril/Nedil — Short and Long Vowels as Temporal Oscillation</h4>
+    <div class="col">
+      <div class="col-label">Your Framework</div>
+      Oscillation is built from duration and frequency. The same state, held for different durations, becomes a different experience. Cognition pulses between brief flashes and sustained states.
+    </div>
+    <div class="col">
+      <div class="col-label">Tamil's Architecture</div>
+      Tamil's vowel system is built on duration: kuril (short, 1 maattirai) and nedil (long, 2 maattirai). Same mouth position, different time. The diphthongs (1.5 maattirai) are intermediate pulses. Duration is a first-class axis of meaning in the alphabet itself.
+    </div>
+    <div class="synthesis">→ Tamil encodes oscillation at the most fundamental level — in the very atoms of its script. Every vowel pair (அ/ஆ, இ/ஈ, உ/ஊ, எ/ஏ, ஒ/ஓ) is an oscillation between flash and sustain. The maattirai system makes time a structural variable. This is pulse-based meaning.</div>
+  </div>
+
+  <div class="res-card resonance">
+    <div class="tag">Resonance</div>
+    <h4>Vallinam/Mellinam — Hard/Soft Consonant Pairing</h4>
+    <div class="col">
+      <div class="col-label">Your Framework</div>
+      Oscillation operates between poles — between impact and resonance, action and rest, tension and release.
+    </div>
+    <div class="col">
+      <div class="col-label">Tamil's Architecture</div>
+      Every hard consonant (vallinam) has a soft nasal partner (mellinam) at the same articulation point: க்-ங், ச்-ஞ், ட்-ண், த்-ந், ப்-ம். Impact paired with resonance. Strike paired with hum. The alphabet itself oscillates between force and flow.
+    </div>
+    <div class="synthesis">→ Tamil's consonant pairing IS oscillation between impact and resonance. Every stop has an echo. Every percussion has a sustain. This is your framework's oscillation principle built into the phonetic architecture of the language.</div>
+  </div>
+
+  <div class="res-card resonance">
+    <div class="tag">Resonance</div>
+    <h4>Irattai Kilavi — Reduplicated Sound-Words</h4>
+    <div class="col">
+      <div class="col-label">Your Framework</div>
+      Oscillation creates pattern through repetition. Repeated cycles generate rhythm, and rhythm generates meaning.
+    </div>
+    <div class="col">
+      <div class="col-label">Tamil's Architecture</div>
+      Tamil onomatopoeia works through reduplication — sala sala (flowing), kala kala (laughter), gada gada (rushing). The repeated syllable IS the oscillation. Meaning emerges from the cycle, not from a single instance. Tolkappiyam codified this as irattai kilavi (doubled words).
+    </div>
+    <div class="synthesis">→ Tamil's sound-mimicry system is oscillation made audible. The doubling is not decoration — it IS the meaning. Flowing water is not "sala" (single instance), it is "sala sala" (oscillating pattern). This is your framework's claim expressed as poetic technique: meaning lives in the wave, not in the particle.</div>
+  </div>
+
+  <div class="res-card partial">
+    <div class="tag">Partial Resonance — Then Dissonance</div>
+    <h4>Akam/Puram — The Inner/Outer Oscillation</h4>
+    <div class="col">
+      <div class="col-label">Your Framework</div>
+      Oscillation is continuous and fluid. Thought moves between inner and outer states without hard stops. The boundary between subjective and objective is itself oscillating.
+    </div>
+    <div class="col">
+      <div class="col-label">Tamil's Architecture</div>
+      Sangam literature divides all poetry into Akam (inner/love) and Puram (outer/war). These oscillate — the tradition acknowledges both poles. But the division is rigid: Akam poems CANNOT name people. Puram poems CANNOT do deep interiority. The oscillation is recognized but then frozen into a wall.
+    </div>
+    <div class="synthesis">→ Tamil identifies the oscillation between inner and outer but then commits a boundary error — it turns a wave into a wall. Your framework would demand that the new language keep the Akam/Puram distinction as poles of a spectrum, not as separate rooms.</div>
+  </div>
+
+  <div class="res-card dissonance">
+    <div class="tag">Dissonance</div>
+    <h4>Tense as Line, Not Wave</h4>
+    <div class="col">
+      <div class="col-label">Your Framework</div>
+      Oscillation implies cyclical time. Cognition doesn't move forward on a line — it spirals, returns, overlaps. Past, present, and future are simultaneous positions on a wave, not sequential points on an arrow.
+    </div>
+    <div class="col">
+      <div class="col-label">Tamil's Architecture</div>
+      Tamil tense is linear: past (இறந்த காலம்), present (நிகழ் காலம்), future (எதிர்காலம்). While it has some aspectual nuance, there is no native grammar for cyclical recurrence, simultaneous events, or temporal superposition. Time in Tamil is an arrow, not a wave.
+    </div>
+    <div class="synthesis">→ Genuine dissonance. Tamil's treatment of time contradicts your framework's oscillatory model. The new language must resolve this by creating tenses that express cyclical return, temporal overlap, and the dissolution of sequence — giving time a wave-form rather than a line-form.</div>
+  </div>
+
+</section>
+
+<div class="divider"><span>☉</span></div>
+
+<!-- 03: CONTRAST -->
+<section class="section" id="contrast">
+  <div class="section-number">03 — Contrast</div>
+  <h2>Perception Through <em>Difference</em></h2>
+
+  <p>Your framework positions contrast as the engine of perception — we perceive through difference, through the boundary between this and not-this. But the boundary itself is not a wall; it is the place where perception sharpens.</p>
+
+  <div class="res-card resonance">
+    <div class="tag">Deep Resonance</div>
+    <h4>Uyir/Mei — Soul vs. Body as Generative Contrast</h4>
+    <div class="col">
+      <div class="col-label">Your Framework</div>
+      Contrast is not opposition — it is the condition for emergence. Two different things meeting create a third thing that neither could produce alone.
+    </div>
+    <div class="col">
+      <div class="col-label">Tamil's Architecture</div>
+      Vowels (soul) and consonants (body) are contrasting categories that produce something new when combined: uyirmei (living letters). The contrast between breath and contact IS the generative principle. Neither can produce meaning alone. Together, they produce life.
+    </div>
+    <div class="synthesis">→ Tamil's entire script is built on your framework's contrast principle. The uyir/mei distinction is not a taxonomy — it is a generative engine. Contrast produces aliveness. This is the deepest resonance between the two systems.</div>
+  </div>
+
+  <div class="res-card resonance">
+    <div class="tag">Resonance</div>
+    <h4>Tinai System — Landscape Contrasts Generate Emotion</h4>
+    <div class="col">
+      <div class="col-label">Your Framework</div>
+      Contrast operates environmentally — different conditions produce different cognitive states. The perceiver is shaped by what surrounds them.
+    </div>
+    <div class="col">
+      <div class="col-label">Tamil's Architecture</div>
+      The five tinai landscapes (mountain, forest, plains, shore, desert) each generate a distinct emotional state. The contrast between environments IS the contrast between feelings. Mountain ≠ shore, therefore union ≠ pining. Environment and psyche are structurally linked through contrast.
+    </div>
+    <div class="synthesis">→ The tinai system is your contrast principle applied to ecology and psychology simultaneously. Different landscapes don't merely accompany different emotions — they generate them. Contrast between environments produces contrast between cognitive states.</div>
+  </div>
+
+  <div class="res-card resonance">
+    <div class="tag">Resonance</div>
+    <h4>Inclusive/Exclusive "We" — Social Contrast as Grammar</h4>
+    <div class="col">
+      <div class="col-label">Your Framework</div>
+      Contrast operates in social perception — the distinction between self and other, between inside and outside a group, is a cognitive act.
+    </div>
+    <div class="col">
+      <div class="col-label">Tamil's Architecture</div>
+      Tamil grammatically distinguishes nām (we-including-you) from nāṅkaḷ (we-excluding-you). Every use of "we" is a contrast act — a declaration of who is inside and who is outside. Social boundaries are built into pronoun grammar.
+    </div>
+    <div class="synthesis">→ Tamil made social contrast a grammatical requirement. You cannot say "we" without declaring a boundary. Your framework would keep this — contrast as a social-cognitive tool — while making the boundary fluid rather than fixed.</div>
+  </div>
+
+  <div class="res-card dissonance">
+    <div class="tag">Dissonance</div>
+    <h4>Rational/Irrational — Contrast Collapsed to Binary</h4>
+    <div class="col">
+      <div class="col-label">Your Framework</div>
+      Contrast is most generative as a gradient, not a binary. The sharpest perception happens at the threshold between states, not in the flat center of a category.
+    </div>
+    <div class="col">
+      <div class="col-label">Tamil's Architecture</div>
+      Tamil classifies all nouns as either rational (uyartinai — humans/deities) or irrational (ahrinai — everything else). No gradient. No middle zone. A dog is in the same category as a rock. An ecosystem has no awareness category at all.
+    </div>
+    <div class="synthesis">→ Tamil took a valid contrast (aware vs. unaware) and collapsed it into a binary wall. Your framework demands the gradient: mineral → vegetative → animal → social → self-aware → collective → dissolved. The new language needs contrast-as-spectrum, not contrast-as-switch.</div>
+  </div>
+
+</section>
+
+<div class="divider"><span>☉</span></div>
+
+<!-- 04: SENSATION -->
+<section class="section" id="sensation">
+  <div class="section-number">04 — Sensation-Seeking</div>
+  <h2><em>Sensation</em> as Cognitive Driver</h2>
+
+  <p>Your framework treats sensation-seeking not as hedonism but as a fundamental cognitive drive — the impulse to seek new input, new contrast, new stimulation as the fuel for thought itself.</p>
+
+  <div class="res-card resonance">
+    <div class="tag">Deep Resonance</div>
+    <h4>Sangam Poetry — Sensory Density as Cognitive Method</h4>
+    <div class="col">
+      <div class="col-label">Your Framework</div>
+      Sensation-seeking drives cognition forward. The mind needs input — varied, rich, intense — to produce thought. Seeking is not a deficiency; it is the engine.
+    </div>
+    <div class="col">
+      <div class="col-label">Tamil's Architecture</div>
+      Sangam poetry is built on overwhelming sensory detail: specific flowers, birds, drums, times of day, seasons, occupations — all layered into every poem. The tinai system is a sensory-saturation framework. Poetry doesn't describe sensation; it IS sensation, structured. 2,381 poems of intense, specific, embodied observation.
+    </div>
+    <div class="synthesis">→ Tamil's entire poetic tradition is sensation-seeking formalized. The Sangam poets were not decorating ideas with imagery — they were using sensory density as a method of cognition. The more specific the observation (which exact flower, which bird, what time), the deeper the meaning. Sensation IS thought.</div>
+  </div>
+
+  <div class="res-card resonance">
+    <div class="tag">Resonance</div>
+    <h4>Onomatopoeia — Sound Seeking Sound</h4>
+    <div class="col">
+      <div class="col-label">Your Framework</div>
+      Sensation-seeking begins with the most primal form: sound-matching. The organism hears the world and tries to reproduce it. This is not imitation — it is resonance between inner and outer.
+    </div>
+    <div class="col">
+      <div class="col-label">Tamil's Architecture</div>
+      Tamil's onomatopoeia (irattai kilavi, adukku thodar) is codified in the Tolkappiyam as a grammatical category. Sound-mimicry is not casual — it is a formal linguistic operation. The language gives official status to the act of matching inner sound to outer world.
+    </div>
+    <div class="synthesis">→ Tamil formalized sensation-seeking at the phonetic level. The Tolkappiyam's treatment of onomatopoeia says: the impulse to match the world's sounds with your own voice is not childish or primitive — it is a foundational linguistic act deserving its own grammar.</div>
+  </div>
+
+  <div class="res-card partial">
+    <div class="tag">Partial Resonance</div>
+    <h4>Agglutination — Building Toward More</h4>
+    <div class="col">
+      <div class="col-label">Your Framework</div>
+      Sensation-seeking is cumulative — each new input doesn't replace the last but stacks on it, building richer and richer cognitive structures.
+    </div>
+    <div class="col">
+      <div class="col-label">Tamil's Architecture</div>
+      Agglutination stacks morphemes with no theoretical limit: each suffix adds a new layer of meaning to the root. போ → போக → போகமுடியாத → போகமுடியாதவர்கள் → ... This is accumulative meaning-building. But it is always additive, never subtractive. Tamil can stack toward complexity but has no grammar for stripping back toward simplicity — no inverse agglutination.
+    </div>
+    <div class="synthesis">→ Tamil's agglutination captures the accumulative dimension of sensation-seeking but misses the return. Your framework knows that after peak intensity, the organism needs to return to null. The new language needs both: a grammar that can stack toward maximum complexity AND strip back toward minimum expression.</div>
+  </div>
+
+  <div class="res-card dissonance">
+    <div class="tag">Dissonance</div>
+    <h4>Diglossia — Sensation Stratified by Prestige</h4>
+    <div class="col">
+      <div class="col-label">Your Framework</div>
+      Sensation-seeking is value-neutral. The impulse to seek input is the same whether the input is "high" or "low," formal or raw. There is no hierarchy of sensation.
+    </div>
+    <div class="col">
+      <div class="col-label">Tamil's Architecture</div>
+      Tamil maintains a strict split between centamil (literary/formal) and kotuntamil (colloquial/spoken). The raw, spontaneous sensory language of everyday life is treated as lower-register. The polished, formalized language is treated as higher. Sensation is ranked.
+    </div>
+    <div class="synthesis">→ Genuine dissonance. Tamil's diglossia imposes a prestige hierarchy on expression that directly contradicts your framework's value-neutral treatment of sensation. The new language must have a single register that can modulate its intensity without changing its dignity.</div>
+  </div>
+
+</section>
+
+<div class="divider"><span>☉</span></div>
+
+<!-- 05: BOUNDARIES -->
+<section class="section" id="boundaries">
+  <div class="section-number">05 — Boundaries</div>
+  <h2>Thinking <em>Without</em> Walls</h2>
+
+  <p>The framework's title-claim: boundaries constrain thought. Removing them doesn't produce chaos — it produces deeper resonance. Boundaries are useful as thresholds to pass through, not as walls to stop at.</p>
+
+  <div class="res-card resonance">
+    <div class="tag">Resonance</div>
+    <h4>No Articles — Boundaryless Reference</h4>
+    <div class="col">
+      <div class="col-label">Your Framework</div>
+      Boundaries should be permeable. The line between definite and indefinite, between this specific thing and any thing of this type, is a gradient, not a wall.
+    </div>
+    <div class="col">
+      <div class="col-label">Tamil's Architecture</div>
+      Tamil has no definite or indefinite articles. No "the," no "a." Definiteness is determined by context and relationship. The boundary between specific and general is left open for participants to negotiate.
+    </div>
+    <div class="synthesis">→ Tamil's lack of articles IS boundaryless reference. The language trusts context over rigid categorization. This is your framework in action: remove the wall between definite and indefinite, and meaning becomes a collaborative act.</div>
+  </div>
+
+  <div class="res-card resonance">
+    <div class="tag">Resonance</div>
+    <h4>No Adjective/Adverb Boundary</h4>
+    <div class="col">
+      <div class="col-label">Your Framework</div>
+      Categorical boundaries between modifying-a-thing and modifying-an-action are artificial. A quality is a quality — whether it applies to a noun or a verb shouldn't change its grammatical category.
+    </div>
+    <div class="col">
+      <div class="col-label">Tamil's Architecture</div>
+      Tamil does not distinguish adjectives from adverbs. Both are uriccol — qualifying words. The boundary between modifying objects and modifying actions does not exist in Tamil grammar.
+    </div>
+    <div class="synthesis">→ Tamil already removed a boundary your framework would want removed. The fusion of adjective and adverb into a single category (uriccol) is a direct expression of thinking without unnecessary walls.</div>
+  </div>
+
+  <div class="res-card resonance">
+    <div class="tag">Resonance</div>
+    <h4>Null-Subject — The Self as Optional Boundary</h4>
+    <div class="col">
+      <div class="col-label">Your Framework</div>
+      The self is a boundary that can be thickened or thinned. In some cognitive states (flow, meditation, deep observation), the boundary of the self dissolves. Language should permit this.
+    </div>
+    <div class="col">
+      <div class="col-label">Tamil's Architecture</div>
+      Tamil is a null-subject language — the subject can be dropped entirely because the verb encodes person/number/gender. "I bought a book" can become simply "[bought-first-person-singular]." The self is grammatically optional.
+    </div>
+    <div class="synthesis">→ Tamil's null-subject is a proto-version of your framework's dissolving self-boundary. Tamil allows the self to disappear from the sentence. Your framework would go further: allow the self to partially dissolve, to scale, to merge. But Tamil has the right instinct.</div>
+  </div>
+
+  <div class="res-card dissonance">
+    <div class="tag">Dissonance</div>
+    <h4>Honorific Hierarchy — Boundaries That Enforce Power</h4>
+    <div class="col">
+      <div class="col-label">Your Framework</div>
+      Boundaries between people should be navigable thresholds, not enforced walls. Relational awareness is good; fixed hierarchy is a constraint on thought.
+    </div>
+    <div class="col">
+      <div class="col-label">Tamil's Architecture</div>
+      Tamil has a complex honorific system that grammatically encodes social rank into every interaction. Verb forms change based on the perceived status of the listener. The boundary between social positions is grammatically enforced and non-negotiable.
+    </div>
+    <div class="synthesis">→ Tamil's honorifics are walls, not thresholds. They freeze social relationships into grammar. Your framework would replace them with relational markers (collaborative, mentoring, adversarial, learning) that describe the nature of connection without enforcing hierarchy.</div>
+  </div>
+
+  <div class="res-card dissonance">
+    <div class="tag">Dissonance</div>
+    <h4>Palai — The Landscape That Dissolves Boundaries</h4>
+    <div class="col">
+      <div class="col-label">Your Framework</div>
+      Boundaries dissolve under sufficient intensity. When conditions become extreme enough, categories break down. This is not failure — it is a higher-order perception.
+    </div>
+    <div class="col">
+      <div class="col-label">Tamil's Architecture</div>
+      Palai (desert/wasteland) is unique among the five tinai: it is not a permanent landscape but a condition that overtakes any landscape under extreme heat. Any terrain can become palai. It is the tinai that dissolves the others. Tamil <em>almost</em> gets here — but then assigns palai a fixed emotion (separation) instead of treating it as the meta-condition where all fixed mappings break down.
+    </div>
+    <div class="synthesis">→ Tamil's palai is the closest the tinai system gets to your framework's dissolution of boundaries. It IS the landscape of boundary-collapse. But Tamil constrains it to one emotion (separation) when your framework would see it as the meta-state: the condition where all landscape-emotion mappings dissolve and must be rebuilt.</div>
+  </div>
+
+</section>
+
+<div class="divider"><span>☉</span></div>
+
+<!-- 06: RESONANT COGNITION -->
+<section class="section" id="resonant-cog">
+  <div class="section-number">06 — Resonant Cognition</div>
+  <h2>Thought as <em>Vibration</em></h2>
+
+  <p>The overarching claim: cognition is not computation but resonance. Thought occurs when inner patterns align with outer patterns. Understanding is not information processing — it is frequency-matching.</p>
+
+  <div class="res-card resonance">
+    <div class="tag">Deep Resonance</div>
+    <h4>Ullurai — Meaning Through Resonance, Not Statement</h4>
+    <div class="col">
+      <div class="col-label">Your Framework</div>
+      Resonant cognition: meaning arises not through declaration but through alignment. The listener's inner state vibrates with the speaker's imagery. Understanding is co-resonance.
+    </div>
+    <div class="col">
+      <div class="col-label">Tamil's Architecture</div>
+      Ullurai (inner meaning) in Sangam poetry: emotion is never stated directly. A wilting flower conveys a lover's anguish. A river's behavior conveys a psychological state. The reader must resonate with the imagery to extract the meaning. If you don't vibrate with it, you don't get it. Meaning is resonance between text and reader.
+    </div>
+    <div class="synthesis">→ This is the single deepest resonance between the two systems. Tamil's entire poetic tradition is built on your framework's core claim: meaning is not transmitted — it is co-created through resonance. Ullurai is resonant cognition applied to literature 2,000 years ago. The poet sets up the frequency; the reader either resonates with it or doesn't.</div>
+  </div>
+
+  <div class="res-card resonance">
+    <div class="tag">Resonance</div>
+    <h4>The Uyirmei Principle — Aliveness Through Alignment</h4>
+    <div class="col">
+      <div class="col-label">Your Framework</div>
+      Resonant cognition produces a state that is qualitatively different from either of its inputs. When two patterns align, they don't just coexist — they produce something alive.
+    </div>
+    <div class="col">
+      <div class="col-label">Tamil's Architecture</div>
+      Uyir (soul) + Mei (body) = Uyirmei (living letter). Neither vowel alone nor consonant alone is fully pronounceable. Together, they produce a "living" character. The naming is explicit: the result of alignment is life.
+    </div>
+    <div class="synthesis">→ Tamil's script metaphysics IS your framework's resonance theory. Two incomplete patterns align and produce aliveness. The language NAMES this: the compound is not "combined letter" or "mixed letter" — it is "living letter." Resonance produces life. Tamil said it first.</div>
+  </div>
+
+  <div class="res-card resonance">
+    <div class="tag">Resonance</div>
+    <h4>Thirukkural — Resonance as Compression</h4>
+    <div class="col">
+      <div class="col-label">Your Framework</div>
+      Resonance is efficient — when patterns truly align, the amount of material needed to convey meaning drops dramatically. A resonant signal carries more than a noisy one.
+    </div>
+    <div class="col">
+      <div class="col-label">Tamil's Architecture</div>
+      The Thirukkural: 1,330 couplets, each exactly 7 words, covering virtue, governance, and love — the entire scope of human ethical life. Maximum meaning in minimum material. The constraint (7 words) is not a limitation but an amplifier: the compression forces resonance between every word.
+    </div>
+    <div class="synthesis">→ The Kural is proof that resonant expression is compressed expression. When every element vibrates with every other element, you need fewer elements. Your framework's resonance principle explains why the Kural works: it's not pithy — it's resonant.</div>
+  </div>
+
+</section>
+
+<div class="divider"><span>☉</span></div>
+
+<!-- SYNTHESIS -->
+<section class="section" id="synthesis">
+  <div class="section-number">07 — Synthesis</div>
+  <h2>The <em>Map</em></h2>
+
+  <div class="teal-block">
+    <h4>Where They Vibrate Together (Resonance)</h4>
+    <p>1. The null state encoded in the alphabet (ஃ)</p>
+    <p>2. Absence given linguistic identity (illai)</p>
+    <p>3. Duration as meaning-axis (kuril/nedil, maattirai)</p>
+    <p>4. Impact paired with resonance (vallinam/mellinam)</p>
+    <p>5. Reduplication as oscillatory meaning (irattai kilavi)</p>
+    <p>6. Generative contrast (uyir + mei = uyirmei)</p>
+    <p>7. Ecological emotion (tinai system)</p>
+    <p>8. Social contrast in grammar (inclusive/exclusive we)</p>
+    <p>9. Boundaryless reference (no articles)</p>
+    <p>10. Dissolved adjective/adverb wall (uriccol)</p>
+    <p>11. Optional self (null-subject)</p>
+    <p>12. Meaning through resonance, not statement (ullurai)</p>
+    <p>13. Compression as resonance amplifier (Kural form)</p>
+    <p>14. Sensory density as cognition (Sangam poetry)</p>
+    <p>15. Formalized sound-seeking (onomatopoeia as grammar)</p>
+  </div>
+
+  <div class="dark-block">
+    <h4>Where They Break Apart (Dissonance)</h4>
+    <p>1. No grammar of return to null — ஃ recognized but structurally orphaned</p>
+    <p>2. Linear tense — time as arrow, not wave. No cyclical/simultaneous grammar</p>
+    <p>3. Rational/Irrational binary — contrast collapsed to switch, not gradient</p>
+    <p>4. Akam/Puram wall — inner/outer oscillation frozen into rigid separation</p>
+    <p>5. Honorific hierarchy — social boundaries enforced, not navigable</p>
+    <p>6. Diglossia — sensation stratified by prestige (formal > colloquial)</p>
+    <p>7. Palai constrained — the boundary-dissolution landscape given a fixed emotion</p>
+    <p>8. Agglutination one-directional — stacks toward complexity but cannot strip toward simplicity</p>
+    <p>9. No grammar for becoming/emergence — being and not-being exist, but transition does not</p>
+    <p>10. No grammar for uncertainty/superposition — language cannot hold contradiction without negation</p>
+  </div>
+
+  <div class="hl" style="border-left-color: var(--violet); margin-top: 2rem;">
+    <strong>The verdict:</strong> Tamil and your framework share the same deep intuitions — about the primacy of the null, about contrast as generator, about oscillation as pattern, about resonance as meaning, about sensation as cognition. Where they diverge is in <em>commitment</em>. Tamil recognized these principles and encoded them into its script and poetics. But it did not carry them into its grammar. The script says "soul + body = life." The poetry says "meaning is resonance." The grammar says "time is a line, consciousness is a binary, hierarchy is fixed."<br><br>
+    <strong>The new language</strong> must take Tamil's scriptural and poetic insights and <em>embed them in the grammar itself</em> — where they become not literary techniques but the unavoidable structure of every sentence spoken.
+  </div>
+
+</section>
+
+<footer class="footer">
+  <div class="tamil-close">ஒத்திசை · முரண் · கலப்பு</div>
+  <p>Resonance · Dissonance · Synthesis</p>
+</footer>
+
+</body>
+</html>
