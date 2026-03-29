@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ennam — A Medium for Boundless Expression</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=JetBrains+Mono:wght@300;400&family=Noto+Serif+Tamil:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink: #1a1410;
+  --parchment: #f5f0e8;
+  --gold: #c4943a;
+  --gold-dim: #a07830;
+  --rust: #8b3a2a;
+  --teal: #2a6b5e;
+  --teal-light: #3a8b7a;
+  --clay: #6b4a3a;
+  --sand: #d4c4a8;
+  --cream: #faf6ee;
+  --shadow: rgba(26,20,16,0.08);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  background: var(--parchment);
+  color: var(--ink);
+  line-height: 1.7;
+  font-size: 18px;
+}
+
+/* ===== HERO ===== */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background: linear-gradient(170deg, #1a1410 0%, #2a1e16 40%, #3a2a1e 100%);
+  color: var(--parchment);
+  padding: 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 60% 40% at 50% 50%, rgba(196,148,58,0.07) 0%, transparent 70%),
+    radial-gradient(ellipse 30% 60% at 20% 80%, rgba(42,107,94,0.06) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+.hero-tamil {
+  font-family: 'Noto Serif Tamil', serif;
+  font-size: clamp(2.5rem, 6vw, 5rem);
+  font-weight: 300;
+  color: var(--gold);
+  letter-spacing: 0.1em;
+  margin-bottom: 0.5rem;
+  opacity: 0.9;
+}
+
+.hero-title {
+  font-size: clamp(2rem, 5vw, 4rem);
+  font-weight: 300;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin-bottom: 0.75rem;
+}
+
+.hero-subtitle {
+  font-style: italic;
+  font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+  color: var(--sand);
+  font-weight: 300;
+  max-width: 600px;
+  margin-bottom: 3rem;
+}
+
+.hero-divider {
+  width: 80px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  margin: 0 auto 3rem;
+}
+
+.hero-nav {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.hero-nav a {
+  color: var(--sand);
+  text-decoration: none;
+  font-size: 0.85rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  border-bottom: 1px solid rgba(212,196,168,0.3);
+  padding-bottom: 2px;
+  transition: color 0.2s, border-color 0.2s;
+}
+
+.hero-nav a:hover {
+  color: var(--gold);
+  border-color: var(--gold);
+}
+
+/* ===== SECTIONS ===== */
+.section {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 5rem 2rem;
+}
+
+.section + .section {
+  border-top: 1px solid var(--sand);
+}
+
+.section-label {
+  font-size: 0.75rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--gold-dim);
+  margin-bottom: 1.5rem;
+}
+
+.section-title {
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  font-weight: 300;
+  line-height: 1.25;
+  margin-bottom: 2rem;
+}
+
+.section-body {
+  font-size: 1.05rem;
+  line-height: 1.9;
+  color: #3a2e28;
+}
+
+.section-body p + p {
+  margin-top: 1.25rem;
+}
+
+.pull-quote {
+  border-left: 3px solid var(--gold);
+  padding: 1.25rem 1.75rem;
+  margin: 2.5rem 0;
+  background: rgba(196,148,58,0.04);
+  font-style: italic;
+  font-size: 1.15rem;
+  color: var(--clay);
+  line-height: 1.7;
+}
+
+/* ===== PILLARS ===== */
+.pillars {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+  margin-top: 3rem;
+}
+
+.pillar {
+  background: var(--cream);
+  border: 1px solid var(--sand);
+  padding: 1.75rem 1.5rem;
+  border-top: 3px solid var(--gold);
+}
+
+.pillar-icon {
+  font-size: 1.5rem;
+  margin-bottom: 0.75rem;
+  opacity: 0.7;
+}
+
+.pillar-name {
+  font-size: 0.75rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--gold-dim);
+  margin-bottom: 0.5rem;
+}
+
+.pillar-desc {
+  font-size: 0.95rem;
+  color: var(--clay);
+  line-height: 1.6;
+}
+
+/* ===== TAMIL SECTION ===== */
+.tamil-section {
+  background: linear-gradient(135deg, #1a1410 0%, #2a1e16 100%);
+  color: var(--parchment);
+  padding: 5rem 2rem;
+}
+
+.tamil-inner {
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+.tamil-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.tamil-script-display {
+  font-family: 'Noto Serif Tamil', serif;
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  font-weight: 300;
+  color: var(--gold);
+  letter-spacing: 0.15em;
+  margin-bottom: 1rem;
+  line-height: 1.4;
+}
+
+.tamil-label {
+  font-size: 0.75rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: rgba(212,196,168,0.6);
+  margin-bottom: 1.5rem;
+}
+
+.tamil-title {
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  font-weight: 300;
+  color: var(--parchment);
+  margin-bottom: 1.5rem;
+}
+
+.tamil-intro {
+  font-size: 1.05rem;
+  color: var(--sand);
+  line-height: 1.9;
+  max-width: 680px;
+  margin: 0 auto;
+}
+
+.tamil-divider {
+  width: 80px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  margin: 2.5rem auto;
+}
+
+/* ===== TAMIL CARDS ===== */
+.tamil-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+.tamil-card {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(196,148,58,0.2);
+  padding: 2rem 1.75rem;
+  text-decoration: none;
+  display: block;
+  transition: background 0.25s, border-color 0.25s, transform 0.2s;
+  position: relative;
+}
+
+.tamil-card::after {
+  content: '→';
+  position: absolute;
+  bottom: 1.5rem;
+  right: 1.75rem;
+  color: var(--gold);
+  opacity: 0;
+  transition: opacity 0.2s, transform 0.2s;
+  font-size: 1.1rem;
+}
+
+.tamil-card:hover {
+  background: rgba(196,148,58,0.07);
+  border-color: rgba(196,148,58,0.45);
+  transform: translateY(-2px);
+}
+
+.tamil-card:hover::after {
+  opacity: 1;
+  transform: translateX(3px);
+}
+
+.card-part {
+  font-size: 0.7rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--gold);
+  opacity: 0.7;
+  margin-bottom: 0.5rem;
+}
+
+.card-title {
+  font-size: 1.2rem;
+  font-weight: 400;
+  color: var(--parchment);
+  margin-bottom: 0.75rem;
+  line-height: 1.35;
+}
+
+.card-subtitle {
+  font-family: 'Noto Serif Tamil', serif;
+  font-size: 1rem;
+  color: var(--gold);
+  margin-bottom: 1rem;
+  opacity: 0.8;
+}
+
+.card-desc {
+  font-size: 0.9rem;
+  color: rgba(212,196,168,0.75);
+  line-height: 1.65;
+}
+
+/* ===== WHY TAMIL ===== */
+.why-tamil {
+  margin-top: 4rem;
+  padding-top: 3rem;
+  border-top: 1px solid rgba(196,148,58,0.15);
+}
+
+.why-title {
+  font-size: 0.75rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: rgba(196,148,58,0.6);
+  margin-bottom: 1.25rem;
+  text-align: center;
+}
+
+.why-body {
+  font-size: 1rem;
+  color: var(--sand);
+  line-height: 1.9;
+  max-width: 680px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* ===== FOOTER ===== */
+footer {
+  background: #111;
+  color: rgba(212,196,168,0.4);
+  text-align: center;
+  padding: 2.5rem 2rem;
+  font-size: 0.85rem;
+  letter-spacing: 0.1em;
+}
+
+footer a {
+  color: rgba(196,148,58,0.6);
+  text-decoration: none;
+}
+
+footer a:hover {
+  color: var(--gold);
+}
+</style>
+</head>
+<body>
+
+<!-- ===== HERO ===== -->
+<header class="hero">
+  <div class="hero-tamil">எண்ணம்</div>
+  <h1 class="hero-title">Ennam</h1>
+  <p class="hero-subtitle">A medium for boundless expression — within and without</p>
+  <div class="hero-divider"></div>
+  <nav class="hero-nav">
+    <a href="#purpose">Purpose</a>
+    <a href="#pillars">Pillars</a>
+    <a href="#tamil">Tamil</a>
+  </nav>
+</header>
+
+<!-- ===== PURPOSE ===== -->
+<section class="section" id="purpose">
+  <p class="section-label">The Mission</p>
+  <h2 class="section-title">Finding the language that lets you be fully alive</h2>
+  <div class="section-body">
+    <p>
+      Most languages we inherit were built to communicate — to transfer information between
+      minds efficiently. But there is a richer need: to <em>express</em> — to paint the texture
+      of an inner world, to trace the shape of a feeling before it has a name, to see the world
+      outside with fresh eyes and mirror it back without distortion.
+    </p>
+    <p>
+      Ennam is a research into language as a living medium. Not a fixed system of grammar
+      and vocabulary, but a vehicle — one that can carry the full weight of consciousness:
+      observation, sensation, thought, silence, contradiction, and wonder.
+    </p>
+
+    <div class="pull-quote">
+      "To find a suitable base language and enhance it — so that it becomes a mode of transport,
+      a medium for people to have boundless expression and to paint a beautiful picture
+      within and outside, through resonance and dissonance."
+    </div>
+
+    <p>
+      This project searches for the foundations of such a language. It looks inward — at
+      how thought is formed, how feeling finds its shape — and outward, at how ancient tongues
+      encoded the world with structural depth and sonic intelligence. The goal is not a new
+      dictionary. It is a new way of listening to yourself and everything around you.
+    </p>
+    <p>
+      Expression here is not performance. It is perception made visible. When you observe
+      what is truly happening — within the body, across a room, in the pause between words —
+      and you find a form for it, something shifts. Curiosity ignites. The world becomes
+      richer. Ennam is about cultivating that capacity.
+    </p>
+  </div>
+</section>
+
+<!-- ===== PILLARS ===== -->
+<section class="section" id="pillars">
+  <p class="section-label">The Pillars</p>
+  <h2 class="section-title">What this exploration stands on</h2>
+  <div class="section-body">
+    <p>
+      Every language worth inheriting was built on a set of commitments — about what matters,
+      what deserves a word, how precision and poetry can coexist. These are the commitments
+      that shape Ennam.
+    </p>
+  </div>
+
+  <div class="pillars">
+    <div class="pillar">
+      <div class="pillar-icon">◎</div>
+      <div class="pillar-name">Observation</div>
+      <p class="pillar-desc">A language that trains the eye — noticing what is actually present, not just what is expected. Language as a tool for seeing.</p>
+    </div>
+    <div class="pillar">
+      <div class="pillar-icon">◈</div>
+      <div class="pillar-name">Expression</div>
+      <p class="pillar-desc">Moving beyond communication into full, unbounded self-expression — the interior life rendered without loss or compromise.</p>
+    </div>
+    <div class="pillar">
+      <div class="pillar-icon">◉</div>
+      <div class="pillar-name">Curiosity</div>
+      <p class="pillar-desc">The language itself as a generator of questions — each word a door, not a wall. Structured wonder as a way of being.</p>
+    </div>
+    <div class="pillar">
+      <div class="pillar-icon">◐</div>
+      <div class="pillar-name">Resonance</div>
+      <p class="pillar-desc">The harmony between inner experience and outer world — when what you feel and what you say and what is real align.</p>
+    </div>
+    <div class="pillar">
+      <div class="pillar-icon">◑</div>
+      <div class="pillar-name">Dissonance</div>
+      <p class="pillar-desc">The productive friction that reveals truth — contradiction held openly, paradox as signal, tension as a source of depth.</p>
+    </div>
+    <div class="pillar">
+      <div class="pillar-icon">◇</div>
+      <div class="pillar-name">Transport</div>
+      <p class="pillar-desc">Language as a medium that moves you — across states of mind, across perspectives, beyond the boundaries of the familiar.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== TAMIL SECTION ===== -->
+<section class="tamil-section" id="tamil">
+  <div class="tamil-inner">
+    <div class="tamil-header">
+      <div class="tamil-label">Base Language Exploration</div>
+      <div class="tamil-script-display">தமிழ்</div>
+      <h2 class="tamil-title">Tamil as Foundation</h2>
+      <div class="tamil-divider"></div>
+      <p class="tamil-intro">
+        Tamil is among the oldest living classical languages on earth. Its architecture of
+        sound, its capacity to encode philosophy in a single syllable, its tradition of treating
+        poetry as the highest form of thought — these qualities make it a natural candidate
+        as the base language for this exploration. What follows is a deep study of Tamil:
+        its sounds, its structure, its spirit.
+      </p>
+    </div>
+
+    <div class="tamil-cards">
+
+      <a href="TamilIntroPart1.html" class="tamil-card">
+        <div class="card-part">Part 1 · Introduction</div>
+        <div class="card-title">The Essence of Tamil</div>
+        <div class="card-subtitle">தமிழின் சாரம்</div>
+        <p class="card-desc">
+          An introduction to Tamil as a foundation for a new language of expression —
+          its classical roots, its sonic depth, and why it matters to this project.
+        </p>
+      </a>
+
+      <a href="TamilSoundPart2.html" class="tamil-card">
+        <div class="card-part">Part 2 · Sound</div>
+        <div class="card-title">Tamil Characters — From Natural Sound to Structured Expression</div>
+        <div class="card-subtitle">ஒலியும் எழுத்தும்</div>
+        <p class="card-desc">
+          How Tamil maps the full range of human vocal sound into a precise, elegant
+          character system — and what that reveals about the relationship between
+          body, sound, and meaning.
+        </p>
+      </a>
+
+      <a href="TamilFrameworkReferencePart1.html" class="tamil-card">
+        <div class="card-part">Framework · Reference</div>
+        <div class="card-title">Resonance &amp; Dissonance — Tamil × Thinking Without Boundaries</div>
+        <div class="card-subtitle">இசைவும் முரணும்</div>
+        <p class="card-desc">
+          A reference framework applying Tamil structures to the core themes of the
+          project — how resonance and dissonance operate in language, thought, and
+          unbounded expression.
+        </p>
+      </a>
+
+    </div>
+
+    <div class="why-tamil">
+      <div class="why-title">Why Tamil</div>
+      <p class="why-body">
+        Tamil has survived for over two thousand years not because it was imposed, but because
+        it was loved. Its poets treated the internal landscape — love, longing, courage, grief —
+        with the same precision that a scientist brings to observation. It has a grammar of
+        emotion. It has a physics of sound. For a project about painting beautiful pictures
+        within and without, Tamil is not a starting point — it is an invitation.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <p>Ennam &nbsp;·&nbsp; A research into language as a medium for boundless expression</p>
+  <p style="margin-top:0.5rem;">
+    <a href="https://github.com/ilamgumaran/Ennam">github.com/ilamgumaran/Ennam</a>
+  </p>
+</footer>
+
+</body>
+</html>
