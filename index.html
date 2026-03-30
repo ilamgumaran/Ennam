@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ta-en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ennam — A Medium for Boundless Expression</title>
+<title>Ennam — எண்ணம் · A Medium for Boundless Expression</title>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=JetBrains+Mono:wght@300;400&family=Noto+Serif+Tamil:wght@300;400;600;700&display=swap" rel="stylesheet">
 <style>
 :root {
@@ -30,6 +30,20 @@ body {
   line-height: 1.7;
   font-size: 18px;
 }
+
+/* ===== BILINGUAL ===== */
+.ta {
+  font-family: 'Noto Serif Tamil', serif;
+  font-size: 0.88em;
+  color: var(--clay);
+  opacity: 0.75;
+  line-height: 1.8;
+  margin-top: 0.4rem;
+  display: block;
+}
+
+.bilingual { margin-bottom: 1.25rem; }
+.bilingual:last-child { margin-bottom: 0; }
 
 /* ===== HERO ===== */
 .hero {
@@ -62,7 +76,7 @@ body {
   font-weight: 300;
   color: var(--gold);
   letter-spacing: 0.1em;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.25rem;
   opacity: 0.9;
 }
 
@@ -71,16 +85,25 @@ body {
   font-weight: 300;
   letter-spacing: 0.15em;
   text-transform: uppercase;
-  margin-bottom: 0.75rem;
+  margin-bottom: 0.5rem;
 }
 
-.hero-subtitle {
+.hero-subtitle-en {
   font-style: italic;
-  font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+  font-size: clamp(1rem, 2.5vw, 1.4rem);
   color: var(--sand);
   font-weight: 300;
   max-width: 600px;
+}
+
+.hero-subtitle-ta {
+  font-family: 'Noto Serif Tamil', serif;
+  font-size: clamp(0.85rem, 2vw, 1.1rem);
+  color: rgba(212,196,168,0.55);
+  font-weight: 300;
+  max-width: 600px;
   margin-bottom: 3rem;
+  margin-top: 0.4rem;
 }
 
 .hero-divider {
@@ -100,7 +123,7 @@ body {
 .hero-nav a {
   color: var(--sand);
   text-decoration: none;
-  font-size: 0.85rem;
+  font-size: 0.8rem;
   letter-spacing: 0.2em;
   text-transform: uppercase;
   border-bottom: 1px solid rgba(212,196,168,0.3);
@@ -125,18 +148,37 @@ body {
 }
 
 .section-label {
-  font-size: 0.75rem;
+  font-size: 0.7rem;
   letter-spacing: 0.3em;
   text-transform: uppercase;
   color: var(--gold-dim);
-  margin-bottom: 1.5rem;
+  margin-bottom: 0.25rem;
 }
 
-.section-title {
+.section-label-ta {
+  font-family: 'Noto Serif Tamil', serif;
+  font-size: 0.8rem;
+  color: var(--gold-dim);
+  opacity: 0.65;
+  margin-bottom: 1.5rem;
+  display: block;
+}
+
+.section-title-en {
   font-size: clamp(1.8rem, 4vw, 2.8rem);
   font-weight: 300;
   line-height: 1.25;
+  margin-bottom: 0.4rem;
+}
+
+.section-title-ta {
+  font-family: 'Noto Serif Tamil', serif;
+  font-size: clamp(1.1rem, 2.5vw, 1.6rem);
+  font-weight: 300;
+  color: var(--clay);
+  opacity: 0.7;
   margin-bottom: 2rem;
+  line-height: 1.5;
 }
 
 .section-body {
@@ -145,25 +187,27 @@ body {
   color: #3a2e28;
 }
 
-.section-body p + p {
-  margin-top: 1.25rem;
-}
-
 .pull-quote {
   border-left: 3px solid var(--gold);
   padding: 1.25rem 1.75rem;
   margin: 2.5rem 0;
   background: rgba(196,148,58,0.04);
   font-style: italic;
-  font-size: 1.15rem;
+  font-size: 1.1rem;
   color: var(--clay);
-  line-height: 1.7;
+  line-height: 1.75;
+}
+
+.pull-quote .ta {
+  font-style: normal;
+  margin-top: 1rem;
+  font-size: 0.9rem;
 }
 
 /* ===== PILLARS ===== */
 .pillars {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   gap: 1.5rem;
   margin-top: 3rem;
 }
@@ -173,6 +217,16 @@ body {
   border: 1px solid var(--sand);
   padding: 1.75rem 1.5rem;
   border-top: 3px solid var(--gold);
+  text-decoration: none;
+  display: block;
+  color: inherit;
+  transition: box-shadow 0.2s, transform 0.2s;
+  position: relative;
+}
+
+.pillar:hover {
+  box-shadow: 0 4px 20px var(--shadow);
+  transform: translateY(-2px);
 }
 
 .pillar-icon {
@@ -181,18 +235,165 @@ body {
   opacity: 0.7;
 }
 
-.pillar-name {
-  font-size: 0.75rem;
+.pillar-name-en {
+  font-size: 0.7rem;
   letter-spacing: 0.25em;
   text-transform: uppercase;
   color: var(--gold-dim);
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.15rem;
 }
 
-.pillar-desc {
-  font-size: 0.95rem;
+.pillar-name-ta {
+  font-family: 'Noto Serif Tamil', serif;
+  font-size: 0.85rem;
+  color: var(--gold-dim);
+  opacity: 0.7;
+  margin-bottom: 0.6rem;
+  display: block;
+}
+
+.pillar-desc-en {
+  font-size: 0.9rem;
   color: var(--clay);
   line-height: 1.6;
+  margin-bottom: 0.4rem;
+}
+
+.pillar-desc-ta {
+  font-family: 'Noto Serif Tamil', serif;
+  font-size: 0.8rem;
+  color: var(--clay);
+  opacity: 0.6;
+  line-height: 1.7;
+}
+
+.pillar-link {
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--gold-dim);
+  margin-top: 1rem;
+  display: block;
+  transition: color 0.2s;
+}
+
+.pillar:hover .pillar-link { color: var(--gold); }
+
+/* ===== EXPLORE SECTION ===== */
+.explore-section {
+  background: var(--cream);
+  padding: 5rem 2rem;
+  border-top: 1px solid var(--sand);
+  border-bottom: 1px solid var(--sand);
+}
+
+.explore-inner {
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.explore-header {
+  text-align: center;
+  margin-bottom: 3.5rem;
+}
+
+.explore-label {
+  font-size: 0.7rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--gold-dim);
+  margin-bottom: 0.25rem;
+}
+
+.explore-label-ta {
+  font-family: 'Noto Serif Tamil', serif;
+  font-size: 0.85rem;
+  color: var(--gold-dim);
+  opacity: 0.65;
+  display: block;
+  margin-bottom: 1.5rem;
+}
+
+.explore-title-en {
+  font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+  font-weight: 300;
+  margin-bottom: 0.35rem;
+}
+
+.explore-title-ta {
+  font-family: 'Noto Serif Tamil', serif;
+  font-size: clamp(1rem, 2vw, 1.35rem);
+  font-weight: 300;
+  color: var(--clay);
+  opacity: 0.65;
+}
+
+.explore-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.25rem;
+}
+
+.explore-card {
+  background: var(--parchment);
+  border: 1px solid var(--sand);
+  padding: 1.75rem 1.5rem 1.5rem;
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
+  border-top: 2px solid var(--gold);
+  position: relative;
+}
+
+.explore-card:hover {
+  border-color: var(--gold-dim);
+  box-shadow: 0 4px 18px var(--shadow);
+  transform: translateY(-2px);
+}
+
+.explore-card-icon {
+  font-size: 1.3rem;
+  margin-bottom: 0.75rem;
+  opacity: 0.6;
+}
+
+.explore-card-en {
+  font-size: 1rem;
+  font-weight: 400;
+  color: var(--ink);
+  margin-bottom: 0.2rem;
+  line-height: 1.35;
+}
+
+.explore-card-ta {
+  font-family: 'Noto Serif Tamil', serif;
+  font-size: 0.85rem;
+  color: var(--clay);
+  opacity: 0.7;
+  margin-bottom: 0.8rem;
+  display: block;
+}
+
+.explore-card-desc {
+  font-size: 0.88rem;
+  color: var(--clay);
+  line-height: 1.6;
+}
+
+.explore-card-arrow {
+  position: absolute;
+  bottom: 1.25rem;
+  right: 1.5rem;
+  color: var(--gold);
+  opacity: 0;
+  transition: opacity 0.2s, transform 0.2s;
+  font-size: 1rem;
+}
+
+.explore-card:hover .explore-card-arrow {
+  opacity: 1;
+  transform: translateX(3px);
 }
 
 /* ===== TAMIL SECTION ===== */
@@ -223,17 +424,34 @@ body {
 }
 
 .tamil-label {
-  font-size: 0.75rem;
+  font-size: 0.7rem;
   letter-spacing: 0.3em;
   text-transform: uppercase;
   color: rgba(212,196,168,0.6);
+  margin-bottom: 0.25rem;
+}
+
+.tamil-label-ta {
+  font-family: 'Noto Serif Tamil', serif;
+  font-size: 0.85rem;
+  color: rgba(212,196,168,0.4);
+  display: block;
   margin-bottom: 1.5rem;
 }
 
-.tamil-title {
+.tamil-title-en {
   font-size: clamp(1.8rem, 4vw, 2.8rem);
   font-weight: 300;
   color: var(--parchment);
+  margin-bottom: 0.35rem;
+}
+
+.tamil-title-ta {
+  font-family: 'Noto Serif Tamil', serif;
+  font-size: clamp(1.1rem, 2.5vw, 1.6rem);
+  font-weight: 300;
+  color: var(--sand);
+  opacity: 0.65;
   margin-bottom: 1.5rem;
 }
 
@@ -243,6 +461,15 @@ body {
   line-height: 1.9;
   max-width: 680px;
   margin: 0 auto;
+}
+
+.tamil-intro-ta {
+  font-family: 'Noto Serif Tamil', serif;
+  font-size: 0.9rem;
+  color: rgba(212,196,168,0.5);
+  line-height: 1.9;
+  max-width: 680px;
+  margin: 0.75rem auto 0;
 }
 
 .tamil-divider {
@@ -263,7 +490,7 @@ body {
 .tamil-card {
   background: rgba(255,255,255,0.04);
   border: 1px solid rgba(196,148,58,0.2);
-  padding: 2rem 1.75rem;
+  padding: 2rem 1.75rem 2.5rem;
   text-decoration: none;
   display: block;
   transition: background 0.25s, border-color 0.25s, transform 0.2s;
@@ -287,13 +514,10 @@ body {
   transform: translateY(-2px);
 }
 
-.tamil-card:hover::after {
-  opacity: 1;
-  transform: translateX(3px);
-}
+.tamil-card:hover::after { opacity: 1; transform: translateX(3px); }
 
 .card-part {
-  font-size: 0.7rem;
+  font-size: 0.68rem;
   letter-spacing: 0.25em;
   text-transform: uppercase;
   color: var(--gold);
@@ -302,25 +526,34 @@ body {
 }
 
 .card-title {
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   font-weight: 400;
   color: var(--parchment);
-  margin-bottom: 0.75rem;
+  margin-bottom: 0.35rem;
   line-height: 1.35;
 }
 
-.card-subtitle {
+.card-title-ta {
   font-family: 'Noto Serif Tamil', serif;
-  font-size: 1rem;
+  font-size: 0.9rem;
   color: var(--gold);
   margin-bottom: 1rem;
-  opacity: 0.8;
+  opacity: 0.75;
+  display: block;
 }
 
 .card-desc {
-  font-size: 0.9rem;
+  font-size: 0.88rem;
   color: rgba(212,196,168,0.75);
   line-height: 1.65;
+  margin-bottom: 0.4rem;
+}
+
+.card-desc-ta {
+  font-family: 'Noto Serif Tamil', serif;
+  font-size: 0.8rem;
+  color: rgba(212,196,168,0.45);
+  line-height: 1.7;
 }
 
 /* ===== WHY TAMIL ===== */
@@ -331,20 +564,39 @@ body {
 }
 
 .why-title {
-  font-size: 0.75rem;
+  font-size: 0.7rem;
   letter-spacing: 0.3em;
   text-transform: uppercase;
   color: rgba(196,148,58,0.6);
-  margin-bottom: 1.25rem;
+  margin-bottom: 0.2rem;
   text-align: center;
 }
 
-.why-body {
+.why-title-ta {
+  font-family: 'Noto Serif Tamil', serif;
+  font-size: 0.85rem;
+  color: rgba(196,148,58,0.4);
+  text-align: center;
+  display: block;
+  margin-bottom: 1.25rem;
+}
+
+.why-body-en {
   font-size: 1rem;
   color: var(--sand);
   line-height: 1.9;
   max-width: 680px;
   margin: 0 auto;
+  text-align: center;
+}
+
+.why-body-ta {
+  font-family: 'Noto Serif Tamil', serif;
+  font-size: 0.88rem;
+  color: rgba(212,196,168,0.5);
+  line-height: 1.9;
+  max-width: 680px;
+  margin: 0.75rem auto 0;
   text-align: center;
 }
 
@@ -363,9 +615,7 @@ footer a {
   text-decoration: none;
 }
 
-footer a:hover {
-  color: var(--gold);
-}
+footer a:hover { color: var(--gold); }
 </style>
 </head>
 <body>
@@ -374,95 +624,206 @@ footer a:hover {
 <header class="hero">
   <div class="hero-tamil">எண்ணம்</div>
   <h1 class="hero-title">Ennam</h1>
-  <p class="hero-subtitle">A medium for boundless expression — within and without</p>
+  <p class="hero-subtitle-en">A medium for boundless expression — within and without</p>
+  <p class="hero-subtitle-ta">எல்லையற்ற வெளிப்பாட்டிற்கான ஒரு ஊடகம் — உள்ளும் வெளியும்</p>
   <div class="hero-divider"></div>
   <nav class="hero-nav">
-    <a href="#purpose">Purpose</a>
-    <a href="#pillars">Pillars</a>
-    <a href="#tamil">Tamil</a>
+    <a href="#purpose">Purpose · நோக்கம்</a>
+    <a href="#pillars">Pillars · தூண்கள்</a>
+    <a href="#explore">Explore · ஆராய்க</a>
+    <a href="#tamil">Tamil · தமிழ்</a>
   </nav>
 </header>
 
 <!-- ===== PURPOSE ===== -->
 <section class="section" id="purpose">
   <p class="section-label">The Mission</p>
-  <h2 class="section-title">Finding the language that lets you be fully alive</h2>
+  <span class="section-label-ta">நோக்கம்</span>
+  <h2 class="section-title-en">Finding the language that lets you be fully alive</h2>
+  <p class="section-title-ta">முழுமையாக வாழ வைக்கும் மொழியை தேடுதல்</p>
   <div class="section-body">
-    <p>
-      Most languages we inherit were built to communicate — to transfer information between
-      minds efficiently. But there is a richer need: to <em>express</em> — to paint the texture
-      of an inner world, to trace the shape of a feeling before it has a name, to see the world
-      outside with fresh eyes and mirror it back without distortion.
-    </p>
-    <p>
-      Ennam is a research into language as a living medium. Not a fixed system of grammar
-      and vocabulary, but a vehicle — one that can carry the full weight of consciousness:
-      observation, sensation, thought, silence, contradiction, and wonder.
-    </p>
-
-    <div class="pull-quote">
-      "To find a suitable base language and enhance it — so that it becomes a mode of transport,
-      a medium for people to have boundless expression and to paint a beautiful picture
-      within and outside, through resonance and dissonance."
+    <div class="bilingual">
+      <p class="en">
+        Most languages we inherit were built to communicate — to transfer information between
+        minds efficiently. But there is a richer need: to <em>express</em> — to paint the texture
+        of an inner world, to trace the shape of a feeling before it has a name, to see the world
+        outside with fresh eyes and mirror it back without distortion.
+      </p>
+      <span class="ta">நாம் பெற்ற பெரும்பாலான மொழிகள் தகவல்களை திறம்பட பரிமாறிக் கொள்வதற்காக கட்டமைக்கப்பட்டன. ஆனால் ஒரு ஆழமான தேவை உள்ளது: வெளிப்படுத்துவது — உள் உலகின் அமைப்பை வரைவது, பெயர் கிடைக்காத உணர்வின் வடிவத்தை தொடர்வது, வெளி உலகை புதிய கண்களால் காண்பது.</span>
+    </div>
+    <div class="bilingual">
+      <p class="en">
+        Ennam is a research into language as a living medium. Not a fixed system of grammar
+        and vocabulary, but a vehicle — one that can carry the full weight of consciousness:
+        observation, sensation, thought, silence, contradiction, and wonder.
+      </p>
+      <span class="ta">எண்ணம் என்பது மொழியை ஒரு உயிரோட்டமான ஊடகமாக ஆராய்கிறது. நிலையான இலக்கண மற்றும் சொல்லகராதி அமைப்பு அல்ல, மாறாக ஒரு வாகனம் — கவனிப்பு, உணர்வு, சிந்தனை, மௌனம், முரண்பாடு, வியப்பு என உணர்வுணர்தலின் முழு எடையை தாங்கக்கூடியது.</span>
     </div>
 
-    <p>
-      This project searches for the foundations of such a language. It looks inward — at
-      how thought is formed, how feeling finds its shape — and outward, at how ancient tongues
-      encoded the world with structural depth and sonic intelligence. The goal is not a new
-      dictionary. It is a new way of listening to yourself and everything around you.
-    </p>
-    <p>
-      Expression here is not performance. It is perception made visible. When you observe
-      what is truly happening — within the body, across a room, in the pause between words —
-      and you find a form for it, something shifts. Curiosity ignites. The world becomes
-      richer. Ennam is about cultivating that capacity.
-    </p>
+    <div class="pull-quote">
+      <span class="en">"To find a suitable base language and enhance it — so that it becomes a mode of transport,
+      a medium for people to have boundless expression and to paint a beautiful picture
+      within and outside, through resonance and dissonance."</span>
+      <span class="ta">"ஒரு பொருத்தமான அடிப்படை மொழியை கண்டறிந்து மேம்படுத்துவது — அது ஒரு போக்குவரத்து வழிமுறையாக மாறட்டும், மக்கள் எல்லையற்ற வெளிப்பாட்டை கொண்டிருக்கவும் இசைவு மற்றும் முரண் வழியாக உள்ளும் வெளியும் ஒரு அழகான படத்தை வரைவதற்கும் ஒரு ஊடகமாக மாறட்டும்."</span>
+    </div>
+
+    <div class="bilingual">
+      <p class="en">
+        This project searches for the foundations of such a language. It looks inward — at
+        how thought is formed, how feeling finds its shape — and outward, at how ancient tongues
+        encoded the world with structural depth and sonic intelligence. The goal is not a new
+        dictionary. It is a new way of listening to yourself and everything around you.
+      </p>
+      <span class="ta">இந்த திட்டம் அத்தகைய மொழியின் அடித்தளங்களை தேடுகிறது. சிந்தனை எவ்வாறு உருவாகிறது, உணர்வு எவ்வாறு வடிவம் பெறுகிறது என உள்நோக்கியும் — பண்டைய மொழிகள் கட்டமைப்பு ஆழத்துடனும் ஒலி அறிவாண்மையுடனும் உலகை எவ்வாறு குறியீடு செய்தன என வெளிநோக்கியும் பார்க்கிறது. நோக்கம் ஒரு புதிய சொல்லகராதி அல்ல. உங்களையும் உங்களைச் சுற்றியுள்ள எல்லாவற்றையும் கேட்பதற்கான ஒரு புதிய வழி.</span>
+    </div>
+    <div class="bilingual">
+      <p class="en">
+        Expression here is not performance. It is perception made visible. When you observe
+        what is truly happening — within the body, across a room, in the pause between words —
+        and you find a form for it, something shifts. Curiosity ignites. The world becomes
+        richer. Ennam is about cultivating that capacity.
+      </p>
+      <span class="ta">இங்கே வெளிப்பாடு என்பது நடிப்பல்ல. அது புலனாகும் உணர்தல். உடலுக்குள், ஒரு அறையில், வார்த்தைகளுக்கு இடையிலான இடைவெளியில் உண்மையிலேயே என்ன நடக்கிறது என்று நீங்கள் கவனிக்கும்போது, அதற்கு ஒரு வடிவம் கண்டறியும்போது, ஏதோ ஒன்று மாறுகிறது. ஆர்வம் மூளுகிறது. உலகம் மேலும் வளமாகிறது. எண்ணம் என்பது அந்த திறனை வளர்ப்பதைப் பற்றியது.</span>
+    </div>
   </div>
 </section>
 
 <!-- ===== PILLARS ===== -->
 <section class="section" id="pillars">
   <p class="section-label">The Pillars</p>
-  <h2 class="section-title">What this exploration stands on</h2>
+  <span class="section-label-ta">தூண்கள்</span>
+  <h2 class="section-title-en">What this exploration stands on</h2>
+  <p class="section-title-ta">இந்த ஆய்வு நிற்கும் அடித்தளம்</p>
   <div class="section-body">
-    <p>
-      Every language worth inheriting was built on a set of commitments — about what matters,
-      what deserves a word, how precision and poetry can coexist. These are the commitments
-      that shape Ennam.
-    </p>
+    <div class="bilingual">
+      <p class="en">
+        Every language worth inheriting was built on a set of commitments — about what matters,
+        what deserves a word, how precision and poetry can coexist. These are the commitments
+        that shape Ennam.
+      </p>
+      <span class="ta">மதிப்புமிக்க எந்த மொழியும் ஒரு தொகுப்பான உறுதிமொழிகளின் மீது கட்டப்பட்டது — எது முக்கியம், எதற்கு ஒரு வார்த்தை தகுதியானது, துல்லியமும் கவிதையும் எவ்வாறு இணை இயங்கும் என்று. இவையே எண்ணத்தை வடிவமைக்கும் உறுதிமொழிகள்.</span>
+    </div>
   </div>
 
   <div class="pillars">
-    <div class="pillar">
+    <a href="observation.html" class="pillar">
       <div class="pillar-icon">◎</div>
-      <div class="pillar-name">Observation</div>
-      <p class="pillar-desc">A language that trains the eye — noticing what is actually present, not just what is expected. Language as a tool for seeing.</p>
-    </div>
-    <div class="pillar">
+      <div class="pillar-name-en">Observation</div>
+      <span class="pillar-name-ta">கவனிப்பு</span>
+      <p class="pillar-desc-en">A language that trains the eye — noticing what is actually present, not just what is expected. Language as a tool for seeing.</p>
+      <span class="pillar-desc-ta">கண்ணை பயிற்றுவிக்கும் மொழி — இருப்பதை கவனிப்பது, எதிர்பார்க்கப்படுவதை மட்டுமல்ல. காண்பதற்கான கருவியாக மொழி.</span>
+      <span class="pillar-link">Explore →</span>
+    </a>
+    <a href="expression.html" class="pillar">
       <div class="pillar-icon">◈</div>
-      <div class="pillar-name">Expression</div>
-      <p class="pillar-desc">Moving beyond communication into full, unbounded self-expression — the interior life rendered without loss or compromise.</p>
-    </div>
-    <div class="pillar">
+      <div class="pillar-name-en">Expression</div>
+      <span class="pillar-name-ta">வெளிப்பாடு</span>
+      <p class="pillar-desc-en">Moving beyond communication into full, unbounded self-expression — the interior life rendered without loss or compromise.</p>
+      <span class="pillar-desc-ta">தகவல் பரிமாற்றத்தை தாண்டி முழுமையான, கட்டற்ற சுய வெளிப்பாடு — இழப்போ சமரசமோ இல்லாமல் உள் வாழ்க்கையை வெளிப்படுத்துவது.</span>
+      <span class="pillar-link">Explore →</span>
+    </a>
+    <a href="curiosity.html" class="pillar">
       <div class="pillar-icon">◉</div>
-      <div class="pillar-name">Curiosity</div>
-      <p class="pillar-desc">The language itself as a generator of questions — each word a door, not a wall. Structured wonder as a way of being.</p>
-    </div>
-    <div class="pillar">
+      <div class="pillar-name-en">Curiosity</div>
+      <span class="pillar-name-ta">ஆர்வம்</span>
+      <p class="pillar-desc-en">The language itself as a generator of questions — each word a door, not a wall. Structured wonder as a way of being.</p>
+      <span class="pillar-desc-ta">மொழி தானே கேள்விகளின் ஆக்குவிசையாக — ஒவ்வொரு வார்த்தையும் ஒரு கதவு, சுவர் அல்ல. வாழ்க்கை முறையாக கட்டமைக்கப்பட்ட வியப்பு.</span>
+      <span class="pillar-link">Explore →</span>
+    </a>
+    <a href="resonance.html" class="pillar">
       <div class="pillar-icon">◐</div>
-      <div class="pillar-name">Resonance</div>
-      <p class="pillar-desc">The harmony between inner experience and outer world — when what you feel and what you say and what is real align.</p>
-    </div>
-    <div class="pillar">
+      <div class="pillar-name-en">Resonance</div>
+      <span class="pillar-name-ta">இசைவு</span>
+      <p class="pillar-desc-en">The harmony between inner experience and outer world — when what you feel and what you say and what is real align.</p>
+      <span class="pillar-desc-ta">உள் அனுபவத்திற்கும் வெளி உலகிற்கும் இடையிலான ஒற்றுமை — நீங்கள் உணர்வது, சொல்வது, இருப்பது ஆகியவை ஒத்துப் போகும்போது.</span>
+      <span class="pillar-link">Explore →</span>
+    </a>
+    <a href="dissonance.html" class="pillar">
       <div class="pillar-icon">◑</div>
-      <div class="pillar-name">Dissonance</div>
-      <p class="pillar-desc">The productive friction that reveals truth — contradiction held openly, paradox as signal, tension as a source of depth.</p>
-    </div>
-    <div class="pillar">
+      <div class="pillar-name-en">Dissonance</div>
+      <span class="pillar-name-ta">முரண்</span>
+      <p class="pillar-desc-en">The productive friction that reveals truth — contradiction held openly, paradox as signal, tension as a source of depth.</p>
+      <span class="pillar-desc-ta">உண்மையை வெளிப்படுத்தும் உற்பத்திகரமான உராய்வு — முரண்பாடு வெளிப்படையாக வைக்கப்படுகிறது, முரண்நகை ஒரு சமிக்ஞையாக, பதட்டம் ஆழத்தின் ஆதாரமாக.</span>
+      <span class="pillar-link">Explore →</span>
+    </a>
+    <a href="transport.html" class="pillar">
       <div class="pillar-icon">◇</div>
-      <div class="pillar-name">Transport</div>
-      <p class="pillar-desc">Language as a medium that moves you — across states of mind, across perspectives, beyond the boundaries of the familiar.</p>
+      <div class="pillar-name-en">Transport</div>
+      <span class="pillar-name-ta">கடத்தல்</span>
+      <p class="pillar-desc-en">Language as a medium that moves you — across states of mind, across perspectives, beyond the boundaries of the familiar.</p>
+      <span class="pillar-desc-ta">உங்களை நகர்த்தும் ஊடகமாக மொழி — மன நிலைகள் வழியாக, நோக்குகள் தாண்டி, பழக்கமான எல்லைகளுக்கு அப்பால்.</span>
+      <span class="pillar-link">Explore →</span>
+    </a>
+  </div>
+</section>
+
+<!-- ===== EXPLORE SECTION ===== -->
+<section class="explore-section" id="explore">
+  <div class="explore-inner">
+    <div class="explore-header">
+      <p class="explore-label">Deep Dives</p>
+      <span class="explore-label-ta">ஆழமான ஆய்வு</span>
+      <h2 class="explore-title-en">Explore Every Dimension</h2>
+      <p class="explore-title-ta">ஒவ்வொரு பரிமாணத்தையும் ஆராயுங்கள்</p>
+    </div>
+    <div class="explore-grid">
+
+      <a href="purpose.html" class="explore-card">
+        <div class="explore-card-icon">◌</div>
+        <div class="explore-card-en">The Purpose</div>
+        <span class="explore-card-ta">நோக்கம்</span>
+        <p class="explore-card-desc">A full exploration of why this project exists — the deeper philosophy behind the search for a language of boundless expression.</p>
+        <span class="explore-card-arrow">→</span>
+      </a>
+
+      <a href="observation.html" class="explore-card">
+        <div class="explore-card-icon">◎</div>
+        <div class="explore-card-en">Observation · கவனிப்பு</div>
+        <span class="explore-card-ta">காண்பதற்கான மொழி</span>
+        <p class="explore-card-desc">Training attention — seeing what is actually there rather than what the mind expects. Language as a lens for perception.</p>
+        <span class="explore-card-arrow">→</span>
+      </a>
+
+      <a href="expression.html" class="explore-card">
+        <div class="explore-card-icon">◈</div>
+        <div class="explore-card-en">Expression · வெளிப்பாடு</div>
+        <span class="explore-card-ta">கட்டற்ற சுய வெளிப்பாடு</span>
+        <p class="explore-card-desc">Moving beyond ordinary communication into full, uncompromised expression of the interior life.</p>
+        <span class="explore-card-arrow">→</span>
+      </a>
+
+      <a href="curiosity.html" class="explore-card">
+        <div class="explore-card-icon">◉</div>
+        <div class="explore-card-en">Curiosity · ஆர்வம்</div>
+        <span class="explore-card-ta">கேள்விகளின் ஆக்குவிசை</span>
+        <p class="explore-card-desc">Cultivating structured wonder — a language that opens more than it closes, that generates questions rather than settles them.</p>
+        <span class="explore-card-arrow">→</span>
+      </a>
+
+      <a href="resonance.html" class="explore-card">
+        <div class="explore-card-icon">◐</div>
+        <div class="explore-card-en">Resonance · இசைவு</div>
+        <span class="explore-card-ta">உள்ளும் வெளியும் ஒற்றுமை</span>
+        <p class="explore-card-desc">The alignment between inner feeling, spoken word, and outer reality — when all three vibrate at the same frequency.</p>
+        <span class="explore-card-arrow">→</span>
+      </a>
+
+      <a href="dissonance.html" class="explore-card">
+        <div class="explore-card-icon">◑</div>
+        <div class="explore-card-en">Dissonance · முரண்</div>
+        <span class="explore-card-ta">உற்பத்திகரமான முரண்பாடு</span>
+        <p class="explore-card-desc">The generative friction that reveals what resonance conceals — tension, paradox, and contradiction as sources of depth.</p>
+        <span class="explore-card-arrow">→</span>
+      </a>
+
+      <a href="transport.html" class="explore-card">
+        <div class="explore-card-icon">◇</div>
+        <div class="explore-card-en">Transport · கடத்தல்</div>
+        <span class="explore-card-ta">மொழி ஒரு வாகனம்</span>
+        <p class="explore-card-desc">Language as movement — carrying you across states of mind, across perspectives, into the unfamiliar and the vast.</p>
+        <span class="explore-card-arrow">→</span>
+      </a>
+
     </div>
   </div>
 </section>
@@ -472,8 +833,10 @@ footer a:hover {
   <div class="tamil-inner">
     <div class="tamil-header">
       <div class="tamil-label">Base Language Exploration</div>
+      <span class="tamil-label-ta">அடிப்படை மொழி ஆய்வு</span>
       <div class="tamil-script-display">தமிழ்</div>
-      <h2 class="tamil-title">Tamil as Foundation</h2>
+      <h2 class="tamil-title-en">Tamil as Foundation</h2>
+      <p class="tamil-title-ta">அடித்தளமாக தமிழ்</p>
       <div class="tamil-divider"></div>
       <p class="tamil-intro">
         Tamil is among the oldest living classical languages on earth. Its architecture of
@@ -482,52 +845,51 @@ footer a:hover {
         as the base language for this exploration. What follows is a deep study of Tamil:
         its sounds, its structure, its spirit.
       </p>
+      <p class="tamil-intro-ta">
+        தமிழ் உலகிலுள்ள மிகவும் பழமையான உயிரோடிருக்கும் செம்மொழிகளில் ஒன்று. அதன் ஒலி கட்டமைப்பு, ஒரு எழுத்தில் தத்துவத்தை குறியீடு செய்யும் திறன், கவிதையை சிந்தனையின் உயர்ந்த வடிவமாக கருதும் மரபு — இந்த குணங்கள் அதை இந்த ஆய்வின் அடிப்படை மொழியாக இயற்கையான வேட்பாளராக ஆக்குகின்றன.
+      </p>
     </div>
 
     <div class="tamil-cards">
 
       <a href="TamilIntroPart1.html" class="tamil-card">
-        <div class="card-part">Part 1 · Introduction</div>
+        <div class="card-part">Part 1 · முதல் பாகம்</div>
         <div class="card-title">The Essence of Tamil</div>
-        <div class="card-subtitle">தமிழின் சாரம்</div>
-        <p class="card-desc">
-          An introduction to Tamil as a foundation for a new language of expression —
-          its classical roots, its sonic depth, and why it matters to this project.
-        </p>
+        <span class="card-title-ta">தமிழின் சாரம்</span>
+        <p class="card-desc">An introduction to Tamil as a foundation for a new language of expression — its classical roots, its sonic depth, and why it matters to this project.</p>
+        <span class="card-desc-ta">புதிய வெளிப்பாட்டு மொழிக்கான அடித்தளமாக தமிழின் அறிமுகம் — அதன் செம்மொழி வேர்கள், ஒலி ஆழம், மற்றும் இந்த திட்டத்திற்கு அது ஏன் முக்கியம்.</span>
       </a>
 
       <a href="TamilSoundPart2.html" class="tamil-card">
-        <div class="card-part">Part 2 · Sound</div>
-        <div class="card-title">Tamil Characters — From Natural Sound to Structured Expression</div>
-        <div class="card-subtitle">ஒலியும் எழுத்தும்</div>
-        <p class="card-desc">
-          How Tamil maps the full range of human vocal sound into a precise, elegant
-          character system — and what that reveals about the relationship between
-          body, sound, and meaning.
-        </p>
+        <div class="card-part">Part 2 · இரண்டாம் பாகம்</div>
+        <div class="card-title">From Natural Sound to Structured Expression</div>
+        <span class="card-title-ta">ஒலியும் எழுத்தும்</span>
+        <p class="card-desc">How Tamil maps the full range of human vocal sound into a precise, elegant character system — and what that reveals about the relationship between body, sound, and meaning.</p>
+        <span class="card-desc-ta">தமிழ் மனித குரல் ஒலியின் முழு வரம்பை எவ்வாறு ஒரு துல்லியமான, நேர்த்தியான எழுத்து அமைப்பாக வரைபடமிடுகிறது — உடல், ஒலி, அர்த்தம் ஆகியவற்றின் உறவை பற்றி அது என்ன வெளிப்படுத்துகிறது.</span>
       </a>
 
       <a href="TamilFrameworkReferencePart1.html" class="tamil-card">
-        <div class="card-part">Framework · Reference</div>
+        <div class="card-part">Framework · கட்டமைப்பு</div>
         <div class="card-title">Resonance &amp; Dissonance — Tamil × Thinking Without Boundaries</div>
-        <div class="card-subtitle">இசைவும் முரணும்</div>
-        <p class="card-desc">
-          A reference framework applying Tamil structures to the core themes of the
-          project — how resonance and dissonance operate in language, thought, and
-          unbounded expression.
-        </p>
+        <span class="card-title-ta">இசைவும் முரணும்</span>
+        <p class="card-desc">A reference framework applying Tamil structures to the core themes of the project — how resonance and dissonance operate in language, thought, and unbounded expression.</p>
+        <span class="card-desc-ta">திட்டத்தின் முக்கிய கருப்பொருள்களுக்கு தமிழ் கட்டமைப்புகளை பயன்படுத்தும் ஒரு குறிப்பு கட்டமைப்பு — மொழியில், சிந்தனையில், எல்லையற்ற வெளிப்பாட்டில் இசைவும் முரணும் எவ்வாறு செயல்படுகின்றன.</span>
       </a>
 
     </div>
 
     <div class="why-tamil">
       <div class="why-title">Why Tamil</div>
-      <p class="why-body">
+      <span class="why-title-ta">ஏன் தமிழ்?</span>
+      <p class="why-body-en">
         Tamil has survived for over two thousand years not because it was imposed, but because
         it was loved. Its poets treated the internal landscape — love, longing, courage, grief —
         with the same precision that a scientist brings to observation. It has a grammar of
         emotion. It has a physics of sound. For a project about painting beautiful pictures
         within and without, Tamil is not a starting point — it is an invitation.
+      </p>
+      <p class="why-body-ta">
+        தமிழ் இரண்டாயிரம் ஆண்டுகளுக்கும் மேலாக உயிர் வாழ்ந்தது திணிக்கப்பட்டதால் அல்ல, மாறாக நேசிக்கப்பட்டதால். அதன் கவிஞர்கள் உள் நிலப்பரப்பை — காதல், ஏக்கம், தைரியம், துக்கம் — ஒரு விஞ்ஞானி கவனிப்பிற்கு கொண்டு வரும் அதே துல்லியத்துடன் கையாண்டனர். அதற்கு உணர்ச்சியின் இலக்கணம் உண்டு. ஒலியின் இயற்பியல் உண்டு. உள்ளும் வெளியும் அழகான படங்களை வரைவதைப் பற்றிய திட்டத்திற்கு, தமிழ் ஒரு தொடக்கப் புள்ளி மட்டுமல்ல — அது ஒரு அழைப்பு.
       </p>
     </div>
 
@@ -536,8 +898,9 @@ footer a:hover {
 
 <!-- ===== FOOTER ===== -->
 <footer>
-  <p>Ennam &nbsp;·&nbsp; A research into language as a medium for boundless expression</p>
-  <p style="margin-top:0.5rem;">
+  <p>Ennam · எண்ணம் &nbsp;·&nbsp; A research into language as a medium for boundless expression</p>
+  <p style="margin-top:0.35rem;font-family:'Noto Serif Tamil',serif;font-size:0.8rem;opacity:0.6;">எல்லையற்ற வெளிப்பாட்டிற்கான ஊடகமாக மொழியில் ஒரு ஆய்வு</p>
+  <p style="margin-top:0.75rem;">
     <a href="https://github.com/ilamgumaran/Ennam">github.com/ilamgumaran/Ennam</a>
   </p>
 </footer>

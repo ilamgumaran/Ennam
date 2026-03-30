@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="ta-en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Transport · கடத்தல் — Ennam</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=JetBrains+Mono:wght@300;400&family=Noto+Serif+Tamil:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+:root { --ink:#1a1410; --parchment:#f5f0e8; --gold:#c4943a; --gold-dim:#a07830; --clay:#6b4a3a; --sand:#d4c4a8; --cream:#faf6ee; --violet:#3a2a5a; --shadow:rgba(26,20,16,0.08); }
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body { font-family:'Cormorant Garamond',Georgia,serif; background:var(--parchment); color:var(--ink); line-height:1.7; font-size:18px; }
+.ta { font-family:'Noto Serif Tamil',serif; font-size:0.88em; color:var(--clay); opacity:0.72; line-height:1.85; margin-top:0.45rem; display:block; }
+.topbar { background:#111; padding:1rem 2rem; display:flex; align-items:center; gap:1.5rem; }
+.topbar a { color:rgba(212,196,168,0.55); text-decoration:none; font-size:0.78rem; letter-spacing:0.18em; text-transform:uppercase; transition:color 0.2s; }
+.topbar a:hover { color:var(--gold); }
+.topbar-sep { color:rgba(212,196,168,0.2); }
+.hero { min-height:55vh; display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; background:linear-gradient(160deg,#1a1410 0%,#1e1a2a 50%,#2a2038 100%); color:var(--parchment); padding:3rem 2rem; position:relative; overflow:hidden; }
+.hero::before { content:''; position:absolute; inset:0; background:radial-gradient(ellipse 55% 45% at 50% 50%,rgba(90,58,106,0.1) 0%,transparent 70%); pointer-events:none; }
+.hero-icon { font-size:3rem; opacity:0.4; margin-bottom:1rem; }
+.hero-label { font-size:0.7rem; letter-spacing:0.35em; text-transform:uppercase; color:rgba(196,148,58,0.65); margin-bottom:0.25rem; }
+.hero-label-ta { font-family:'Noto Serif Tamil',serif; font-size:0.85rem; color:rgba(196,148,58,0.4); display:block; margin-bottom:1.75rem; }
+.hero-title { font-size:clamp(2.2rem,5vw,4rem); font-weight:300; letter-spacing:0.1em; margin-bottom:0.35rem; }
+.hero-title-ta { font-family:'Noto Serif Tamil',serif; font-size:clamp(1.3rem,3vw,2.2rem); font-weight:300; color:var(--sand); opacity:0.7; margin-bottom:1.5rem; }
+.hero-tagline { font-style:italic; font-size:clamp(0.95rem,2vw,1.2rem); color:rgba(212,196,168,0.6); max-width:500px; margin-bottom:0.4rem; }
+.hero-tagline-ta { font-family:'Noto Serif Tamil',serif; font-size:clamp(0.8rem,1.8vw,1rem); color:rgba(212,196,168,0.38); max-width:500px; }
+.hero-divider { width:60px; height:1px; background:linear-gradient(90deg,transparent,var(--gold),transparent); margin:1.5rem auto 0; }
+.content { max-width:780px; margin:0 auto; padding:4.5rem 2rem; }
+.content + .content { border-top:1px solid var(--sand); }
+.sec-label { font-size:0.7rem; letter-spacing:0.3em; text-transform:uppercase; color:var(--gold-dim); margin-bottom:0.2rem; }
+.sec-label-ta { font-family:'Noto Serif Tamil',serif; font-size:0.8rem; color:var(--gold-dim); opacity:0.6; display:block; margin-bottom:1.25rem; }
+.sec-title { font-size:clamp(1.6rem,3.5vw,2.4rem); font-weight:300; line-height:1.25; margin-bottom:0.35rem; }
+.sec-title-ta { font-family:'Noto Serif Tamil',serif; font-size:clamp(1rem,2.2vw,1.45rem); font-weight:300; color:var(--clay); opacity:0.65; line-height:1.5; margin-bottom:2rem; }
+.body-en { font-size:1.05rem; line-height:1.9; color:#3a2e28; margin-bottom:0.35rem; }
+.bilingual { margin-bottom:1.5rem; }
+.pull-quote { border-left:3px solid var(--gold); padding:1.2rem 1.6rem; margin:2.5rem 0; background:rgba(196,148,58,0.04); font-style:italic; font-size:1.1rem; color:var(--clay); line-height:1.75; }
+.pull-quote .ta { font-style:normal; margin-top:0.85rem; }
+.destinations { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:1.25rem; margin-top:2.5rem; }
+.dest { background:var(--cream); border:1px solid var(--sand); padding:1.5rem 1.25rem; border-left:3px solid var(--gold); }
+.dest-title { font-size:1rem; font-weight:400; margin-bottom:0.25rem; }
+.dest-title-ta { font-family:'Noto Serif Tamil',serif; font-size:0.85rem; color:var(--clay); opacity:0.65; display:block; margin-bottom:0.5rem; }
+.dest-body { font-size:0.88rem; color:var(--clay); line-height:1.65; }
+.closing { background:linear-gradient(135deg,#1a1410 0%,#2a1e16 100%); color:var(--parchment); padding:4rem 2rem; text-align:center; }
+.closing-inner { max-width:600px; margin:0 auto; }
+.closing-en { font-size:clamp(1.2rem,3vw,1.8rem); font-weight:300; font-style:italic; line-height:1.5; margin-bottom:0.75rem; }
+.closing-ta { font-family:'Noto Serif Tamil',serif; font-size:clamp(0.9rem,2vw,1.25rem); font-weight:300; color:var(--sand); opacity:0.65; line-height:1.6; margin-bottom:2rem; }
+.closing-divider { width:50px; height:1px; background:linear-gradient(90deg,transparent,var(--gold),transparent); margin:0 auto 2rem; }
+.home-link { display:inline-block; color:var(--sand); text-decoration:none; font-size:0.78rem; letter-spacing:0.25em; text-transform:uppercase; border-bottom:1px solid rgba(212,196,168,0.3); padding-bottom:2px; transition:color 0.2s,border-color 0.2s; }
+.home-link:hover { color:var(--gold); border-color:var(--gold); }
+.nav-pills { display:flex; gap:1rem; flex-wrap:wrap; margin-top:4rem; padding-top:2rem; border-top:1px solid var(--sand); }
+.nav-pill { flex:1; min-width:180px; background:var(--cream); border:1px solid var(--sand); padding:1.25rem 1.5rem; text-decoration:none; color:var(--ink); transition:border-color 0.2s,box-shadow 0.2s; display:block; }
+.nav-pill:hover { border-color:var(--gold-dim); box-shadow:0 2px 12px var(--shadow); }
+.nav-pill-dir { font-size:0.68rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--gold-dim); margin-bottom:0.35rem; }
+.nav-pill-title { font-size:1rem; color:var(--ink); }
+.nav-pill-ta { font-family:'Noto Serif Tamil',serif; font-size:0.82rem; color:var(--clay); opacity:0.65; }
+footer { background:#111; color:rgba(212,196,168,0.4); text-align:center; padding:2rem 2rem; font-size:0.82rem; letter-spacing:0.1em; }
+footer a { color:rgba(196,148,58,0.55); text-decoration:none; }
+footer a:hover { color:var(--gold); }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <a href="index.html">← Ennam</a>
+  <span class="topbar-sep">·</span>
+  <a href="index.html#explore">All Pages</a>
+</div>
+
+<header class="hero">
+  <div class="hero-icon">◇</div>
+  <p class="hero-label">Sixth Pillar · ஆறாம் தூண்</p>
+  <span class="hero-label-ta">கடத்தல் பற்றி</span>
+  <h1 class="hero-title">Transport</h1>
+  <p class="hero-title-ta">கடத்தல்</p>
+  <p class="hero-tagline">Language as a vehicle — to move you and carry you</p>
+  <p class="hero-tagline-ta">மொழி ஒரு வாகனம் — உங்களை நகர்த்தவும் சுமக்கவும்</p>
+  <div class="hero-divider"></div>
+</header>
+
+<article class="content">
+  <p class="sec-label">Language That Moves You</p>
+  <span class="sec-label-ta">உங்களை நகர்த்தும் மொழி</span>
+  <h2 class="sec-title">Beyond describing — into carrying</h2>
+  <p class="sec-title-ta">விவரிப்பதை தாண்டி — சுமந்து செல்வதற்கு</p>
+
+  <div class="bilingual">
+    <p class="body-en">The highest function of language is not to describe a state but to create one. A great poem does not describe the feeling of standing at the edge of the sea at dusk — it takes you there. A great piece of music does not communicate sadness — it instantiates it, makes it present in the listener's body. This is transport: language as a vehicle that moves you from one state of being to another.</p>
+    <span class="ta">மொழியின் மிக உயர்ந்த செயல்பாடு ஒரு நிலையை விவரிப்பது அல்ல, ஒரு நிலையை உருவாக்குவது. ஒரு சிறந்த கவிதை மாலை வேளையில் கடல் ஓரத்தில் நிற்கும் உணர்வை விவரிப்பதில்லை — அது உங்களை அங்கே கொண்டுசெல்கிறது. ஒரு சிறந்த இசை துக்கத்தை தெரிவிப்பதில்லை — அது அதை நிறுவுகிறது, கேட்பவரின் உடலில் அதை நிகழ்காலமாக ஆக்குகிறது. இது கடத்தல்: மொழி ஒரு வாகனமாக, உங்களை ஒரு இருப்பு நிலையிலிருந்து மற்றொரு நிலைக்கு நகர்த்துகிறது.</span>
+  </div>
+
+  <div class="bilingual">
+    <p class="body-en">This is the ultimate aim of Ennam: not a language that talks about experience, but one that transmits it. Not a language that points at the world, but one that opens it. The project explores what makes transport possible — the specific qualities of sound, rhythm, image, and structure that allow language to move a person rather than merely inform them.</p>
+    <span class="ta">இதுவே எண்ணத்தின் இறுதி நோக்கம்: அனுபவத்தைப் பற்றி பேசும் மொழி அல்ல, அதை அனுப்பும் மொழி. உலகை சுட்டிக்காட்டும் மொழி அல்ல, அதை திறக்கும் மொழி. ஒலி, தாளம், படிமம், கட்டமைப்பு ஆகியவற்றின் குறிப்பிட்ட குணங்கள் — மொழியை ஒரு நபரை வெறுமனே தெரிவிப்பதற்கு பதிலாக நகர்த்த அனுமதிப்பவை — என்னென்ன என்று திட்டம் ஆராய்கிறது.</span>
+  </div>
+
+  <div class="pull-quote">
+    <span>"Transport is not a metaphor. When language truly works, the body moves — the breath changes, the posture shifts, the room feels different. This is what we are building toward."</span>
+    <span class="ta">"கடத்தல் ஒரு உருவகம் அல்ல. மொழி உண்மையிலேயே வேலை செய்யும்போது, உடல் நகர்கிறது — மூச்சு மாறுகிறது, தோற்றம் மாறுகிறது, அறை வேறுவிதமாக உணர்கிறது. இதற்காகவே நாம் கட்டமைக்கிறோம்."</span>
+  </div>
+</article>
+
+<article class="content">
+  <p class="sec-label">Where Transport Takes You</p>
+  <span class="sec-label-ta">கடத்தல் உங்களை எங்கு அழைத்துச் செல்கிறது</span>
+  <h2 class="sec-title">The destinations of a living language</h2>
+  <p class="sec-title-ta">ஒரு உயிரோட்டமான மொழியின் இலக்குகள்</p>
+
+  <div class="bilingual">
+    <p class="body-en">Transport is not about escaping where you are. It is about arriving more fully in what is real — your own interior, the presence of another person, the texture of the world. These are the destinations that a language of transport opens.</p>
+    <span class="ta">கடத்தல் என்பது நீங்கிருக்கும் இடத்திலிருந்து தப்பிப்பது அல்ல. அது உண்மையில் இருக்கும் இடத்தில் மிகவும் முழுமையாக வந்து சேர்வது பற்றியது — உங்கள் சொந்த உள்ளகம், மற்றொரு நபரின் முன்னிலை, உலகின் அமைப்பு. இவையே கடத்தலின் மொழி திறக்கும் இலக்குகள்.</span>
+  </div>
+
+  <div class="destinations">
+    <div class="dest">
+      <div class="dest-title">Deeper into yourself</div>
+      <span class="dest-title-ta">உங்களுக்குள் ஆழமாக</span>
+      <p class="dest-body">Past the habitual self into the observing self — the one who watches, who feels before naming, who is larger than the story you tell about yourself.</p>
+      <span class="ta">பழக்கப்பட்ட சுயத்தை கடந்து கவனிக்கும் சுயத்தை நோக்கி — பார்ப்பவர், பெயரிடுவதற்கு முன் உணர்பவர், தன்னைப் பற்றி நீங்கள் சொல்லும் கதையை விட பெரியவர்.</span>
+    </div>
+    <div class="dest">
+      <div class="dest-title">Across to another</div>
+      <span class="dest-title-ta">மற்றொருவரை நோக்கி</span>
+      <p class="dest-body">Into genuine encounter — the kind of meeting where two distinct inner worlds touch, without either having to collapse into the other.</p>
+      <span class="ta">உண்மையான சந்திப்பிற்கு — இரண்டு தனித்தனி உள் உலகங்கள் தொட்டுக்கொள்ளும் வகையான சந்திப்பு, எதுவும் மற்றொன்றில் சரிந்துவிடாமல்.</span>
+    </div>
+    <div class="dest">
+      <div class="dest-title">Into the present moment</div>
+      <span class="dest-title-ta">தற்போதைய தருணத்திற்குள்</span>
+      <p class="dest-body">Not the narrated present — "I am here now" — but actual presence: the felt aliveness of this moment, before the mind begins its commentary.</p>
+      <span class="ta">கதை சொல்லப்படும் நிகழ்காலம் அல்ல — "நான் இப்போது இங்கே இருக்கிறேன்" — ஆனால் உண்மையான முன்னிலை: மனம் தன் வர்ணனையை தொடங்குவதற்கு முன் இந்த தருணத்தின் உணரப்பட்ட உயிரோட்டம்.</span>
+    </div>
+    <div class="dest">
+      <div class="dest-title">Beyond the familiar</div>
+      <span class="dest-title-ta">பழக்கமானதிற்கு அப்பால்</span>
+      <p class="dest-body">Into perspectives and states of consciousness that your current language cannot reach — the new territory that a new language makes habitable.</p>
+      <span class="ta">உங்கள் தற்போதைய மொழி சென்றடையமுடியாத நோக்குகளுக்கும் உணர்வு நிலைகளுக்கும் — ஒரு புதிய மொழி குடியிருக்கக்கூடியதாக ஆக்கும் புதிய நிலம்.</span>
+    </div>
+  </div>
+
+  <nav class="nav-pills">
+    <a href="dissonance.html" class="nav-pill">
+      <div class="nav-pill-dir">← Previous</div>
+      <div class="nav-pill-title">Dissonance</div>
+      <span class="nav-pill-ta">முரண்</span>
+    </a>
+    <a href="index.html#tamil" class="nav-pill">
+      <div class="nav-pill-dir">Continue →</div>
+      <div class="nav-pill-title">Tamil</div>
+      <span class="nav-pill-ta">தமிழ்</span>
+    </a>
+  </nav>
+</article>
+
+<div class="closing">
+  <div class="closing-inner">
+    <div class="closing-divider"></div>
+    <p class="closing-en">"To paint a beautiful picture within and outside — through resonance and dissonance."</p>
+    <p class="closing-ta">"இசைவு மற்றும் முரண் வழியாக உள்ளும் வெளியும் ஒரு அழகான படத்தை வரைவதற்காக."</p>
+    <a href="index.html" class="home-link">Return to Ennam</a>
+  </div>
+</div>
+
+<footer>
+  <p>Ennam · எண்ணம் &nbsp;·&nbsp; <a href="index.html">Home</a></p>
+</footer>
+</body>
+</html>

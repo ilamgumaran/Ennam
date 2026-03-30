@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="ta-en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Resonance · இசைவு — Ennam</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=JetBrains+Mono:wght@300;400&family=Noto+Serif+Tamil:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+:root { --ink:#1a1410; --parchment:#f5f0e8; --gold:#c4943a; --gold-dim:#a07830; --clay:#6b4a3a; --sand:#d4c4a8; --cream:#faf6ee; --teal:#2a6b5e; --shadow:rgba(26,20,16,0.08); }
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body { font-family:'Cormorant Garamond',Georgia,serif; background:var(--parchment); color:var(--ink); line-height:1.7; font-size:18px; }
+.ta { font-family:'Noto Serif Tamil',serif; font-size:0.88em; color:var(--clay); opacity:0.72; line-height:1.85; margin-top:0.45rem; display:block; }
+.topbar { background:#111; padding:1rem 2rem; display:flex; align-items:center; gap:1.5rem; }
+.topbar a { color:rgba(212,196,168,0.55); text-decoration:none; font-size:0.78rem; letter-spacing:0.18em; text-transform:uppercase; transition:color 0.2s; }
+.topbar a:hover { color:var(--gold); }
+.topbar-sep { color:rgba(212,196,168,0.2); }
+.hero { min-height:55vh; display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; background:linear-gradient(160deg,#1a1410 0%,#1e2a26 50%,#2a3a32 100%); color:var(--parchment); padding:3rem 2rem; position:relative; overflow:hidden; }
+.hero::before { content:''; position:absolute; inset:0; background:radial-gradient(ellipse 55% 45% at 50% 50%,rgba(42,107,94,0.1) 0%,transparent 70%); pointer-events:none; }
+.hero-icon { font-size:3rem; opacity:0.4; margin-bottom:1rem; }
+.hero-label { font-size:0.7rem; letter-spacing:0.35em; text-transform:uppercase; color:rgba(196,148,58,0.65); margin-bottom:0.25rem; }
+.hero-label-ta { font-family:'Noto Serif Tamil',serif; font-size:0.85rem; color:rgba(196,148,58,0.4); display:block; margin-bottom:1.75rem; }
+.hero-title { font-size:clamp(2.2rem,5vw,4rem); font-weight:300; letter-spacing:0.1em; margin-bottom:0.35rem; }
+.hero-title-ta { font-family:'Noto Serif Tamil',serif; font-size:clamp(1.3rem,3vw,2.2rem); font-weight:300; color:var(--sand); opacity:0.7; margin-bottom:1.5rem; }
+.hero-tagline { font-style:italic; font-size:clamp(0.95rem,2vw,1.2rem); color:rgba(212,196,168,0.6); max-width:500px; margin-bottom:0.4rem; }
+.hero-tagline-ta { font-family:'Noto Serif Tamil',serif; font-size:clamp(0.8rem,1.8vw,1rem); color:rgba(212,196,168,0.38); max-width:500px; }
+.hero-divider { width:60px; height:1px; background:linear-gradient(90deg,transparent,var(--gold),transparent); margin:1.5rem auto 0; }
+.content { max-width:780px; margin:0 auto; padding:4.5rem 2rem; }
+.content + .content { border-top:1px solid var(--sand); }
+.sec-label { font-size:0.7rem; letter-spacing:0.3em; text-transform:uppercase; color:var(--gold-dim); margin-bottom:0.2rem; }
+.sec-label-ta { font-family:'Noto Serif Tamil',serif; font-size:0.8rem; color:var(--gold-dim); opacity:0.6; display:block; margin-bottom:1.25rem; }
+.sec-title { font-size:clamp(1.6rem,3.5vw,2.4rem); font-weight:300; line-height:1.25; margin-bottom:0.35rem; }
+.sec-title-ta { font-family:'Noto Serif Tamil',serif; font-size:clamp(1rem,2.2vw,1.45rem); font-weight:300; color:var(--clay); opacity:0.65; line-height:1.5; margin-bottom:2rem; }
+.body-en { font-size:1.05rem; line-height:1.9; color:#3a2e28; margin-bottom:0.35rem; }
+.bilingual { margin-bottom:1.5rem; }
+.pull-quote { border-left:3px solid var(--teal); padding:1.2rem 1.6rem; margin:2.5rem 0; background:rgba(42,107,94,0.04); font-style:italic; font-size:1.1rem; color:var(--clay); line-height:1.75; }
+.pull-quote .ta { font-style:normal; margin-top:0.85rem; }
+.trifold { display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:1.25rem; margin-top:2.5rem; }
+.fold { background:var(--cream); border:1px solid var(--sand); border-top:2px solid var(--teal); padding:1.5rem 1.25rem; }
+.fold-title { font-size:1rem; font-weight:400; margin-bottom:0.25rem; }
+.fold-title-ta { font-family:'Noto Serif Tamil',serif; font-size:0.85rem; color:var(--clay); opacity:0.65; display:block; margin-bottom:0.6rem; }
+.fold-body { font-size:0.88rem; color:var(--clay); line-height:1.65; }
+.nav-pills { display:flex; gap:1rem; flex-wrap:wrap; margin-top:4rem; padding-top:2rem; border-top:1px solid var(--sand); }
+.nav-pill { flex:1; min-width:180px; background:var(--cream); border:1px solid var(--sand); padding:1.25rem 1.5rem; text-decoration:none; color:var(--ink); transition:border-color 0.2s,box-shadow 0.2s; display:block; }
+.nav-pill:hover { border-color:var(--gold-dim); box-shadow:0 2px 12px var(--shadow); }
+.nav-pill-dir { font-size:0.68rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--gold-dim); margin-bottom:0.35rem; }
+.nav-pill-title { font-size:1rem; color:var(--ink); }
+.nav-pill-ta { font-family:'Noto Serif Tamil',serif; font-size:0.82rem; color:var(--clay); opacity:0.65; }
+footer { background:#111; color:rgba(212,196,168,0.4); text-align:center; padding:2rem 2rem; font-size:0.82rem; letter-spacing:0.1em; }
+footer a { color:rgba(196,148,58,0.55); text-decoration:none; }
+footer a:hover { color:var(--gold); }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <a href="index.html">← Ennam</a>
+  <span class="topbar-sep">·</span>
+  <a href="index.html#explore">All Pages</a>
+</div>
+
+<header class="hero">
+  <div class="hero-icon">◐</div>
+  <p class="hero-label">Fourth Pillar · நான்காம் தூண்</p>
+  <span class="hero-label-ta">இசைவு பற்றி</span>
+  <h1 class="hero-title">Resonance</h1>
+  <p class="hero-title-ta">இசைவு</p>
+  <p class="hero-tagline">When feeling, word, and world align</p>
+  <p class="hero-tagline-ta">உணர்வும் வார்த்தையும் உலகும் ஒத்திசையும்போது</p>
+  <div class="hero-divider"></div>
+</header>
+
+<article class="content">
+  <p class="sec-label">The Experience of Resonance</p>
+  <span class="sec-label-ta">இசைவின் அனுபவம்</span>
+  <h2 class="sec-title">The moment expression and reality vibrate together</h2>
+  <p class="sec-title-ta">வெளிப்பாடும் யதார்த்தமும் ஒன்றாக அதிர்வடையும் தருணம்</p>
+
+  <div class="bilingual">
+    <p class="body-en">You have experienced resonance. It is the moment when a poem says exactly what you felt but could not find words for. It is the moment when you describe something and the person across from you says — "yes, exactly that." It is the recognition that the inner and the outer are not separate systems but aspects of a single, vibrating whole.</p>
+    <span class="ta">நீங்கள் இசைவை அனுபவித்திருக்கிறீர்கள். ஒரு கவிதை நீங்கள் உணர்ந்தது ஆனால் வார்த்தைகள் காண முடியாதது சரியாக சொல்லும் தருணம் அது. நீங்கள் ஏதோவொன்றை விவரிக்கும்போது எதிரே இருக்கும் நபர் "ஆமாம், சரியாக அது" என்று சொல்லும் தருணம். உள்ளும் வெளியும் தனித்தனி அமைப்புகள் அல்ல, ஒரே அதிர்வடையும் முழுமையின் அம்சங்கள் என்ற அங்கீகாரம்.</span>
+  </div>
+
+  <div class="bilingual">
+    <p class="body-en">Resonance is not agreement. You can resonate with a description of grief even when you feel joy — because the truth of the grief is precise, and precision resonates across states. What creates resonance is not sameness but exactness. The more exactly something is expressed, the more it tends to resonate — even with those who have never had that particular experience.</p>
+    <span class="ta">இசைவு என்பது ஒப்பந்தம் அல்ல. நீங்கள் மகிழ்ச்சி உணரும்போதும் துக்கத்தின் விவரணையுடன் இசைவு கொள்ளலாம் — ஏனென்றால் துக்கத்தின் உண்மை துல்லியமானது, மற்றும் துல்லியம் நிலைகள் தாண்டி இசைவு கொள்கிறது. இசைவை உருவாக்குவது ஒரேவிதமான தன்மை அல்ல, துல்லியம். ஏதோவொன்று துல்லியமாக வெளிப்படுத்தப்படும்போது, அது இசைவு கொள்வதற்கான போக்கு இருக்கிறது — அந்த குறிப்பிட்ட அனுபவம் இல்லாதவர்களுடன் கூட.</span>
+  </div>
+
+  <div class="pull-quote">
+    <span>"Resonance is not the echo of your own voice. It is the discovery that the world already contains the shape of what you feel."</span>
+    <span class="ta">"இசைவு என்பது உங்கள் சொந்த குரலின் எதிரொலி அல்ல. நீங்கள் உணர்வதன் வடிவம் உலகில் ஏற்கனவே இருக்கிறது என்ற கண்டுபிடிப்பு."</span>
+  </div>
+</article>
+
+<article class="content">
+  <p class="sec-label">Three Sites of Resonance</p>
+  <span class="sec-label-ta">இசைவின் மூன்று இடங்கள்</span>
+  <h2 class="sec-title">Where resonance happens</h2>
+  <p class="sec-title-ta">இசைவு நிகழும் இடங்கள்</p>
+
+  <div class="bilingual">
+    <p class="body-en">Resonance occurs in at least three distinct locations — between a person and themselves, between a person and another, and between a person and the world. Each has its own character, and a language of full expression must be capable of facilitating all three.</p>
+    <span class="ta">இசைவு குறைந்தபட்சம் மூன்று தனித்தனி இடங்களில் நிகழ்கிறது — ஒரு நபருக்கும் அவருக்கும் இடையில், ஒரு நபருக்கும் மற்றொருவருக்கும் இடையில், மற்றும் ஒரு நபருக்கும் உலகிற்கும் இடையில். ஒவ்வொன்றிற்கும் அதன் சொந்த தன்மை உள்ளது, மற்றும் முழு வெளிப்பாட்டின் மொழி மூன்றையும் எளிதாக்கும் திறன் கொண்டிருக்க வேண்டும்.</span>
+  </div>
+
+  <div class="trifold">
+    <div class="fold">
+      <div class="fold-title">Inner Resonance</div>
+      <span class="fold-title-ta">உள் இசைவு</span>
+      <p class="fold-body">When your language for an experience matches the experience itself — when you are not lying to yourself, not simplifying, not performing. The feeling of being understood — by yourself.</p>
+      <span class="ta">ஒரு அனுபவத்திற்கான உங்கள் மொழி அனுபவத்துடனே பொருந்தும்போது — நீங்கள் உங்களிடம் பொய் சொல்லவில்லை, எளிமைப்படுத்தவில்லை, நடிக்கவில்லை. புரிந்துகொள்ளப்படும் உணர்வு — உங்களாலேயே.</span>
+    </div>
+    <div class="fold">
+      <div class="fold-title">Interpersonal Resonance</div>
+      <span class="fold-title-ta">இடைநிலை இசைவு</span>
+      <p class="fold-body">When your expression reaches another person intact — not just understood, but felt. The recognition across the gap between two distinct inner worlds.</p>
+      <span class="ta">உங்கள் வெளிப்பாடு மற்றொருவரை முழுதாக சென்றடையும்போது — புரிந்துகொள்ளப்படுவது மட்டுமல்ல, உணரப்படுவது. இரண்டு தனித்தனி உள் உலகங்களுக்கு இடையிலான இடைவெளி தாண்டிய அங்கீகாரம்.</span>
+    </div>
+    <div class="fold">
+      <div class="fold-title">World Resonance</div>
+      <span class="fold-title-ta">உலக இசைவு</span>
+      <p class="fold-body">When the language you use to describe the world creates a vibration that the world itself seems to confirm — when the image, the metaphor, the rhythm feels true to the thing itself.</p>
+      <span class="ta">உலகை விவரிக்க நீங்கள் பயன்படுத்தும் மொழி உலகமே உறுதிப்படுத்துவதாக தெரியும் ஒரு அதிர்வை உருவாக்கும்போது — படிமம், உருவகம், தாளம் விஷயத்திற்கு உண்மையானதாக உணரும்போது.</span>
+    </div>
+  </div>
+
+  <nav class="nav-pills">
+    <a href="curiosity.html" class="nav-pill">
+      <div class="nav-pill-dir">← Previous</div>
+      <div class="nav-pill-title">Curiosity</div>
+      <span class="nav-pill-ta">ஆர்வம்</span>
+    </a>
+    <a href="dissonance.html" class="nav-pill">
+      <div class="nav-pill-dir">Next →</div>
+      <div class="nav-pill-title">Dissonance</div>
+      <span class="nav-pill-ta">முரண்</span>
+    </a>
+  </nav>
+</article>
+
+<footer>
+  <p>Ennam · எண்ணம் &nbsp;·&nbsp; <a href="index.html">Home</a></p>
+</footer>
+</body>
+</html>

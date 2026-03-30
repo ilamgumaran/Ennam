@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="ta-en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dissonance · முரண் — Ennam</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=JetBrains+Mono:wght@300;400&family=Noto+Serif+Tamil:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+:root { --ink:#1a1410; --parchment:#f5f0e8; --gold:#c4943a; --gold-dim:#a07830; --clay:#6b4a3a; --sand:#d4c4a8; --cream:#faf6ee; --rust:#8b3a2a; --shadow:rgba(26,20,16,0.08); }
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body { font-family:'Cormorant Garamond',Georgia,serif; background:var(--parchment); color:var(--ink); line-height:1.7; font-size:18px; }
+.ta { font-family:'Noto Serif Tamil',serif; font-size:0.88em; color:var(--clay); opacity:0.72; line-height:1.85; margin-top:0.45rem; display:block; }
+.topbar { background:#111; padding:1rem 2rem; display:flex; align-items:center; gap:1.5rem; }
+.topbar a { color:rgba(212,196,168,0.55); text-decoration:none; font-size:0.78rem; letter-spacing:0.18em; text-transform:uppercase; transition:color 0.2s; }
+.topbar a:hover { color:var(--gold); }
+.topbar-sep { color:rgba(212,196,168,0.2); }
+.hero { min-height:55vh; display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; background:linear-gradient(160deg,#1a1410 0%,#2a1612 50%,#3a1e18 100%); color:var(--parchment); padding:3rem 2rem; position:relative; overflow:hidden; }
+.hero::before { content:''; position:absolute; inset:0; background:radial-gradient(ellipse 55% 45% at 50% 50%,rgba(139,58,42,0.1) 0%,transparent 70%); pointer-events:none; }
+.hero-icon { font-size:3rem; opacity:0.4; margin-bottom:1rem; }
+.hero-label { font-size:0.7rem; letter-spacing:0.35em; text-transform:uppercase; color:rgba(196,148,58,0.65); margin-bottom:0.25rem; }
+.hero-label-ta { font-family:'Noto Serif Tamil',serif; font-size:0.85rem; color:rgba(196,148,58,0.4); display:block; margin-bottom:1.75rem; }
+.hero-title { font-size:clamp(2.2rem,5vw,4rem); font-weight:300; letter-spacing:0.1em; margin-bottom:0.35rem; }
+.hero-title-ta { font-family:'Noto Serif Tamil',serif; font-size:clamp(1.3rem,3vw,2.2rem); font-weight:300; color:var(--sand); opacity:0.7; margin-bottom:1.5rem; }
+.hero-tagline { font-style:italic; font-size:clamp(0.95rem,2vw,1.2rem); color:rgba(212,196,168,0.6); max-width:500px; margin-bottom:0.4rem; }
+.hero-tagline-ta { font-family:'Noto Serif Tamil',serif; font-size:clamp(0.8rem,1.8vw,1rem); color:rgba(212,196,168,0.38); max-width:500px; }
+.hero-divider { width:60px; height:1px; background:linear-gradient(90deg,transparent,var(--gold),transparent); margin:1.5rem auto 0; }
+.content { max-width:780px; margin:0 auto; padding:4.5rem 2rem; }
+.content + .content { border-top:1px solid var(--sand); }
+.sec-label { font-size:0.7rem; letter-spacing:0.3em; text-transform:uppercase; color:var(--gold-dim); margin-bottom:0.2rem; }
+.sec-label-ta { font-family:'Noto Serif Tamil',serif; font-size:0.8rem; color:var(--gold-dim); opacity:0.6; display:block; margin-bottom:1.25rem; }
+.sec-title { font-size:clamp(1.6rem,3.5vw,2.4rem); font-weight:300; line-height:1.25; margin-bottom:0.35rem; }
+.sec-title-ta { font-family:'Noto Serif Tamil',serif; font-size:clamp(1rem,2.2vw,1.45rem); font-weight:300; color:var(--clay); opacity:0.65; line-height:1.5; margin-bottom:2rem; }
+.body-en { font-size:1.05rem; line-height:1.9; color:#3a2e28; margin-bottom:0.35rem; }
+.bilingual { margin-bottom:1.5rem; }
+.pull-quote { border-left:3px solid var(--rust); padding:1.2rem 1.6rem; margin:2.5rem 0; background:rgba(139,58,42,0.04); font-style:italic; font-size:1.1rem; color:var(--clay); line-height:1.75; }
+.pull-quote .ta { font-style:normal; margin-top:0.85rem; }
+.tensions { display:grid; gap:1px; background:var(--sand); margin:2.5rem 0; border:1px solid var(--sand); }
+.tension { background:var(--cream); padding:1.35rem 1.5rem; display:grid; grid-template-columns:1fr 1.5rem 1fr; gap:0.75rem; align-items:center; }
+.tension-a { font-size:0.95rem; color:#3a2e28; line-height:1.5; text-align:right; }
+.tension-a .ta { text-align:right; }
+.tension-sym { text-align:center; color:var(--rust); font-size:1.1rem; opacity:0.7; }
+.tension-b { font-size:0.95rem; color:#3a2e28; line-height:1.5; }
+.nav-pills { display:flex; gap:1rem; flex-wrap:wrap; margin-top:4rem; padding-top:2rem; border-top:1px solid var(--sand); }
+.nav-pill { flex:1; min-width:180px; background:var(--cream); border:1px solid var(--sand); padding:1.25rem 1.5rem; text-decoration:none; color:var(--ink); transition:border-color 0.2s,box-shadow 0.2s; display:block; }
+.nav-pill:hover { border-color:var(--gold-dim); box-shadow:0 2px 12px var(--shadow); }
+.nav-pill-dir { font-size:0.68rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--gold-dim); margin-bottom:0.35rem; }
+.nav-pill-title { font-size:1rem; color:var(--ink); }
+.nav-pill-ta { font-family:'Noto Serif Tamil',serif; font-size:0.82rem; color:var(--clay); opacity:0.65; }
+footer { background:#111; color:rgba(212,196,168,0.4); text-align:center; padding:2rem 2rem; font-size:0.82rem; letter-spacing:0.1em; }
+footer a { color:rgba(196,148,58,0.55); text-decoration:none; }
+footer a:hover { color:var(--gold); }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <a href="index.html">← Ennam</a>
+  <span class="topbar-sep">·</span>
+  <a href="index.html#explore">All Pages</a>
+</div>
+
+<header class="hero">
+  <div class="hero-icon">◑</div>
+  <p class="hero-label">Fifth Pillar · ஐந்தாம் தூண்</p>
+  <span class="hero-label-ta">முரண் பற்றி</span>
+  <h1 class="hero-title">Dissonance</h1>
+  <p class="hero-title-ta">முரண்</p>
+  <p class="hero-tagline">The friction that reveals what resonance conceals</p>
+  <p class="hero-tagline-ta">இசைவு மறைப்பதை வெளிப்படுத்தும் உராய்வு</p>
+  <div class="hero-divider"></div>
+</header>
+
+<article class="content">
+  <p class="sec-label">Why Dissonance Is Not Failure</p>
+  <span class="sec-label-ta">முரண் ஏன் தோல்வி அல்ல</span>
+  <h2 class="sec-title">Tension as a source of depth and truth</h2>
+  <p class="sec-title-ta">ஆழத்தின் மற்றும் உண்மையின் ஆதாரமாக பதட்டம்</p>
+
+  <div class="bilingual">
+    <p class="body-en">We are conditioned to seek resolution. In music, in narrative, in emotion — we want the dissonance to resolve into consonance, the conflict to resolve into harmony, the tension to resolve into peace. But this drive to resolution is often a flight from reality. The world contains irreducible tensions. A language that cannot hold them openly is a language that lies.</p>
+    <span class="ta">நாம் தீர்வை தேடுவதற்கு பழக்கப்பட்டிருக்கிறோம். இசையில், கதை சொல்லலில், உணர்ச்சியில் — முரண் இசைவாக தீர்க்கப்பட வேண்டும், மோதல் ஒற்றுமையாக தீர்க்கப்பட வேண்டும், பதட்டம் அமைதியாக தீர்க்கப்பட வேண்டும் என விரும்புகிறோம். ஆனால் தீர்வுக்கான இந்த வேட்கை பெரும்பாலும் யதார்த்தத்திலிருந்து ஒரு தப்பிக்கும் முயற்சி. உலகில் குறைக்க முடியாத பதட்டங்கள் உள்ளன. அவற்றை வெளிப்படையாக தாங்க முடியாத மொழி பொய் சொல்லும் மொழி.</span>
+  </div>
+
+  <div class="bilingual">
+    <p class="body-en">Tamil classical poetry, particularly the Sangam tradition, understood this with unusual sophistication. The akam poems — interior landscapes — are full of unresolved tension: desire that cannot be spoken, love that exists alongside grief, the meeting and separation that are somehow simultaneous. The poems do not resolve this. They hold it — and in holding it, make it bearable and beautiful.</p>
+    <span class="ta">தமிழ் செம்மொழி கவிதை, குறிப்பாக சங்க மரபு, இதை அசாதாரண நுட்பத்துடன் புரிந்துகொண்டது. அகக் கவிதைகள் — உள் நிலப்பரப்புகள் — தீர்க்கப்படாத பதட்டங்களால் நிறைந்துள்ளன: பேச முடியாத ஆசை, துக்கத்துடன் இணை நிலவும் காதல், ஒருவித ஒரே நேரத்தில் நிகழும் சந்திப்பும் பிரிவும். கவிதைகள் இதை தீர்க்கவில்லை. அவை அதை தாங்குகின்றன — மற்றும் தாங்குவதில், அதை தாங்கக்கூடியதாகவும் அழகாகவும் ஆக்குகின்றன.</span>
+  </div>
+
+  <div class="pull-quote">
+    <span>"Dissonance is not the wound — it is the evidence that you are looking directly at the wound, without flinching."</span>
+    <span class="ta">"முரண் என்பது காயம் அல்ல — நீங்கள் நேரடியாக காயத்தை பார்க்கிறீர்கள் என்பதற்கான சான்று, தயக்கமின்றி."</span>
+  </div>
+</article>
+
+<article class="content">
+  <p class="sec-label">Held Tensions</p>
+  <span class="sec-label-ta">தாங்கப்படும் பதட்டங்கள்</span>
+  <h2 class="sec-title">Pairs that must not be collapsed</h2>
+  <p class="sec-title-ta">சரிவிட்டுக்கூடாத இணைகள்</p>
+
+  <div class="bilingual">
+    <p class="body-en">These are the tensions Ennam holds open — not to be resolved, but to be lived with, expressed, and used as a source of depth. Each pair is both/and, not either/or.</p>
+    <span class="ta">இவை எண்ணம் திறந்து வைக்கும் பதட்டங்கள் — தீர்க்கப்படுவதற்காக அல்ல, ஆனால் வாழப்பட வேண்டும், வெளிப்படுத்தப்பட வேண்டும், ஆழத்தின் ஆதாரமாக பயன்படுத்தப்பட வேண்டும். ஒவ்வொரு இணையும் இரண்டும்/மற்றும், இது/அல்லது அல்ல.</span>
+  </div>
+
+  <div class="tensions">
+    <div class="tension">
+      <div class="tension-a">
+        Clarity
+        <span class="ta">தெளிவு</span>
+      </div>
+      <div class="tension-sym">⟺</div>
+      <div class="tension-b">
+        Mystery
+        <span class="ta">மர்மம்</span>
+      </div>
+    </div>
+    <div class="tension">
+      <div class="tension-a">
+        Precision
+        <span class="ta">துல்லியம்</span>
+      </div>
+      <div class="tension-sym">⟺</div>
+      <div class="tension-b">
+        Openness
+        <span class="ta">திறந்த தன்மை</span>
+      </div>
+    </div>
+    <div class="tension">
+      <div class="tension-a">
+        Inner world
+        <span class="ta">உள் உலகம்</span>
+      </div>
+      <div class="tension-sym">⟺</div>
+      <div class="tension-b">
+        Outer world
+        <span class="ta">வெளி உலகம்</span>
+      </div>
+    </div>
+    <div class="tension">
+      <div class="tension-a">
+        What is felt
+        <span class="ta">உணரப்படுவது</span>
+      </div>
+      <div class="tension-sym">⟺</div>
+      <div class="tension-b">
+        What is real
+        <span class="ta">உண்மையானது</span>
+      </div>
+    </div>
+    <div class="tension">
+      <div class="tension-a">
+        Ancient form
+        <span class="ta">பழமையான வடிவம்</span>
+      </div>
+      <div class="tension-sym">⟺</div>
+      <div class="tension-b">
+        New language
+        <span class="ta">புதிய மொழி</span>
+      </div>
+    </div>
+  </div>
+
+  <nav class="nav-pills">
+    <a href="resonance.html" class="nav-pill">
+      <div class="nav-pill-dir">← Previous</div>
+      <div class="nav-pill-title">Resonance</div>
+      <span class="nav-pill-ta">இசைவு</span>
+    </a>
+    <a href="transport.html" class="nav-pill">
+      <div class="nav-pill-dir">Next →</div>
+      <div class="nav-pill-title">Transport</div>
+      <span class="nav-pill-ta">கடத்தல்</span>
+    </a>
+  </nav>
+</article>
+
+<footer>
+  <p>Ennam · எண்ணம் &nbsp;·&nbsp; <a href="index.html">Home</a></p>
+</footer>
+</body>
+</html>

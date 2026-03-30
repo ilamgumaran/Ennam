@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="ta-en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Curiosity · ஆர்வம் — Ennam</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=JetBrains+Mono:wght@300;400&family=Noto+Serif+Tamil:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+:root { --ink:#1a1410; --parchment:#f5f0e8; --gold:#c4943a; --gold-dim:#a07830; --clay:#6b4a3a; --sand:#d4c4a8; --cream:#faf6ee; --shadow:rgba(26,20,16,0.08); }
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body { font-family:'Cormorant Garamond',Georgia,serif; background:var(--parchment); color:var(--ink); line-height:1.7; font-size:18px; }
+.ta { font-family:'Noto Serif Tamil',serif; font-size:0.88em; color:var(--clay); opacity:0.72; line-height:1.85; margin-top:0.45rem; display:block; }
+.topbar { background:#111; padding:1rem 2rem; display:flex; align-items:center; gap:1.5rem; }
+.topbar a { color:rgba(212,196,168,0.55); text-decoration:none; font-size:0.78rem; letter-spacing:0.18em; text-transform:uppercase; transition:color 0.2s; }
+.topbar a:hover { color:var(--gold); }
+.topbar-sep { color:rgba(212,196,168,0.2); }
+.hero { min-height:55vh; display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; background:linear-gradient(160deg,#1a1410 0%,#2a1e16 50%,#3a2a1e 100%); color:var(--parchment); padding:3rem 2rem; position:relative; overflow:hidden; }
+.hero::before { content:''; position:absolute; inset:0; background:radial-gradient(ellipse 55% 45% at 50% 50%,rgba(196,148,58,0.08) 0%,transparent 70%); pointer-events:none; }
+.hero-icon { font-size:3rem; opacity:0.4; margin-bottom:1rem; }
+.hero-label { font-size:0.7rem; letter-spacing:0.35em; text-transform:uppercase; color:rgba(196,148,58,0.65); margin-bottom:0.25rem; }
+.hero-label-ta { font-family:'Noto Serif Tamil',serif; font-size:0.85rem; color:rgba(196,148,58,0.4); display:block; margin-bottom:1.75rem; }
+.hero-title { font-size:clamp(2.2rem,5vw,4rem); font-weight:300; letter-spacing:0.1em; margin-bottom:0.35rem; }
+.hero-title-ta { font-family:'Noto Serif Tamil',serif; font-size:clamp(1.3rem,3vw,2.2rem); font-weight:300; color:var(--sand); opacity:0.7; margin-bottom:1.5rem; }
+.hero-tagline { font-style:italic; font-size:clamp(0.95rem,2vw,1.2rem); color:rgba(212,196,168,0.6); max-width:500px; margin-bottom:0.4rem; }
+.hero-tagline-ta { font-family:'Noto Serif Tamil',serif; font-size:clamp(0.8rem,1.8vw,1rem); color:rgba(212,196,168,0.38); max-width:500px; }
+.hero-divider { width:60px; height:1px; background:linear-gradient(90deg,transparent,var(--gold),transparent); margin:1.5rem auto 0; }
+.content { max-width:780px; margin:0 auto; padding:4.5rem 2rem; }
+.content + .content { border-top:1px solid var(--sand); }
+.sec-label { font-size:0.7rem; letter-spacing:0.3em; text-transform:uppercase; color:var(--gold-dim); margin-bottom:0.2rem; }
+.sec-label-ta { font-family:'Noto Serif Tamil',serif; font-size:0.8rem; color:var(--gold-dim); opacity:0.6; display:block; margin-bottom:1.25rem; }
+.sec-title { font-size:clamp(1.6rem,3.5vw,2.4rem); font-weight:300; line-height:1.25; margin-bottom:0.35rem; }
+.sec-title-ta { font-family:'Noto Serif Tamil',serif; font-size:clamp(1rem,2.2vw,1.45rem); font-weight:300; color:var(--clay); opacity:0.65; line-height:1.5; margin-bottom:2rem; }
+.body-en { font-size:1.05rem; line-height:1.9; color:#3a2e28; margin-bottom:0.35rem; }
+.bilingual { margin-bottom:1.5rem; }
+.pull-quote { border-left:3px solid var(--gold); padding:1.2rem 1.6rem; margin:2.5rem 0; background:rgba(196,148,58,0.04); font-style:italic; font-size:1.1rem; color:var(--clay); line-height:1.75; }
+.pull-quote .ta { font-style:normal; margin-top:0.85rem; }
+.questions { display:grid; gap:1px; background:var(--sand); margin:2.5rem 0; border:1px solid var(--sand); }
+.question-item { background:var(--cream); padding:1.35rem 1.5rem; display:grid; grid-template-columns:1.5rem 1fr; gap:1rem; align-items:start; }
+.q-mark { font-family:'Noto Serif Tamil',serif; color:var(--gold); font-size:1.1rem; padding-top:0.1rem; }
+.q-text { font-size:1rem; line-height:1.7; color:#3a2e28; }
+.nav-pills { display:flex; gap:1rem; flex-wrap:wrap; margin-top:4rem; padding-top:2rem; border-top:1px solid var(--sand); }
+.nav-pill { flex:1; min-width:180px; background:var(--cream); border:1px solid var(--sand); padding:1.25rem 1.5rem; text-decoration:none; color:var(--ink); transition:border-color 0.2s,box-shadow 0.2s; display:block; }
+.nav-pill:hover { border-color:var(--gold-dim); box-shadow:0 2px 12px var(--shadow); }
+.nav-pill-dir { font-size:0.68rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--gold-dim); margin-bottom:0.35rem; }
+.nav-pill-title { font-size:1rem; color:var(--ink); }
+.nav-pill-ta { font-family:'Noto Serif Tamil',serif; font-size:0.82rem; color:var(--clay); opacity:0.65; }
+footer { background:#111; color:rgba(212,196,168,0.4); text-align:center; padding:2rem 2rem; font-size:0.82rem; letter-spacing:0.1em; }
+footer a { color:rgba(196,148,58,0.55); text-decoration:none; }
+footer a:hover { color:var(--gold); }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <a href="index.html">← Ennam</a>
+  <span class="topbar-sep">·</span>
+  <a href="index.html#explore">All Pages</a>
+</div>
+
+<header class="hero">
+  <div class="hero-icon">◉</div>
+  <p class="hero-label">Third Pillar · மூன்றாம் தூண்</p>
+  <span class="hero-label-ta">ஆர்வம் பற்றி</span>
+  <h1 class="hero-title">Curiosity</h1>
+  <p class="hero-title-ta">ஆர்வம்</p>
+  <p class="hero-tagline">Each word a door, not a wall</p>
+  <p class="hero-tagline-ta">ஒவ்வொரு வார்த்தையும் ஒரு கதவு, சுவர் அல்ல</p>
+  <div class="hero-divider"></div>
+</header>
+
+<article class="content">
+  <p class="sec-label">Language as a Generator of Questions</p>
+  <span class="sec-label-ta">கேள்விகளின் ஆக்குவிசையாக மொழி</span>
+  <h2 class="sec-title">Wonder as a structural principle</h2>
+  <p class="sec-title-ta">கட்டமைப்பு கொள்கையாக வியப்பு</p>
+
+  <div class="bilingual">
+    <p class="body-en">Most educational models treat curiosity as a starting condition — something that exists before learning, that learning then satisfies or extinguishes. Ennam inverts this: curiosity is the result of good language use, not its precondition. A well-formed expression, one that truly captures what is real, naturally opens rather than closes — it makes the world seem larger, not more explained.</p>
+    <span class="ta">பெரும்பாலான கல்வி மாதிரிகள் ஆர்வத்தை ஒரு தொடக்க நிலையாக கருதுகின்றன — கற்றலுக்கு முன் இருக்கும் ஒன்று, கற்றல் திருப்திப்படுத்தும் அல்லது அணைக்கும். எண்ணம் இதை தலைகீழாக்குகிறது: ஆர்வம் என்பது நல்ல மொழி பயன்பாட்டின் விளைவு, அதற்கு முந்தைய நிலை அல்ல. உண்மையானதை உண்மையிலேயே பிடிக்கும் ஒரு நன்கு உருவாக்கப்பட்ட வெளிப்பாடு, இயற்கையாகவே திறக்கிறது, மூடுவதில்லை — உலகை மிகவும் விளக்கப்பட்டதாக அல்ல, மிகவும் பெரியதாக தோற்றுவிக்கிறது.</span>
+  </div>
+
+  <div class="bilingual">
+    <p class="body-en">Tamil classical poetry understood this. The Sangam poems — nearly two thousand years old — do not resolve their images. They present them with such precision that the reader is pulled into the space between image and meaning, forced into active participation. The poem does not tell you what to feel. It creates the conditions for feeling, and then leaves the door open.</p>
+    <span class="ta">தமிழ் செம்மொழி கவிதை இதை புரிந்துகொண்டது. சங்க கவிதைகள் — கிட்டத்தட்ட இரண்டாயிரம் ஆண்டுகள் பழமையானவை — அவை படங்களை தீர்க்கவில்லை. அவை படத்திற்கும் அர்த்தத்திற்கும் இடையிலான இடத்தில் வாசகரை இழுக்கும் அத்தகைய துல்லியத்துடன் அவற்றை வழங்குகின்றன, செயலூக்கமான பங்களிப்பை கட்டாயமாக்குகின்றன. கவிதை என்ன உணரவேண்டும் என்று சொல்வதில்லை. உணர்வதற்கான நிலைமைகளை உருவாக்கி கதவை திறந்து விடுகிறது.</span>
+  </div>
+
+  <div class="pull-quote">
+    <span>"Curiosity is not the opposite of knowledge — it is what knowledge looks like when it is alive."</span>
+    <span class="ta">"ஆர்வம் என்பது அறிவின் எதிர் அல்ல — அது அறிவு உயிரோடிருக்கும்போது எப்படி தெரிகிறது என்பது."</span>
+  </div>
+</article>
+
+<article class="content">
+  <p class="sec-label">Questions that Open the World</p>
+  <span class="sec-label-ta">உலகை திறக்கும் கேள்விகள்</span>
+  <h2 class="sec-title">The questions Ennam is built around</h2>
+  <p class="sec-title-ta">எண்ணம் கட்டமைக்கப்பட்டிருக்கும் கேள்விகள்</p>
+
+  <div class="bilingual">
+    <p class="body-en">These are not rhetorical questions — they are the living questions that drive the research. Each one is a door. None have final answers.</p>
+    <span class="ta">இவை சொல்லோட்ட கேள்விகள் அல்ல — அவை ஆய்வை இயக்கும் உயிரோட்டமான கேள்விகள். ஒவ்வொன்றும் ஒரு கதவு. யாருக்கும் இறுதி பதில்கள் இல்லை.</span>
+  </div>
+
+  <div class="questions">
+    <div class="question-item">
+      <span class="q-mark">?</span>
+      <div class="q-text">
+        What would a language designed for inner experience — not outer transaction — actually look like?
+        <span class="ta">வெளிப்புற பரிவர்த்தனைக்காக அல்ல, உள் அனுபவத்திற்காக வடிவமைக்கப்பட்ட மொழி உண்மையில் எப்படி இருக்கும்?</span>
+      </div>
+    </div>
+    <div class="question-item">
+      <span class="q-mark">?</span>
+      <div class="q-text">
+        Is there a sound — a phoneme, a rhythm — that carries feeling directly, without the mediation of meaning?
+        <span class="ta">அர்த்தத்தின் மத்தியஸ்தம் இல்லாமல் நேரடியாக உணர்வை சுமக்கும் ஒரு ஒலி — ஒரு உயிரெழுத்து, ஒரு தாளம் — இருக்கிறதா?</span>
+      </div>
+    </div>
+    <div class="question-item">
+      <span class="q-mark">?</span>
+      <div class="q-text">
+        What does Tamil's akam-puram distinction reveal about the architecture of human consciousness?
+        <span class="ta">தமிழின் அகம்-புறம் வேறுபாடு மனித உணர்வின் கட்டமைப்பைப் பற்றி என்ன வெளிப்படுத்துகிறது?</span>
+      </div>
+    </div>
+    <div class="question-item">
+      <span class="q-mark">?</span>
+      <div class="q-text">
+        Can resonance and dissonance be used simultaneously — as a single, richer mode of expression?
+        <span class="ta">இசைவும் முரணும் ஒரே நேரத்தில் — ஒரே, மிகவும் வளமான வெளிப்பாட்டு முறையாக — பயன்படுத்தப்படலாமா?</span>
+      </div>
+    </div>
+    <div class="question-item">
+      <span class="q-mark">?</span>
+      <div class="q-text">
+        What is the relationship between beauty in language and truth in observation — are they the same thing seen differently?
+        <span class="ta">மொழியில் அழகுக்கும் கவனிப்பில் உண்மைக்கும் என்ன உறவு — அவை வேறுவிதமாக பார்க்கப்படும் ஒரே விஷயமா?</span>
+      </div>
+    </div>
+  </div>
+
+  <nav class="nav-pills">
+    <a href="expression.html" class="nav-pill">
+      <div class="nav-pill-dir">← Previous</div>
+      <div class="nav-pill-title">Expression</div>
+      <span class="nav-pill-ta">வெளிப்பாடு</span>
+    </a>
+    <a href="resonance.html" class="nav-pill">
+      <div class="nav-pill-dir">Next →</div>
+      <div class="nav-pill-title">Resonance</div>
+      <span class="nav-pill-ta">இசைவு</span>
+    </a>
+  </nav>
+</article>
+
+<footer>
+  <p>Ennam · எண்ணம் &nbsp;·&nbsp; <a href="index.html">Home</a></p>
+</footer>
+</body>
+</html>

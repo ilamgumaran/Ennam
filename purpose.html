@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="ta-en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Purpose · நோக்கம் — Ennam</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=JetBrains+Mono:wght@300;400&family=Noto+Serif+Tamil:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink: #1a1410; --parchment: #f5f0e8; --gold: #c4943a; --gold-dim: #a07830;
+  --rust: #8b3a2a; --teal: #2a6b5e; --clay: #6b4a3a; --sand: #d4c4a8; --cream: #faf6ee;
+  --shadow: rgba(26,20,16,0.08);
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body { font-family:'Cormorant Garamond',Georgia,serif; background:var(--parchment); color:var(--ink); line-height:1.7; font-size:18px; }
+
+.ta { font-family:'Noto Serif Tamil',serif; font-size:0.88em; color:var(--clay); opacity:0.72; line-height:1.85; margin-top:0.45rem; display:block; }
+
+.topbar { background:#111; padding:1rem 2rem; display:flex; align-items:center; gap:1.5rem; }
+.topbar a { color:rgba(212,196,168,0.55); text-decoration:none; font-size:0.78rem; letter-spacing:0.18em; text-transform:uppercase; transition:color 0.2s; }
+.topbar a:hover { color:var(--gold); }
+.topbar-sep { color:rgba(212,196,168,0.2); }
+
+.hero {
+  min-height:55vh; display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center;
+  background:linear-gradient(160deg,#1a1410 0%,#2a1e16 50%,#3a2a1e 100%);
+  color:var(--parchment); padding:3rem 2rem; position:relative; overflow:hidden;
+}
+.hero::before { content:''; position:absolute; inset:0; background:radial-gradient(ellipse 55% 45% at 50% 50%,rgba(196,148,58,0.08) 0%,transparent 70%); pointer-events:none; }
+.hero-label { font-size:0.7rem; letter-spacing:0.35em; text-transform:uppercase; color:rgba(196,148,58,0.65); margin-bottom:0.25rem; }
+.hero-label-ta { font-family:'Noto Serif Tamil',serif; font-size:0.85rem; color:rgba(196,148,58,0.4); display:block; margin-bottom:1.75rem; }
+.hero-title { font-size:clamp(2.2rem,5vw,4rem); font-weight:300; letter-spacing:0.1em; margin-bottom:0.35rem; }
+.hero-title-ta { font-family:'Noto Serif Tamil',serif; font-size:clamp(1.3rem,3vw,2.2rem); font-weight:300; color:var(--sand); opacity:0.7; margin-bottom:1.5rem; }
+.hero-divider { width:60px; height:1px; background:linear-gradient(90deg,transparent,var(--gold),transparent); margin:0 auto; }
+
+.content { max-width:780px; margin:0 auto; padding:4.5rem 2rem; }
+.content + .content { border-top:1px solid var(--sand); }
+
+.sec-label { font-size:0.7rem; letter-spacing:0.3em; text-transform:uppercase; color:var(--gold-dim); margin-bottom:0.2rem; }
+.sec-label-ta { font-family:'Noto Serif Tamil',serif; font-size:0.8rem; color:var(--gold-dim); opacity:0.6; display:block; margin-bottom:1.25rem; }
+.sec-title { font-size:clamp(1.6rem,3.5vw,2.4rem); font-weight:300; line-height:1.25; margin-bottom:0.35rem; }
+.sec-title-ta { font-family:'Noto Serif Tamil',serif; font-size:clamp(1rem,2.2vw,1.45rem); font-weight:300; color:var(--clay); opacity:0.65; line-height:1.5; margin-bottom:2rem; }
+
+.body-en { font-size:1.05rem; line-height:1.9; color:#3a2e28; margin-bottom:0.35rem; }
+.bilingual { margin-bottom:1.5rem; }
+
+.pull-quote { border-left:3px solid var(--gold); padding:1.2rem 1.6rem; margin:2.5rem 0; background:rgba(196,148,58,0.04); font-style:italic; font-size:1.1rem; color:var(--clay); line-height:1.75; }
+.pull-quote .ta { font-style:normal; margin-top:0.85rem; }
+
+.grid-2 { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:1.25rem; margin-top:2.5rem; }
+.card { background:var(--cream); border:1px solid var(--sand); border-top:2px solid var(--gold); padding:1.5rem; }
+.card-head { font-size:0.7rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--gold-dim); margin-bottom:0.5rem; }
+.card-body { font-size:0.92rem; color:var(--clay); line-height:1.65; margin-bottom:0.35rem; }
+
+.nav-pills { display:flex; gap:1rem; flex-wrap:wrap; margin-top:4rem; padding-top:2rem; border-top:1px solid var(--sand); }
+.nav-pill { flex:1; min-width:180px; background:var(--cream); border:1px solid var(--sand); padding:1.25rem 1.5rem; text-decoration:none; color:var(--ink); transition:border-color 0.2s,box-shadow 0.2s; display:block; }
+.nav-pill:hover { border-color:var(--gold-dim); box-shadow:0 2px 12px var(--shadow); }
+.nav-pill-dir { font-size:0.68rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--gold-dim); margin-bottom:0.35rem; }
+.nav-pill-title { font-size:1rem; color:var(--ink); }
+.nav-pill-ta { font-family:'Noto Serif Tamil',serif; font-size:0.82rem; color:var(--clay); opacity:0.65; }
+
+footer { background:#111; color:rgba(212,196,168,0.4); text-align:center; padding:2rem 2rem; font-size:0.82rem; letter-spacing:0.1em; }
+footer a { color:rgba(196,148,58,0.55); text-decoration:none; }
+footer a:hover { color:var(--gold); }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <a href="index.html">← Ennam</a>
+  <span class="topbar-sep">·</span>
+  <a href="index.html#explore">All Pages</a>
+</div>
+
+<header class="hero">
+  <p class="hero-label">The Mission</p>
+  <span class="hero-label-ta">நோக்கம்</span>
+  <h1 class="hero-title">Purpose</h1>
+  <p class="hero-title-ta">நோக்கம்</p>
+  <div class="hero-divider"></div>
+</header>
+
+<article class="content">
+  <p class="sec-label">Why This Exists</p>
+  <span class="sec-label-ta">இது ஏன் இருக்கிறது</span>
+  <h2 class="sec-title">The search for a language that carries the whole of you</h2>
+  <p class="sec-title-ta">உன்னை முழுமையாக தாங்கும் மொழியின் தேடல்</p>
+
+  <div class="bilingual">
+    <p class="body-en">Every person carries an interior world that is vast and largely inexpressible. Not because it is too complex — but because the tools we have been given were not built for this purpose. Our inherited languages were optimised for transaction, agreement, and record. They were refined by merchants, lawmakers, and bureaucrats. The poet and the philosopher pushed back, but were never the dominant voice.</p>
+    <span class="ta">ஒவ்வொரு மனிதனும் ஒரு பரந்த உள் உலகை சுமக்கிறான், அது பெரும்பாலும் வெளிப்படுத்த முடியாதது. அது மிகவும் சிக்கலானதால் அல்ல — ஆனால் நமக்கு கொடுக்கப்பட்ட கருவிகள் இந்த நோக்கத்திற்காக கட்டமைக்கப்படவில்லை. நம் பரம்பரை மொழிகள் பரிவர்த்தனை, ஒப்பந்தம், பதிவு ஆகியவற்றிற்காக மேம்படுத்தப்பட்டன. வணிகர்கள், சட்டமியற்றுபவர்கள், அதிகாரிகளால் செம்மைப்படுத்தப்பட்டன. கவிஞரும் தத்துவஞானியும் எதிர்த்தனர், ஆனால் ஒருபோதும் மேலோங்கும் குரலாக இருக்கவில்லை.</span>
+  </div>
+
+  <div class="bilingual">
+    <p class="body-en">Ennam begins from a different question: what would a language look like if it were designed first and foremost for the person who wants to see clearly, feel fully, and express truthfully — without loss, without distortion, without needing to simplify what is real?</p>
+    <span class="ta">எண்ணம் வேறொரு கேள்வியில் இருந்து தொடங்குகிறது: தெளிவாக காண விரும்பும், முழுமையாக உணர விரும்பும், உண்மையாக வெளிப்படுத்த விரும்பும் ஒருவருக்காக முதன்மையாக வடிவமைக்கப்பட்டால் ஒரு மொழி எப்படி இருக்கும் — இழப்பில்லாமல், திரிபில்லாமல், உண்மையானதை எளிமைப்படுத்த வேண்டியதில்லாமல்?</span>
+  </div>
+
+  <div class="pull-quote">
+    <span>"To find a suitable base language and enhance it — so that it becomes a mode of transport, a medium for people to have boundless expression and to paint a beautiful picture within and outside, through resonance and dissonance."</span>
+    <span class="ta">"ஒரு பொருத்தமான அடிப்படை மொழியை கண்டறிந்து மேம்படுத்துவது — அது ஒரு போக்குவரத்து வழிமுறையாக மாறட்டும், மக்கள் எல்லையற்ற வெளிப்பாட்டை கொண்டிருக்கவும் இசைவு மற்றும் முரண் வழியாக உள்ளும் வெளியும் ஒரு அழகான படத்தை வரைவதற்கும் ஒரு ஊடகமாக மாறட்டும்."</span>
+  </div>
+</article>
+
+<article class="content">
+  <p class="sec-label">The Three Movements</p>
+  <span class="sec-label-ta">மூன்று இயக்கங்கள்</span>
+  <h2 class="sec-title">Inward, Outward, and Between</h2>
+  <p class="sec-title-ta">உள்நோக்கி, வெளிநோக்கி, இடையில்</p>
+
+  <div class="bilingual">
+    <p class="body-en">The project moves in three directions simultaneously. <strong>Inward</strong> — studying how consciousness forms its experience, how the body registers sensation before the mind has language for it, how thought arises in the gap before words. <strong>Outward</strong> — studying how the world presents itself when attention is truly open: texture, pattern, change, presence. <strong>Between</strong> — discovering the forms that carry inward experience outward without losing its essence.</p>
+    <span class="ta">திட்டம் ஒரே நேரத்தில் மூன்று திசைகளில் நகர்கிறது. <strong>உள்நோக்கி</strong> — உணர்வு எவ்வாறு அனுபவத்தை உருவாக்குகிறது, மொழி வருவதற்கு முன் உடல் எவ்வாறு உணர்வை பதிவு செய்கிறது என்பதை ஆய்கிறது. <strong>வெளிநோக்கி</strong> — கவனம் உண்மையிலேயே திறந்திருக்கும்போது உலகம் எவ்வாறு தன்னை வெளிப்படுத்துகிறது என்பதை ஆய்கிறது. <strong>இடையில்</strong> — சாரத்தை இழக்காமல் உள் அனுபவத்தை வெளியே கொண்டு செல்லும் வடிவங்களை கண்டறிகிறது.</span>
+  </div>
+
+  <div class="grid-2">
+    <div class="card">
+      <div class="card-head">The Inner World · உள் உலகம்</div>
+      <p class="card-body">Sensation, feeling, thought, memory, silence — all the texture of being alive that most language compresses into a word or loses entirely.</p>
+      <span class="ta">உணர்வு, உணர்ச்சி, சிந்தனை, நினைவு, மௌனம் — வாழ்வின் அமைப்பு முழுவதையும் பெரும்பாலான மொழிகள் ஒரு வார்த்தையில் சுருக்குகின்றன அல்லது முற்றிலும் இழக்கின்றன.</span>
+    </div>
+    <div class="card">
+      <div class="card-head">The Outer World · வெளி உலகம்</div>
+      <p class="card-body">What is actually present — the quality of light, the mood of a space, the arc of a conversation — seen without the filter of assumption or habit.</p>
+      <span class="ta">உண்மையிலேயே இருப்பது — ஒளியின் தரம், ஒரு இடத்தின் மனோநிலை, ஒரு உரையாடலின் வளைவு — அனுமானம் அல்லது பழக்கத்தின் வடிகட்டி இல்லாமல் பார்க்கப்படுவது.</span>
+    </div>
+    <div class="card">
+      <div class="card-head">The Space Between · இடைவெளி</div>
+      <p class="card-body">The resonance and dissonance between inner and outer — where meaning is created, where a beautiful picture is painted, where transport happens.</p>
+      <span class="ta">உள்ளும் வெளியும் இடையிலான இசைவும் முரணும் — அர்த்தம் உருவாகும் இடம், அழகான படம் வரையப்படும் இடம், கடத்தல் நிகழும் இடம்.</span>
+    </div>
+    <div class="card">
+      <div class="card-head">The Base Language · அடிப்படை மொழி</div>
+      <p class="card-body">Tamil is explored as the foundation — a classical language whose structure, sound system, and poetic tradition are uniquely suited to this project's goals.</p>
+      <span class="ta">தமிழ் அடித்தளமாக ஆய்வு செய்யப்படுகிறது — ஒரு செம்மொழி, அதன் கட்டமைப்பு, ஒலி அமைப்பு, கவிதை மரபு ஆகியவை இந்த திட்டத்தின் குறிக்கோள்களுக்கு தனித்துவமாக பொருந்துகின்றன.</span>
+    </div>
+  </div>
+</article>
+
+<article class="content">
+  <p class="sec-label">Expression as Perception</p>
+  <span class="sec-label-ta">உணர்தலாக வெளிப்பாடு</span>
+  <h2 class="sec-title">Not what you show — what you see</h2>
+  <p class="sec-title-ta">நீங்கள் காட்டுவது அல்ல — நீங்கள் பார்ப்பது</p>
+
+  <div class="bilingual">
+    <p class="body-en">A central insight of this project is that expression and perception are not two separate acts. To find the right form for an experience — to truly express it — you have to have truly seen it. Language, then, is not just a vehicle for expressing what you already know. It is a way of coming to know things in the first place.</p>
+    <span class="ta">இந்த திட்டத்தின் மையமான ஒரு நுண்ணறிவு என்னவென்றால் வெளிப்பாடும் உணர்தலும் இரண்டு தனித்தனி செயல்கள் அல்ல. ஒரு அனுபவத்திற்கான சரியான வடிவத்தை கண்டறிய — உண்மையாக வெளிப்படுத்த — நீங்கள் அதை உண்மையிலேயே பார்த்திருக்க வேண்டும். மொழி, எனவே, நீங்கள் ஏற்கனவே அறிந்தவற்றை வெளிப்படுத்துவதற்கான வாகனம் மட்டுமல்ல. அது முதலில் விஷயங்களை அறிவதற்கான ஒரு வழி.</span>
+  </div>
+
+  <div class="bilingual">
+    <p class="body-en">This is why curiosity is central to the project. A language that opens you to what you have not seen before — that creates the conditions for genuine surprise — is more valuable than one that gives you precise words for what you already know. Ennam is as much about cultivating the capacity to observe as it is about finding better words.</p>
+    <span class="ta">இதனால்தான் ஆர்வம் திட்டத்தின் மையமாக உள்ளது. நீங்கள் இதுவரை காணாததற்கு உங்களை திறக்கும் ஒரு மொழி — உண்மையான வியப்பிற்கான நிலைமைகளை உருவாக்கும் ஒரு மொழி — நீங்கள் ஏற்கனவே அறிந்தவற்றிற்கு துல்லியமான வார்த்தைகள் தருவதை விட மதிப்பு வாய்ந்தது. எண்ணம் சிறந்த வார்த்தைகளை கண்டறிவதைப் பற்றியது மட்டுமல்ல — கவனிக்கும் திறனை வளர்ப்பதைப் பற்றியதும் கூட.</span>
+  </div>
+
+  <nav class="nav-pills">
+    <a href="observation.html" class="nav-pill">
+      <div class="nav-pill-dir">First Pillar →</div>
+      <div class="nav-pill-title">Observation</div>
+      <span class="nav-pill-ta">கவனிப்பு</span>
+    </a>
+    <a href="index.html#explore" class="nav-pill">
+      <div class="nav-pill-dir">All Pages →</div>
+      <div class="nav-pill-title">Explore</div>
+      <span class="nav-pill-ta">ஆராய்க</span>
+    </a>
+  </nav>
+</article>
+
+<footer>
+  <p>Ennam · எண்ணம் &nbsp;·&nbsp; <a href="index.html">Home</a></p>
+</footer>
+</body>
+</html>

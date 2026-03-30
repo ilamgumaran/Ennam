@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="ta-en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Expression · வெளிப்பாடு — Ennam</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=JetBrains+Mono:wght@300;400&family=Noto+Serif+Tamil:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+:root { --ink:#1a1410; --parchment:#f5f0e8; --gold:#c4943a; --gold-dim:#a07830; --clay:#6b4a3a; --sand:#d4c4a8; --cream:#faf6ee; --shadow:rgba(26,20,16,0.08); }
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body { font-family:'Cormorant Garamond',Georgia,serif; background:var(--parchment); color:var(--ink); line-height:1.7; font-size:18px; }
+.ta { font-family:'Noto Serif Tamil',serif; font-size:0.88em; color:var(--clay); opacity:0.72; line-height:1.85; margin-top:0.45rem; display:block; }
+.topbar { background:#111; padding:1rem 2rem; display:flex; align-items:center; gap:1.5rem; }
+.topbar a { color:rgba(212,196,168,0.55); text-decoration:none; font-size:0.78rem; letter-spacing:0.18em; text-transform:uppercase; transition:color 0.2s; }
+.topbar a:hover { color:var(--gold); }
+.topbar-sep { color:rgba(212,196,168,0.2); }
+.hero { min-height:55vh; display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; background:linear-gradient(160deg,#1a1410 0%,#2a1e16 50%,#3a2a1e 100%); color:var(--parchment); padding:3rem 2rem; position:relative; overflow:hidden; }
+.hero::before { content:''; position:absolute; inset:0; background:radial-gradient(ellipse 55% 45% at 50% 50%,rgba(196,148,58,0.08) 0%,transparent 70%); pointer-events:none; }
+.hero-icon { font-size:3rem; opacity:0.4; margin-bottom:1rem; }
+.hero-label { font-size:0.7rem; letter-spacing:0.35em; text-transform:uppercase; color:rgba(196,148,58,0.65); margin-bottom:0.25rem; }
+.hero-label-ta { font-family:'Noto Serif Tamil',serif; font-size:0.85rem; color:rgba(196,148,58,0.4); display:block; margin-bottom:1.75rem; }
+.hero-title { font-size:clamp(2.2rem,5vw,4rem); font-weight:300; letter-spacing:0.1em; margin-bottom:0.35rem; }
+.hero-title-ta { font-family:'Noto Serif Tamil',serif; font-size:clamp(1.3rem,3vw,2.2rem); font-weight:300; color:var(--sand); opacity:0.7; margin-bottom:1.5rem; }
+.hero-tagline { font-style:italic; font-size:clamp(0.95rem,2vw,1.2rem); color:rgba(212,196,168,0.6); max-width:500px; margin-bottom:0.4rem; }
+.hero-tagline-ta { font-family:'Noto Serif Tamil',serif; font-size:clamp(0.8rem,1.8vw,1rem); color:rgba(212,196,168,0.38); max-width:500px; }
+.hero-divider { width:60px; height:1px; background:linear-gradient(90deg,transparent,var(--gold),transparent); margin:1.5rem auto 0; }
+.content { max-width:780px; margin:0 auto; padding:4.5rem 2rem; }
+.content + .content { border-top:1px solid var(--sand); }
+.sec-label { font-size:0.7rem; letter-spacing:0.3em; text-transform:uppercase; color:var(--gold-dim); margin-bottom:0.2rem; }
+.sec-label-ta { font-family:'Noto Serif Tamil',serif; font-size:0.8rem; color:var(--gold-dim); opacity:0.6; display:block; margin-bottom:1.25rem; }
+.sec-title { font-size:clamp(1.6rem,3.5vw,2.4rem); font-weight:300; line-height:1.25; margin-bottom:0.35rem; }
+.sec-title-ta { font-family:'Noto Serif Tamil',serif; font-size:clamp(1rem,2.2vw,1.45rem); font-weight:300; color:var(--clay); opacity:0.65; line-height:1.5; margin-bottom:2rem; }
+.body-en { font-size:1.05rem; line-height:1.9; color:#3a2e28; margin-bottom:0.35rem; }
+.bilingual { margin-bottom:1.5rem; }
+.pull-quote { border-left:3px solid var(--gold); padding:1.2rem 1.6rem; margin:2.5rem 0; background:rgba(196,148,58,0.04); font-style:italic; font-size:1.1rem; color:var(--clay); line-height:1.75; }
+.pull-quote .ta { font-style:normal; margin-top:0.85rem; }
+.spectrum { display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:1px; background:var(--sand); margin:2.5rem 0; border:1px solid var(--sand); }
+.spectrum-item { background:var(--cream); padding:1.5rem 1.25rem; }
+.spectrum-level { font-size:0.68rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--gold-dim); margin-bottom:0.5rem; }
+.spectrum-title { font-size:1.05rem; font-weight:400; margin-bottom:0.35rem; }
+.spectrum-title-ta { font-family:'Noto Serif Tamil',serif; font-size:0.85rem; color:var(--clay); opacity:0.65; display:block; margin-bottom:0.5rem; }
+.spectrum-desc { font-size:0.88rem; color:var(--clay); line-height:1.6; }
+.nav-pills { display:flex; gap:1rem; flex-wrap:wrap; margin-top:4rem; padding-top:2rem; border-top:1px solid var(--sand); }
+.nav-pill { flex:1; min-width:180px; background:var(--cream); border:1px solid var(--sand); padding:1.25rem 1.5rem; text-decoration:none; color:var(--ink); transition:border-color 0.2s,box-shadow 0.2s; display:block; }
+.nav-pill:hover { border-color:var(--gold-dim); box-shadow:0 2px 12px var(--shadow); }
+.nav-pill-dir { font-size:0.68rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--gold-dim); margin-bottom:0.35rem; }
+.nav-pill-title { font-size:1rem; color:var(--ink); }
+.nav-pill-ta { font-family:'Noto Serif Tamil',serif; font-size:0.82rem; color:var(--clay); opacity:0.65; }
+footer { background:#111; color:rgba(212,196,168,0.4); text-align:center; padding:2rem 2rem; font-size:0.82rem; letter-spacing:0.1em; }
+footer a { color:rgba(196,148,58,0.55); text-decoration:none; }
+footer a:hover { color:var(--gold); }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <a href="index.html">← Ennam</a>
+  <span class="topbar-sep">·</span>
+  <a href="index.html#explore">All Pages</a>
+</div>
+
+<header class="hero">
+  <div class="hero-icon">◈</div>
+  <p class="hero-label">Second Pillar · இரண்டாம் தூண்</p>
+  <span class="hero-label-ta">வெளிப்பாடு பற்றி</span>
+  <h1 class="hero-title">Expression</h1>
+  <p class="hero-title-ta">வெளிப்பாடு</p>
+  <p class="hero-tagline">Beyond communication — into full presence</p>
+  <p class="hero-tagline-ta">தகவல் பரிமாற்றத்தை தாண்டி — முழு இருப்பிற்குள்</p>
+  <div class="hero-divider"></div>
+</header>
+
+<article class="content">
+  <p class="sec-label">What Expression Really Means</p>
+  <span class="sec-label-ta">வெளிப்பாடு உண்மையில் என்னை அர்த்தப்படுத்துகிறது</span>
+  <h2 class="sec-title">The difference between saying and expressing</h2>
+  <p class="sec-title-ta">சொல்வதற்கும் வெளிப்படுத்துவதற்கும் உள்ள வித்தியாசம்</p>
+
+  <div class="bilingual">
+    <p class="body-en">We say things constantly. We express rarely. Saying is the transfer of a piece of information from one container to another. Expressing is something altogether different — it is the act of making something interior exterior, of bringing the full texture of an inner experience into a form that can be received by another consciousness without losing its essence.</p>
+    <span class="ta">நாம் தொடர்ந்து சொல்கிறோம். அரிதாகவே வெளிப்படுத்துகிறோம். சொல்வது என்பது ஒரு தகவலை ஒரு கொள்கலனிலிருந்து மற்றொன்றிற்கு மாற்றுவது. வெளிப்படுத்துவது முற்றிலும் வேறானது — அது ஒரு உள்ளானதை வெளிப்படுத்தும் செயல், ஒரு உள் அனுபவத்தின் முழு அமைப்பையும் அதன் சாரத்தை இழக்காமல் மற்றொரு உணர்வால் பெறக்கூடிய ஒரு வடிவத்தில் கொண்டுவருவது.</span>
+  </div>
+
+  <div class="bilingual">
+    <p class="body-en">The loss that occurs in most communication is vast. Between the feeling and the word, between the word and the sentence, between the sentence and its reception — at each stage something is dropped. What Ennam seeks is not to eliminate this loss entirely, which may be impossible, but to become so much more conscious of the compression that we can at least choose what to keep.</p>
+    <span class="ta">பெரும்பாலான தகவல் பரிமாற்றத்தில் நிகழும் இழப்பு பிரம்மாண்டமானது. உணர்வுக்கும் வார்த்தைக்கும் இடையில், வார்த்தைக்கும் வாக்கியத்திற்கும் இடையில், வாக்கியத்திற்கும் அதன் வரவேற்பிற்கும் இடையில் — ஒவ்வொரு கட்டத்திலும் ஏதோ கைவிடப்படுகிறது. எண்ணம் தேடுவது இந்த இழப்பை முற்றிலும் நீக்குவதல்ல, அது சாத்தியமற்றதாக இருக்கலாம், ஆனால் குறைப்பாடு பற்றி மிகவும் விழிப்புடன் இருப்பது — குறைந்தபட்சம் என்ன வைத்திருக்கணும் என்று தேர்வு செய்யலாம்.</span>
+  </div>
+
+  <div class="pull-quote">
+    <span>"Expression is not what you mean — it is what the other person receives. That distance is not a failure; it is the canvas."</span>
+    <span class="ta">"வெளிப்பாடு என்பது நீங்கள் அர்த்தப்படுத்துவது அல்ல — மற்றவர் பெறுவது. அந்த தூரம் ஒரு தோல்வி அல்ல; அது கேன்வாஸ்."</span>
+  </div>
+</article>
+
+<article class="content">
+  <p class="sec-label">The Spectrum of Expression</p>
+  <span class="sec-label-ta">வெளிப்பாட்டின் நிறமாலை</span>
+  <h2 class="sec-title">From bare information to full resonance</h2>
+  <p class="sec-title-ta">வெற்று தகவலிலிருந்து முழு இசைவிற்கு</p>
+
+  <div class="bilingual">
+    <p class="body-en">There is a spectrum of expression, from the purely transactional to the fully resonant. Most of our language lives at the transactional end. The work of Ennam is to expand access to the other end — not as a constant mode, but as a capacity, available when needed.</p>
+    <span class="ta">வெளிப்பாட்டின் ஒரு நிறமாலை உள்ளது, முற்றிலும் பரிவர்த்தனை முதல் முழு இசைவு வரை. நம் மொழியின் பெரும்பாலானவை பரிவர்த்தனை முனையில் வாழ்கின்றன. எண்ணத்தின் வேலை மறு முனைக்கான அணுகலை விரிவுபடுத்துவது — தொடர்ச்சியான வழியாக அல்ல, ஆனால் ஒரு திறனாக, தேவைப்படும்போது கிடைக்கும்படி.</span>
+  </div>
+
+  <div class="spectrum">
+    <div class="spectrum-item">
+      <div class="spectrum-level">Level 1</div>
+      <div class="spectrum-title">Information</div>
+      <span class="spectrum-title-ta">தகவல்</span>
+      <p class="spectrum-desc">The plain transfer of data. "The meeting is at three." Essential, but not expression.</p>
+      <span class="ta">தரவின் எளிய மாற்றம். "கூட்டம் மூன்று மணிக்கு." இன்றியமையாதது, ஆனால் வெளிப்பாடு அல்ல.</span>
+    </div>
+    <div class="spectrum-item">
+      <div class="spectrum-level">Level 2</div>
+      <div class="spectrum-title">Communication</div>
+      <span class="spectrum-title-ta">தொடர்பு</span>
+      <p class="spectrum-desc">Information plus intent, tone, and relationship. Most language lives here.</p>
+      <span class="ta">தகவல் மற்றும் நோக்கம், தொனி, உறவு. பெரும்பாலான மொழி இங்கே வாழ்கிறது.</span>
+    </div>
+    <div class="spectrum-item">
+      <div class="spectrum-level">Level 3</div>
+      <div class="spectrum-title">Expression</div>
+      <span class="spectrum-title-ta">வெளிப்பாடு</span>
+      <p class="spectrum-desc">Interior experience transmitted without essential loss. The receiver feels, not just understands.</p>
+      <span class="ta">அத்தியாவசிய இழப்பில்லாமல் உள் அனுபவம் அனுப்பப்படுகிறது. பெறுபவர் உணர்கிறார், புரிந்துகொள்கிறார் மட்டுமல்ல.</span>
+    </div>
+    <div class="spectrum-item">
+      <div class="spectrum-level">Level 4</div>
+      <div class="spectrum-title">Resonance</div>
+      <span class="spectrum-title-ta">இசைவு</span>
+      <p class="spectrum-desc">The expression creates a shared vibration — inner and outer worlds temporarily aligned.</p>
+      <span class="ta">வெளிப்பாடு ஒரு பகிர்ந்த அதிர்வை உருவாக்குகிறது — உள் மற்றும் வெளி உலகங்கள் தற்காலிகமாக ஒத்திசைகின்றன.</span>
+    </div>
+  </div>
+
+  <nav class="nav-pills">
+    <a href="observation.html" class="nav-pill">
+      <div class="nav-pill-dir">← Previous</div>
+      <div class="nav-pill-title">Observation</div>
+      <span class="nav-pill-ta">கவனிப்பு</span>
+    </a>
+    <a href="curiosity.html" class="nav-pill">
+      <div class="nav-pill-dir">Next →</div>
+      <div class="nav-pill-title">Curiosity</div>
+      <span class="nav-pill-ta">ஆர்வம்</span>
+    </a>
+  </nav>
+</article>
+
+<footer>
+  <p>Ennam · எண்ணம் &nbsp;·&nbsp; <a href="index.html">Home</a></p>
+</footer>
+</body>
+</html>

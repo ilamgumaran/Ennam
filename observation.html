@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="ta-en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Observation · கவனிப்பு — Ennam</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=JetBrains+Mono:wght@300;400&family=Noto+Serif+Tamil:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+:root { --ink:#1a1410; --parchment:#f5f0e8; --gold:#c4943a; --gold-dim:#a07830; --clay:#6b4a3a; --sand:#d4c4a8; --cream:#faf6ee; --shadow:rgba(26,20,16,0.08); }
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body { font-family:'Cormorant Garamond',Georgia,serif; background:var(--parchment); color:var(--ink); line-height:1.7; font-size:18px; }
+.ta { font-family:'Noto Serif Tamil',serif; font-size:0.88em; color:var(--clay); opacity:0.72; line-height:1.85; margin-top:0.45rem; display:block; }
+.topbar { background:#111; padding:1rem 2rem; display:flex; align-items:center; gap:1.5rem; }
+.topbar a { color:rgba(212,196,168,0.55); text-decoration:none; font-size:0.78rem; letter-spacing:0.18em; text-transform:uppercase; transition:color 0.2s; }
+.topbar a:hover { color:var(--gold); }
+.topbar-sep { color:rgba(212,196,168,0.2); }
+.hero { min-height:55vh; display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; background:linear-gradient(160deg,#1a1410 0%,#2a1e16 50%,#3a2a1e 100%); color:var(--parchment); padding:3rem 2rem; position:relative; overflow:hidden; }
+.hero::before { content:''; position:absolute; inset:0; background:radial-gradient(ellipse 55% 45% at 50% 50%,rgba(196,148,58,0.08) 0%,transparent 70%); pointer-events:none; }
+.hero-icon { font-size:3rem; opacity:0.4; margin-bottom:1rem; }
+.hero-label { font-size:0.7rem; letter-spacing:0.35em; text-transform:uppercase; color:rgba(196,148,58,0.65); margin-bottom:0.25rem; }
+.hero-label-ta { font-family:'Noto Serif Tamil',serif; font-size:0.85rem; color:rgba(196,148,58,0.4); display:block; margin-bottom:1.75rem; }
+.hero-title { font-size:clamp(2.2rem,5vw,4rem); font-weight:300; letter-spacing:0.1em; margin-bottom:0.35rem; }
+.hero-title-ta { font-family:'Noto Serif Tamil',serif; font-size:clamp(1.3rem,3vw,2.2rem); font-weight:300; color:var(--sand); opacity:0.7; margin-bottom:1.5rem; }
+.hero-tagline { font-style:italic; font-size:clamp(0.95rem,2vw,1.2rem); color:rgba(212,196,168,0.6); max-width:500px; margin-bottom:0.4rem; }
+.hero-tagline-ta { font-family:'Noto Serif Tamil',serif; font-size:clamp(0.8rem,1.8vw,1rem); color:rgba(212,196,168,0.38); max-width:500px; }
+.hero-divider { width:60px; height:1px; background:linear-gradient(90deg,transparent,var(--gold),transparent); margin:1.5rem auto 0; }
+.content { max-width:780px; margin:0 auto; padding:4.5rem 2rem; }
+.content + .content { border-top:1px solid var(--sand); }
+.sec-label { font-size:0.7rem; letter-spacing:0.3em; text-transform:uppercase; color:var(--gold-dim); margin-bottom:0.2rem; }
+.sec-label-ta { font-family:'Noto Serif Tamil',serif; font-size:0.8rem; color:var(--gold-dim); opacity:0.6; display:block; margin-bottom:1.25rem; }
+.sec-title { font-size:clamp(1.6rem,3.5vw,2.4rem); font-weight:300; line-height:1.25; margin-bottom:0.35rem; }
+.sec-title-ta { font-family:'Noto Serif Tamil',serif; font-size:clamp(1rem,2.2vw,1.45rem); font-weight:300; color:var(--clay); opacity:0.65; line-height:1.5; margin-bottom:2rem; }
+.body-en { font-size:1.05rem; line-height:1.9; color:#3a2e28; margin-bottom:0.35rem; }
+.bilingual { margin-bottom:1.5rem; }
+.pull-quote { border-left:3px solid var(--gold); padding:1.2rem 1.6rem; margin:2.5rem 0; background:rgba(196,148,58,0.04); font-style:italic; font-size:1.1rem; color:var(--clay); line-height:1.75; }
+.pull-quote .ta { font-style:normal; margin-top:0.85rem; }
+.practice-list { list-style:none; margin-top:2rem; }
+.practice-list li { padding:1rem 0; border-bottom:1px solid var(--sand); display:grid; grid-template-columns:2rem 1fr; gap:1rem; align-items:start; }
+.practice-list li:last-child { border-bottom:none; }
+.practice-num { font-size:0.75rem; color:var(--gold-dim); letter-spacing:0.1em; padding-top:0.15rem; }
+.practice-text { font-size:1rem; line-height:1.75; color:#3a2e28; }
+.nav-pills { display:flex; gap:1rem; flex-wrap:wrap; margin-top:4rem; padding-top:2rem; border-top:1px solid var(--sand); }
+.nav-pill { flex:1; min-width:180px; background:var(--cream); border:1px solid var(--sand); padding:1.25rem 1.5rem; text-decoration:none; color:var(--ink); transition:border-color 0.2s,box-shadow 0.2s; display:block; }
+.nav-pill:hover { border-color:var(--gold-dim); box-shadow:0 2px 12px var(--shadow); }
+.nav-pill-dir { font-size:0.68rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--gold-dim); margin-bottom:0.35rem; }
+.nav-pill-title { font-size:1rem; color:var(--ink); }
+.nav-pill-ta { font-family:'Noto Serif Tamil',serif; font-size:0.82rem; color:var(--clay); opacity:0.65; }
+footer { background:#111; color:rgba(212,196,168,0.4); text-align:center; padding:2rem 2rem; font-size:0.82rem; letter-spacing:0.1em; }
+footer a { color:rgba(196,148,58,0.55); text-decoration:none; }
+footer a:hover { color:var(--gold); }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <a href="index.html">← Ennam</a>
+  <span class="topbar-sep">·</span>
+  <a href="index.html#explore">All Pages</a>
+</div>
+
+<header class="hero">
+  <div class="hero-icon">◎</div>
+  <p class="hero-label">First Pillar · முதல் தூண்</p>
+  <span class="hero-label-ta">கவனிப்பு பற்றி</span>
+  <h1 class="hero-title">Observation</h1>
+  <p class="hero-title-ta">கவனிப்பு</p>
+  <p class="hero-tagline">Seeing what is actually there</p>
+  <p class="hero-tagline-ta">உண்மையிலேயே இருப்பதை காண்பது</p>
+  <div class="hero-divider"></div>
+</header>
+
+<article class="content">
+  <p class="sec-label">The Foundation of All Expression</p>
+  <span class="sec-label-ta">எல்லா வெளிப்பாட்டின் அடித்தளம்</span>
+  <h2 class="sec-title">You can only express what you have truly seen</h2>
+  <p class="sec-title-ta">நீங்கள் உண்மையிலேயே கண்டதை மட்டுமே வெளிப்படுத்த முடியும்</p>
+
+  <div class="bilingual">
+    <p class="body-en">Before any word, there is a seeing. Before any poem, a moment of genuine attention. Observation is not the passive act of recording what falls on the retina — it is the active, disciplined practice of being fully present to what is actually happening, inside and out, without rushing to name or judge it.</p>
+    <span class="ta">எந்த வார்த்தைக்கும் முன், ஒரு பார்வை உள்ளது. எந்த கவிதைக்கும் முன், ஒரு உண்மையான கவனத்தின் தருணம். கவனிப்பு என்பது விழித்திரையில் விழுவதை பதிவு செய்யும் செயலற்ற செயல் அல்ல — அது உண்மையிலேயே என்ன நடக்கிறது என்பதில் முழுமையாக இருப்பதற்கான செயலூக்கமான, கட்டுப்பட்ட பயிற்சி, உள்ளும் வெளியும், பெயரிட அல்லது தீர்ப்பளிக்க அவசரப்படாமல்.</span>
+  </div>
+
+  <div class="bilingual">
+    <p class="body-en">Most of us move through the world on autopilot — perceiving not the thing itself, but our memory of it, our category for it, our expectation of it. We see "a tree" rather than this particular arrangement of bark, light, and gesture at this precise moment. We see "a face" rather than the specific movement of thought behind the eyes. Language, paradoxically, is partly responsible: once we have a word, we stop looking.</p>
+    <span class="ta">நம்மில் பெரும்பாலோர் தானியக்கமாக உலகில் நகர்கிறோம் — பொருளையே உணராமல், அதைப் பற்றிய நம் நினைவையும், வகையையும், எதிர்பார்ப்பையும் உணர்கிறோம். இந்த குறிப்பிட்ட தருணத்தில் பட்டை, ஒளி, சைகையின் இந்த குறிப்பிட்ட அமைப்பை பார்க்காமல் "ஒரு மரம்" என்று பார்க்கிறோம். கண்களுக்கு பின்னால் சிந்தனையின் குறிப்பிட்ட இயக்கத்தை பார்க்காமல் "ஒரு முகம்" என்று பார்க்கிறோம். மொழி, முரண்பாடாக, ஓரளவுக்கு பொறுப்பாளியாக உள்ளது: ஒரு வார்த்தை கிடைத்தவுடன், நாம் பார்க்கவே நிறுத்துகிறோம்.</span>
+  </div>
+
+  <div class="pull-quote">
+    <span>"The poet does not see what others miss — the poet refuses to unsee what everyone else has decided to ignore."</span>
+    <span class="ta">"கவிஞர் மற்றவர்கள் தவறவிடுவதை பார்ப்பதில்லை — மற்றவர்கள் புறக்கணிக்க முடிவு செய்தவற்றை கவிஞர் பார்க்காமல் இருக்க மறுக்கிறார்."</span>
+  </div>
+</article>
+
+<article class="content">
+  <p class="sec-label">Practices of Observation</p>
+  <span class="sec-label-ta">கவனிப்பின் பயிற்சிகள்</span>
+  <h2 class="sec-title">How to train the eye — and the inner ear</h2>
+  <p class="sec-title-ta">கண்ணையும் உள் காதையும் எவ்வாறு பயிற்றுவிப்பது</p>
+
+  <div class="bilingual">
+    <p class="body-en">Observation, in the context of Ennam, is not only visual. It encompasses all sense modalities — including the internal senses: proprioception, interoception, the felt sense of emotion before it becomes a feeling. The question is always: what is actually here, right now, before I name it?</p>
+    <span class="ta">எண்ணத்தின் சூழலில் கவனிப்பு என்பது காட்சி மட்டுமல்ல. அது அனைத்து புல பிரிவுகளையும் உள்ளடக்குகிறது — உள் உணர்வுகள் உட்பட: உடல் நிலை உணர்வு, உந்துணர்வு, ஒரு உணர்ச்சியாக மாறுவதற்கு முன் உணர்வின் உணர்ந்த அர்த்தம். கேள்வி எப்போதும்: இப்போது, இங்கே உண்மையிலேயே என்ன இருக்கிறது, அதை பெயரிடுவதற்கு முன்?</span>
+  </div>
+
+  <ul class="practice-list">
+    <li>
+      <span class="practice-num">01</span>
+      <div class="practice-text">
+        <strong>Slow down the naming.</strong> Before reaching for a word, stay with the raw experience for one breath longer. What does it actually feel like — in texture, temperature, pressure, direction?
+        <span class="ta"><strong>பெயரிடுவதை மெதுவாக்கு.</strong> ஒரு வார்த்தையை எட்டுவதற்கு முன், ஒரு மூச்சு நேரம் மேலும் கச்சா அனுபவத்துடன் இரு. அது உண்மையில் எப்படி உணர்கிறது — அமைப்பு, வெப்பம், அழுத்தம், திசை என்ன?</span>
+      </div>
+    </li>
+    <li>
+      <span class="practice-num">02</span>
+      <div class="practice-text">
+        <strong>Distinguish sensation from interpretation.</strong> "My chest is tight" is sensation. "I am anxious" is interpretation. Both are useful — but mixing them collapses the space between experience and meaning.
+        <span class="ta"><strong>உணர்வையும் விளக்கத்தையும் வேறுபடுத்து.</strong> "என் மார்பு இறுக்கமாக உள்ளது" என்பது உணர்வு. "நான் கலங்கியிருக்கிறேன்" என்பது விளக்கம். இரண்டும் பயனுள்ளவை — ஆனால் அவற்றை கலந்துவிட்டால் அனுபவத்திற்கும் அர்த்தத்திற்கும் இடையிலான இடைவெளி சரிந்துவிடுகிறது.</span>
+      </div>
+    </li>
+    <li>
+      <span class="practice-num">03</span>
+      <div class="practice-text">
+        <strong>Notice the gap before the word.</strong> There is always a moment between perception and language. Learning to inhabit that gap — to rest there rather than rush through it — is where the deepest observation lives.
+        <span class="ta"><strong>வார்த்தைக்கு முன்னான இடைவெளியை கவனி.</strong> உணர்தலுக்கும் மொழிக்கும் இடையில் எப்போதும் ஒரு தருணம் உள்ளது. அந்த இடைவெளியில் வாழ்வதை கற்றுக்கொள்வது — அதன் வழியாக அவசரப்படாமல் அங்கே தங்குவது — ஆழமான கவனிப்பு இருக்கும் இடம்.</span>
+      </div>
+    </li>
+    <li>
+      <span class="practice-num">04</span>
+      <div class="practice-text">
+        <strong>See the particular, not the general.</strong> Tamil classical poetry has a name for this: <em>akam</em> and <em>puram</em> — the interior and the exterior — each explored through hyper-specific images, never abstractions.
+        <span class="ta"><strong>பொதுவானதை அல்ல, குறிப்பிட்டதை பார்.</strong> தமிழ் செம்மொழி கவிதை இதற்கு ஒரு பெயர் வைத்துள்ளது: அகம் மற்றும் புறம் — உள்ளும் வெளியும் — ஒவ்வொன்றும் மிகவும் குறிப்பிட்ட படங்கள் வழியாக ஆய்வு செய்யப்படுகின்றன, ஒருபோதும் சுருக்கமாக அல்ல.</span>
+      </div>
+    </li>
+  </ul>
+
+  <nav class="nav-pills">
+    <a href="purpose.html" class="nav-pill">
+      <div class="nav-pill-dir">← Previous</div>
+      <div class="nav-pill-title">Purpose</div>
+      <span class="nav-pill-ta">நோக்கம்</span>
+    </a>
+    <a href="expression.html" class="nav-pill">
+      <div class="nav-pill-dir">Next →</div>
+      <div class="nav-pill-title">Expression</div>
+      <span class="nav-pill-ta">வெளிப்பாடு</span>
+    </a>
+  </nav>
+</article>
+
+<footer>
+  <p>Ennam · எண்ணம் &nbsp;·&nbsp; <a href="index.html">Home</a></p>
+</footer>
+</body>
+</html>
